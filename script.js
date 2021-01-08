@@ -1,39 +1,23 @@
-// On Start Quiz button click, hide homePage and show quizPage
-var startButton = document.getElementById("startBtn")
-var homePage = document.getElementById("index")
-var quizPage = document.getElementById("quiz")
 
-var aBtn = document.getElementById("choiceA")
+// Declare Variables
+var startButton = document.getElementById("startBtn");
+var homePage = document.getElementById("index");
+var quizPage = document.getElementById("quiz");
 
-function startQuiz(){
-    console.log("clicked")
-    homePage.hidden = true;
-    quizPage.hidden = false;
-    setTime();
-    getQuestion();
-};
-
-// Quiz page timer
 var timeEl = document.querySelector(".time");
 var secondsLeft = 75;
- 
-function setTime() {
-    var timerInterval = setInterval(function() {
-         secondsLeft--;
-         console.log(secondsLeft);
-         timeEl.textContent = secondsLeft;
- 
-         if(secondsLeft <= 0) {
-             secondsLeft = 0;
-             timeEl.textContent == secondsLeft;
-             // Go to Highscores page
-             clearInterval(timerInterval);
-         }
- 
-         }, 1000);
-}
 
-// Array of question objects
+var aBtn = document.getElementById("choiceA");
+var bBtn = document.getElementById("choiceB");
+var cBtn = document.getElementById("choiceC");
+var dBtn = document.getElementById("choiceD");  
+
+var questionText = document.querySelector(".question");
+var multChoiceA = document.querySelector(".choiceA");
+var multChoiceB = document.querySelector(".choiceB");
+var multChoiceC = document.querySelector(".choiceC");
+var multChoiceD = document.querySelector(".choiceD");
+
 var questions = [
     {
         "question": "Question 0",
@@ -65,14 +49,37 @@ var questions = [
     }
 ]
 
-var questionText = document.querySelector(".question");
-var multChoiceA = document.querySelector(".choiceA");
-var multChoiceB = document.querySelector(".choiceB");
-var multChoiceC = document.querySelector(".choiceC");
-var multChoiceD = document.querySelector(".choiceD");
+// On Start Quiz button click, hide homePage and show quizPage
+function startQuiz(){
+    homePage.hidden = true;
+    quizPage.hidden = false;
+    // Start timer
+    quizTime();
+    // Get question
+    getQuestion();
+};
 
+// Quiz page timer 
+function quizTime() {
+    var timerInterval = setInterval(function() {
+         secondsLeft--;
+         console.log(secondsLeft);
+         timeEl.textContent = secondsLeft;
+ 
+         if(secondsLeft <= 0) {
+             secondsLeft = 0;
+             timeEl.textContent == secondsLeft;
+             clearInterval(timerInterval);
+             // Go to Highscores page
+             window.location.replace("highscores.html");
+         }
+ 
+         }, 1000);
+}
+
+// Randomly choose a question from questions array
  function getQuestion(){
-     console.log("questions");
+
      qNum = Math.ceil(Math.random()*3);
      questionText.textContent = questions[qNum].question;
 
@@ -81,10 +88,26 @@ var multChoiceD = document.querySelector(".choiceD");
      multChoiceC.textContent = questions[qNum].choice2;
      multChoiceD.textContent = questions[qNum].choice3;
 
+    //  Randomly determine where each choice goes
     //  choiceNum = Math.ceil(Math.random()*3) + 1;
     //  if(choiceNum === 1){
-
     //  }
  }
- 
+
+//  Check if clicked button contains correct answer
+ function ansCheck(){
+     
+     console.log("hello")
+    //  check if selection matches answer
+
+    // Get new Question
+    getQuestion();
+
+ }
+
+ aBtn.onclick = ansCheck;
+ bBtn.onclick = ansCheck;
+ cBtn.onclick = ansCheck;
+ dBtn.onclick = ansCheck;
+
 startButton.onclick = startQuiz;
