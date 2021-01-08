@@ -72,8 +72,7 @@ function quizTime() {
              clearInterval(timerInterval);
              // Go to Highscores page
              window.location.replace("highscores.html");
-         }
- 
+            } 
          }, 1000);
 }
 
