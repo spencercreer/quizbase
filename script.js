@@ -18,9 +18,12 @@ var multChoiceB = document.querySelector(".choiceB");
 var multChoiceC = document.querySelector(".choiceC");
 var multChoiceD = document.querySelector(".choiceD");
 
+var scoreEl = document.querySelector(".score");
+var totScore = 0;
+
 var questions = [
     {
-        "question": "Question 0",
+        "question": "What is your name?",
         "answer": "Answer Q0",
         "choice1": "0incorrect 1",
         "choice2": "0incorrect 2",
@@ -34,14 +37,14 @@ var questions = [
         "choice3": "1incorrect 3",
     },
     {
-        "question": "Question 2",
+        "question": "Do you like coding?",
         "answer": "Answer Q2",
         "choice1": "2incorrect 1",
         "choice2": "2incorrect 2",
         "choice3": "2incorrect 3",
     },
     {
-        "question": "Question 3",
+        "question": "Where do you like to travel?",
         "answer": "Answer Q3",
         "choice1": "3incorrect 1",
         "choice2": "3incorrect 2",
@@ -68,7 +71,7 @@ function quizTime() {
  
          if(secondsLeft <= 0) {
              secondsLeft = 0;
-             timeEl.textContent == secondsLeft;
+             timeEl.textContent = secondsLeft;
              clearInterval(timerInterval);
              // Go to Highscores page
              window.location.replace("highscores.html");
@@ -96,8 +99,11 @@ function quizTime() {
 //  Check if clicked button contains correct answer
  function ansCheck(){
      
-     console.log("hello")
     //  check if selection matches answer
+
+    totScore++;
+    scoreEl.textContent = totScore;
+    console.log(totScore)
 
     // Get new Question
     getQuestion();

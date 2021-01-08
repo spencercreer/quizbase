@@ -6,7 +6,6 @@ function initialSubmit(){
     console.log("initials submitted")
     initialsPage.hidden = true;
     highscoresPage.hidden = false;
-
 }
 
  submitButton.onclick = initialSubmit;
