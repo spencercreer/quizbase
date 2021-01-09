@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Scores</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,9 +10,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
+      <nav class="navbar navbar-light bg-info">
+        <a class="navbar-brand py-2" href="highscores.html" style="color:white; font-size: 25px;">View Highscores</a>
+        <p class="text-left mb-0 py-2" style="color: white; font-size: 25px;">Score: <span class="score"> 0 </span></p>
+      </nav>
 
       <div id="initialsPg">
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid pt-4">
             <div class="container">
               <h1 class="display-4 text-center">Time's Up!</h1>
               <p class="lead">Your score is: <span class="score">0</span></p>
@@ -29,7 +33,7 @@
       </div>
       
       <div id="highscoresPg" hidden>
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid pt-4">
             <div class="container">
               <h1 class="display-4 text-center">Highscores</h1>
               <p class="lead">Great job! Try again to see if you can increase your score.</p>
@@ -40,8 +44,8 @@
               </ul>
 
               <!-- Retake Quiz and Clear Highscores buttons -->
-              <a class="btn btn-primary btn-lg" href="index.html" role="button">Retake Quiz</a>
-              <a class="btn btn-primary btn-lg " href="#" role="button">Clear Highscores</a>
+              <a class="btn btn-info btn-lg" href="index.html" role="button">Retake Quiz</a>
+              <a class="btn btn-info btn-lg " href="#" role="button">Clear Highscores</a>
             </div>
         </div>
         </div>

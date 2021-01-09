@@ -68,6 +68,10 @@ function quizTime() {
          secondsLeft--;
          console.log(secondsLeft);
          timeEl.textContent = secondsLeft;
+
+         if (secondsLeft <= 15){
+             document.getElementById("timer").style.color = "red";
+         }
  
          if(secondsLeft <= 0) {
              secondsLeft = 0;
