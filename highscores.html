@@ -10,28 +10,36 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-      <div id="initials">
+
+      <div id="initialsPg">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
               <h1 class="display-4 text-center">Time's Up!</h1>
               <p class="lead">Your score is: <span class="score">0</span></p>
             
-              <!-- User intials input group and button -->
+              <!-- User intials input group and submit button -->
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <button class="btn btn-outline-secondary" type="button" id="button-addon1">Submit</button>
+                  <button class="btn btn-outline-secondary" type="button" id="submitBtn">Submit</button>
                 </div>
-                <input type="text" class="form-control" placeholder="Enter your initials" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <input type="text" id="initials" placeholder="Enter your initials" aria-label="Example text with button addon" aria-describedby="button-addon1">
                 </div>
             </div>
         </div>
       </div>
       
-      <div id="highscores" hidden>
+      <div id="highscoresPg" hidden>
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
               <h1 class="display-4 text-center">Highscores</h1>
-              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil corrupti inventore ab, quaerat exercitationem dignissimos earum excepturi. Quaerat nostrum illo, vel perferendis doloremque tenetur, explicabo at, dignissimos sit ducimus incidunt.</p>
+              <p class="lead">Great job! Try again to see if you can increase your score.</p>
+
+              <!-- Highscores list -->
+              <ul id="scoresList" style="list-style-type:none;">
+
+              </ul>
+
+              <!-- Retake Quiz and Clear Highscores buttons -->
               <a class="btn btn-primary btn-lg" href="index.html" role="button">Retake Quiz</a>
               <a class="btn btn-primary btn-lg " href="#" role="button">Clear Highscores</a>
             </div>
