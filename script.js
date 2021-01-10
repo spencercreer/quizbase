@@ -1,11 +1,13 @@
 
 // Declare Variables
 var startButton = document.getElementById("startBtn");
+var submitButton = document.getElementById("submitBtn");
 var homePage = document.getElementById("index");
 var quizPage = document.getElementById("quiz");
+var initialsPage = document.getElementById("initialsPg");
 
 var timeEl = document.querySelector(".time");
-var secondsLeft = 75;
+var secondsLeft = 20;
 
 var aBtn = document.getElementById("choiceA");
 var bBtn = document.getElementById("choiceB");
@@ -18,7 +20,8 @@ var multChoiceB = document.querySelector(".choiceB");
 var multChoiceC = document.querySelector(".choiceC");
 var multChoiceD = document.querySelector(".choiceD");
 
-var scoreEl = document.querySelector(".score");
+var scoreCounter = document.querySelector(".score");
+var finalScore = document.querySelector(".finalScore");
 var totScore = 0;
 
 var questions = [
@@ -77,8 +80,10 @@ function quizTime() {
              secondsLeft = 0;
              timeEl.textContent = secondsLeft;
              clearInterval(timerInterval);
-             // Go to Highscores page
-             window.location.replace("highscores.html");
+             finalScore.textContent= totScore;
+             // Show initials page
+             quizPage.hidden = true;
+             initialsPage.hidden = false;
             } 
          }, 1000);
 }
@@ -86,18 +91,32 @@ function quizTime() {
 // Randomly choose a question from questions array
  function getQuestion(){
 
-     qNum = Math.ceil(Math.random()*3);
+     qNum = Math.ceil(Math.random()*(questions.length-1));
      questionText.textContent = questions[qNum].question;
 
-     multChoiceA.textContent = questions[qNum].answer;
-     multChoiceB.textContent = questions[qNum].choice1;
-     multChoiceC.textContent = questions[qNum].choice2;
-     multChoiceD.textContent = questions[qNum].choice3;
+    //  Shuffle an array to randomly determine location of choices
+     function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            console.log(i);
+          const j = Math.floor(Math.random() * (i + 1));
+          console.log(j);
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+      console.log(arr);
+      }
+      let arr = ["answer", "choice1", "choice2", "choice3"];
+      shuffleArray(arr);
 
-    //  Randomly determine where each choice goes
-    //  choiceNum = Math.ceil(Math.random()*3) + 1;
-    //  if(choiceNum === 1){
-    //  }
+    // Insert shuffled choices into options multChoice buttons
+    var A = arr[0];
+    var B = arr[1];
+    var C = arr[2];
+    var D = arr[3];
+
+     multChoiceA.textContent = questions[qNum][A];
+     multChoiceB.textContent = questions[qNum][B];
+     multChoiceC.textContent = questions[qNum][C];
+     multChoiceD.textContent = questions[qNum][D];
  }
 
 //  Check if clicked button contains correct answer
@@ -106,7 +125,7 @@ function quizTime() {
     //  check if selection matches answer
 
     totScore++;
-    scoreEl.textContent = totScore;
+    scoreCounter.textContent = totScore;
     console.log(totScore)
 
     // Get new Question
@@ -114,9 +133,31 @@ function quizTime() {
 
  }
 
+
+ function scoreSubmit(){
+
+    if(!localStorage.getItem("playerScore")){
+        localStorage.setItem("playerScore","[]");
+    }
+
+    var storedPlayers = JSON.parse(localStorage.getItem("playerScore"));
+
+    // Append initials and score to highscores list
+    var playerInitials = document.getElementById("initials").value;
+    var playerScore = playerInitials + ":     " + totScore;
+    storedPlayers.push(playerScore)
+    localStorage.setItem("playerScore",JSON.stringify(storedPlayers));
+
+  
+
+    window.location.replace("highscores.html");   
+}
+
  aBtn.onclick = ansCheck;
  bBtn.onclick = ansCheck;
  cBtn.onclick = ansCheck;
  dBtn.onclick = ansCheck;
+
+ submitButton.onclick = scoreSubmit;
 
 startButton.onclick = startQuiz;

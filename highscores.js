@@ -1,28 +1,27 @@
-var submitButton = document.getElementById("submitBtn");
-var initialsPage = document.getElementById("initialsPg");
-var highscoresPage = document.getElementById("highscoresPg");
+var clearButton = document.getElementById("clearBtn");
+var clearOp = false;
 
-var scoreEl = document.querySelector(".score");
-var totScore = 0;
-
-// On Submit button click, hide initialsPage and show highscoresPage
-function initialSubmit(){
+// Append playerScores from localStorage 
+function storeScores(){
+    if(!clearOp){
+        var playerScore = localStorage.getItem("playerScore");
     
-    initialsPage.hidden = true;
-    highscoresPage.hidden = false;
+        var scoresList = document.createElement("LI");  
+        var textnode = document.createTextNode(playerScore);              
+        scoresList.appendChild(textnode);                             
+        document.getElementById("scoresList").appendChild(scoresList);
+    } else {
 
-    // Append initials and score to highscores list
-    var plInit = document.getElementById("initials").value;
-    var playerScore = plInit + ":     " + totScore;
-    localStorage.setItem("playerScore", playerScore)
-    
-    var node = document.createElement("LI");  
-    var textnode = document.createTextNode(playerScore);              
-    node.appendChild(textnode);                             
-    document.getElementById("scoresList").appendChild(node);
- 
-   
+    }
+ }
+
+function clearScores(){
+    // Not Working
+    localStorage.removeItem("playerScore");
+    clearOp = true;
+
 }
 
+clearButton.onclick = clearScores;
+storeScores();
 
- submitButton.onclick = initialSubmit;

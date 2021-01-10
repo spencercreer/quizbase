@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-light bg-info">
         <a class="navbar-brand py-2" href="highscores.html" style="color:white; font-size: 25px;">View Highscores</a>
         <p class="text-left mb-0 py-2" style="color: white; font-size: 25px;">Score: <span class="score"> 0 </span></p>
     </nav>
-        
+
+    <!-- Homepage -->
     <div id="index">
         <div class="jumbotron pt-2">
             <h1 class="display-4 text-center">Javascript Coding Quiz</h1>
@@ -26,6 +28,7 @@
         </div>
     </div>
 
+    <!-- Quiz page -->
     <div id="quiz" hidden>
         <div class="jumbotron jumbotron-fluid pt-2">
             <div class="container">
@@ -37,10 +40,29 @@
                     <button class="choiceC list-group-item list-group-item-action" id="choiceC"></button>
                     <button class="choiceD list-group-item list-group-item-action" id="choiceD"></button>
                 </div>
-                <p class="text-center" id="timer" style="font-size: 100px"><span class="fa fa-clock-o mr-2"></span><span class="time"> 75 </span></p>
+                <p class="text-center" id="timer" style="font-size: 100px"><span class="fa fa-clock-o mr-2"></span><span class="time"> 20 </span></p>
             </div> 
         </div>
     </div>
+
+    <!-- Initials page -->
+    <div id="initialsPg" hidden>
+        <div class="jumbotron jumbotron-fluid pt-4">
+            <div class="container">
+              <h1 class="display-4 text-center">Time's Up!</h1>
+              <p class="lead">Good work! Your total score is: <span class="finalScore">0</span></p>
+            
+              <!-- User intials submit button and input group -->
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-secondary" type="button" id="submitBtn">Submit</button>
+                </div>
+                <input type="text" id="initials" placeholder="Enter your initials" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+            </div>
+        </div>
+      </div>
+    
 
 
     <!-- Optional JavaScript -->
