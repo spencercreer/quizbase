@@ -3,28 +3,34 @@ var clearButton = document.getElementById("clearBtn");
 var clearOp = false;
 
 var players = [];
+var scores = [];
 
 // Get storedPlayers from local storage
 function init(){
     var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
+    var storedScores = JSON.parse(localStorage.getItem("storedScores"));
     if(storedPlayers !== null){
-        players = storedPlayers
+        players = storedPlayers;
     }
-    renderPlayers();
+    if(storedScores !== null){
+        scores = storedScores;
+    }
+    renderPlayerScores();
 }
 
-// Append players to list element
-function renderPlayers() {
-    console.log("hit")
+// Append players and scores to list element
+function renderPlayerScores() {
     scoresList.innerHTML = "";
 
     for (var i = 0; i < players.length; i++) {
         var player = players[i];
+        var score = scores[i];
 
         var playerLi = document.createElement("li");
-        playerLi.textContent = player;
-        playerLi.setAttribute("data-index", i);          
-        scoresList.appendChild(playerLi)
+        playerLi.textContent = player + ":\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + score;
+        playerLi.setAttribute("data-index", i);    
+        playerLi.className = "list-group-item";      
+        scoresList.appendChild(playerLi);
       }
 
 }
@@ -32,6 +38,7 @@ function renderPlayers() {
 // On Clear Highscores click, clear scores list
 function clearScores(){
     localStorage.removeItem("storedPlayers");
+    localStorage.removeItem("storedScores");
     location.reload();
 }
 

@@ -192,13 +192,20 @@ function quizTime() {
     if(!localStorage.getItem("storedPlayers")){
         localStorage.setItem("storedPlayers","[]");
     }
+    if(!localStorage.getItem("storedScores")){
+        localStorage.setItem("storedScores","[]");
+    }
 
     var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
-
+    var storedScores = JSON.parse(localStorage.getItem("storedScores"));
     var playerInitials = document.getElementById("initials").value;
-    var playerScore = playerInitials + ":     " + totScore;
-    storedPlayers.push(playerScore)
+    var playerScore = totScore;
+
+    storedPlayers.push(playerInitials);
+    storedScores.push(playerScore);
+
     localStorage.setItem("storedPlayers",JSON.stringify(storedPlayers));
+    localStorage.setItem("storedScores",JSON.stringify(storedScores));
 
     window.location.replace("highscores.html");   
 }
