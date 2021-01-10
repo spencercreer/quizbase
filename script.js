@@ -50,11 +50,53 @@ var questions = [
         "choice3": "2incorrect 3",
     },
     {
-        "question": "Where do you like to travel?",
+        "question": "Question 3",
         "answer": "Answer Q3",
         "choice1": "3incorrect 1",
-        "choice2": "3incorrect 2",
-        "choice3": "3incorrect 3",
+        "choice2": "3 incorrect 2",
+        "choice3": "3 incorrect 3",
+    },
+    {
+        "question": "Question 4",
+        "answer": "Answer Q4",
+        "choice1": "4incorrect 1",
+        "choice2": "4incorrect 2",
+        "choice3": "4incorrect 3",
+    },
+    {
+        "question": "Question 5",
+        "answer": "Answer Q5",
+        "choice1": "5incorrect 1",
+        "choice2": "5incorrect 2",
+        "choice3": "5incorrect 3",
+    },
+    {
+        "question": "Question 6",
+        "answer": "Answer Q6",
+        "choice1": "6incorrect 1",
+        "choice2": "6incorrect 2",
+        "choice3": "6incorrect 3",
+    },
+    {
+        "question": "Question 7?",
+        "answer": "Answer Q7",
+        "choice1": "7incorrect 1",
+        "choice2": "7incorrect 2",
+        "choice3": "7incorrect 3",
+    },
+    {
+        "question": "question 8?",
+        "answer": "Answer Q8",
+        "choice1": "8incorrect 1",
+        "choice2": "8incorrect 2",
+        "choice3": "8incorrect 3",
+    },
+    {
+        "question": "Where do you like to travel?",
+        "answer": "Answer Q9",
+        "choice1": "9incorrect 1",
+        "choice2": "9incorrect 2",
+        "choice3": "9incorrect 3",
     }
 ]
 
@@ -96,32 +138,32 @@ function quizTime() {
         result.textContent="";
     }, 400);
 
-     qNum = Math.ceil(Math.random()*(questions.length-1));
-     questionText.textContent = questions[qNum].question;
-
-    //  Shuffle an array to randomly determine location of choices
-     function shuffleArray(arr) {
-        for (let i = arr.length - 1; i > 0; i--) {
-            console.log(i);
-          const j = Math.floor(Math.random() * (i + 1));
-          console.log(j);
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-        }
-      console.log(arr);
-      }
-      let arr = ["answer", "choice1", "choice2", "choice3"];
-      shuffleArray(arr);
-
-      // Insert shuffled choices into multChoice buttons
-      var A = arr[0];
-      var B = arr[1];
-      var C = arr[2];
-      var D = arr[3];
-
-     multChoiceA.textContent = questions[qNum][A];
-     multChoiceB.textContent = questions[qNum][B];
-     multChoiceC.textContent = questions[qNum][C];
-     multChoiceD.textContent = questions[qNum][D];
+        qNum = Math.ceil(Math.random()*(questions.length-1));
+        questionText.textContent = questions[qNum].question;
+    
+       //  Shuffle an array to randomly determine location of choices
+        function shuffleArray(arr) {
+           for (let i = arr.length - 1; i > 0; i--) {
+               console.log(i);
+             const j = Math.floor(Math.random() * (i + 1));
+             console.log(j);
+             [arr[i], arr[j]] = [arr[j], arr[i]];
+           }
+         console.log(arr);
+         }
+         let arr = ["answer", "choice1", "choice2", "choice3"];
+         shuffleArray(arr);
+    
+         // Insert shuffled choices into multChoice buttons
+         var A = arr[0];
+         var B = arr[1];
+         var C = arr[2];
+         var D = arr[3];
+    
+        multChoiceA.textContent = questions[qNum][A];
+        multChoiceB.textContent = questions[qNum][B];
+        multChoiceC.textContent = questions[qNum][C];
+        multChoiceD.textContent = questions[qNum][D];
  }
 
 //  Check if clicked button contains correct answer
@@ -147,17 +189,16 @@ function quizTime() {
 // Store score and player initials to localStorage
  function scoreSubmit(){
 
-    if(!localStorage.getItem("playerScore")){
-        localStorage.setItem("playerScore","[]");
+    if(!localStorage.getItem("storedPlayers")){
+        localStorage.setItem("storedPlayers","[]");
     }
 
-    var storedPlayers = JSON.parse(localStorage.getItem("playerScore"));
+    var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
 
-    // Append initials and score to highscores list
     var playerInitials = document.getElementById("initials").value;
     var playerScore = playerInitials + ":     " + totScore;
     storedPlayers.push(playerScore)
-    localStorage.setItem("playerScore",JSON.stringify(storedPlayers));
+    localStorage.setItem("storedPlayers",JSON.stringify(storedPlayers));
 
     window.location.replace("highscores.html");   
 }

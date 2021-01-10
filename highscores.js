@@ -1,27 +1,40 @@
+var scoresList = document.querySelector("#scoresList");
 var clearButton = document.getElementById("clearBtn");
 var clearOp = false;
 
-// Append playerScores from localStorage 
-function storeScores(){
-    if(!clearOp){
-        var playerScore = localStorage.getItem("playerScore");
-    
-        var scoresList = document.createElement("LI");  
-        var textnode = document.createTextNode(playerScore);              
-        scoresList.appendChild(textnode);                             
-        document.getElementById("scoresList").appendChild(scoresList);
-    } else {
+var players = [];
 
+// Get storedPlayers from local storage
+function init(){
+    var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
+    if(storedPlayers !== null){
+        players = storedPlayers
     }
- }
+    renderPlayers();
+}
 
-function clearScores(){
-    // Not Working
-    localStorage.removeItem("playerScore");
-    clearOp = true;
+// Append players to list element
+function renderPlayers() {
+    console.log("hit")
+    scoresList.innerHTML = "";
+
+    for (var i = 0; i < players.length; i++) {
+        var player = players[i];
+
+        var playerLi = document.createElement("li");
+        playerLi.textContent = player;
+        playerLi.setAttribute("data-index", i);          
+        scoresList.appendChild(playerLi)
+      }
 
 }
 
+// On Clear Highscores click, clear scores list
+function clearScores(){
+    localStorage.removeItem("storedPlayers");
+    location.reload();
+}
+
 clearButton.onclick = clearScores;
-storeScores();
+init();
 
