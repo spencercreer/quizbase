@@ -24,6 +24,9 @@ var scoreCounter = document.querySelector(".score");
 var finalScore = document.querySelector(".finalScore");
 var totScore = 0;
 
+var result = document.querySelector(".result");
+var resultEl = document.getElementById("result");
+
 var questions = [
     {
         "question": "What is your name?",
@@ -59,9 +62,9 @@ var questions = [
 function startQuiz(){
     homePage.hidden = true;
     quizPage.hidden = false;
-    // Start timer
+
     quizTime();
-    // Get question
+
     getQuestion();
 };
 
@@ -69,7 +72,6 @@ function startQuiz(){
 function quizTime() {
     var timerInterval = setInterval(function() {
          secondsLeft--;
-         console.log(secondsLeft);
          timeEl.textContent = secondsLeft;
 
          if (secondsLeft <= 15){
@@ -81,7 +83,7 @@ function quizTime() {
              timeEl.textContent = secondsLeft;
              clearInterval(timerInterval);
              finalScore.textContent= totScore;
-             // Show initials page
+             // Show initials page, hide quizPage
              quizPage.hidden = true;
              initialsPage.hidden = false;
             } 
@@ -90,6 +92,9 @@ function quizTime() {
 
 // Randomly choose a question from questions array
  function getQuestion(){
+    setTimeout(function() {
+        result.textContent="";
+    }, 400);
 
      qNum = Math.ceil(Math.random()*(questions.length-1));
      questionText.textContent = questions[qNum].question;
@@ -107,11 +112,11 @@ function quizTime() {
       let arr = ["answer", "choice1", "choice2", "choice3"];
       shuffleArray(arr);
 
-    // Insert shuffled choices into options multChoice buttons
-    var A = arr[0];
-    var B = arr[1];
-    var C = arr[2];
-    var D = arr[3];
+      // Insert shuffled choices into multChoice buttons
+      var A = arr[0];
+      var B = arr[1];
+      var C = arr[2];
+      var D = arr[3];
 
      multChoiceA.textContent = questions[qNum][A];
      multChoiceB.textContent = questions[qNum][B];
@@ -121,19 +126,25 @@ function quizTime() {
 
 //  Check if clicked button contains correct answer
  function ansCheck(){
-     
-    //  check if selection matches answer
+     var selection = this.textContent
+     if(questions[qNum].answer == selection){
 
-    totScore++;
-    scoreCounter.textContent = totScore;
-    console.log(totScore)
+         totScore++;
+         scoreCounter.textContent = totScore;
 
-    // Get new Question
-    getQuestion();
+         result.textContent = "Correct";
+         resultEl.style.color = "green"; 
 
+         getQuestion();
+
+     } else{
+         result.textContent = "Incorrect";
+         resultEl.style.color = "red";
+         secondsLeft = secondsLeft - 10;
+     }
  }
 
-
+// Store score and player initials to localStorage
  function scoreSubmit(){
 
     if(!localStorage.getItem("playerScore")){
@@ -147,8 +158,6 @@ function quizTime() {
     var playerScore = playerInitials + ":     " + totScore;
     storedPlayers.push(playerScore)
     localStorage.setItem("playerScore",JSON.stringify(storedPlayers));
-
-  
 
     window.location.replace("highscores.html");   
 }
