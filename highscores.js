@@ -22,14 +22,15 @@ function init(){
 function renderPlayerScores() {
     scoresList.innerHTML = "";
 
-    for (var i = 0; i < players.length; i++) {
+    for (var i = 0; i < scores.length; i++) {
         var player = players[i];
         var score = scores[i];
 
         var playerLi = document.createElement("li");
         playerLi.textContent = player + ":\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + score;
         playerLi.setAttribute("data-index", i);    
-        playerLi.className = "list-group-item";      
+        playerLi.className = "list-group-item"; 
+       
         scoresList.appendChild(playerLi);
       }
 

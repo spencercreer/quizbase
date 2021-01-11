@@ -10,6 +10,7 @@ var timeEl = document.querySelector(".time");
 var secondsLeft = 75;
 var i;
 var k = 0;
+var index = 0;
 
 var aBtn = document.getElementById("choiceA");
 var bBtn = document.getElementById("choiceB");
@@ -235,21 +236,40 @@ function quizTime() {
 // Store score and player initials to localStorage
  function scoreSubmit(){
 
-    if(!localStorage.getItem("storedPlayers")){
-        localStorage.setItem("storedPlayers","[]");
-    }
-    if(!localStorage.getItem("storedScores")){
-        localStorage.setItem("storedScores","[]");
-    }
-
-    var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
-    var storedScores = JSON.parse(localStorage.getItem("storedScores"));
     var playerInitials = document.getElementById("initials").value;
     var playerScore = totScore;
 
-    storedPlayers.push(playerInitials);
-    storedScores.push(playerScore);
+    // If local storage is empty, make an empty arrays. Push player initials and player score to array.
+    // Else get from local storage and insert in correct location.
+    if(!localStorage.getItem("storedPlayers")){
+        localStorage.setItem("storedPlayers","[]");
+        var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
+        storedPlayers.push(playerInitials);
+    } else{
+        var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
+    }
+    if(!localStorage.getItem("storedScores")){
+        localStorage.setItem("storedScores","[]");
+        var storedScores = JSON.parse(localStorage.getItem("storedScores"));
+        storedScores.push(playerScore);
+    } else{
+        var storedScores = JSON.parse(localStorage.getItem("storedScores"));
+    }
 
+    var m = storedScores.length;
+
+    for(var index=0; index < m; index++){
+        oldScore = storedScores[index];
+
+        if(playerScore > oldScore){
+            console.log("hit");
+            storedPlayers.splice(index,0,playerInitials);
+            storedScores.splice(index,0,playerScore);
+            index = m;
+            }       
+    }
+
+    // Stringify storedPlayers and storedScores array
     localStorage.setItem("storedPlayers",JSON.stringify(storedPlayers));
     localStorage.setItem("storedScores",JSON.stringify(storedScores));
 
