@@ -266,7 +266,7 @@ function quizTime() {
             storedPlayers.splice(index,0,playerInitials);
             storedScores.splice(index,0,playerScore);
             index = m;
-            }       
+            }
     }
 
     // Stringify storedPlayers and storedScores array

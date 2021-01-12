@@ -17,4 +17,4 @@ Repository: https://github.com/spencercreer/code-quiz
 
 The following animation demonstrates the application functionality:
 
-<img src="Assets\password_generator_complete.PNG" alt="Password generator completed" width= 15% height= 15%> 
+![JavaScript code quiz](./assets/JavaScript_Quiz.mp4)
