@@ -184,11 +184,7 @@ function quizTime() {
 
 // getQuestion function gets a question and prints it to screen
  function getQuestion(){
-    setTimeout(function() {
-        result.textContent="";
-    }, 400);
     qNum = quizQuestions[k];
-
     questionText.textContent = questions[qNum].question;
     
     //  Shuffle an array to randomly determine location of choices
@@ -198,7 +194,6 @@ function quizTime() {
             [arr[i], arr[j]] = [arr[j], arr[i]];
         }
     }
-
     let arr = ["answer", "choice1", "choice2", "choice3"];
     shuffleArray(arr);
     
@@ -221,15 +216,20 @@ function quizTime() {
 
          totScore++;
          scoreCounter.textContent = totScore;
-         result.textContent = "Correct";
-         resultEl.style.color = "green"; 
-         k++;
-         getQuestion();
+         this.className = "list-group-item list-group-item-action list-group-item-success";
+         setTimeout(function() {
+            multChoiceA.className = "list-group-item list-group-item-action";
+            multChoiceB.className = "list-group-item list-group-item-action";
+            multChoiceC.className = "list-group-item list-group-item-action";
+            multChoiceD.className = "list-group-item list-group-item-action";
+            k++;
+            getQuestion();
+            }, 300);
 
         } else{
-         result.textContent = "Incorrect";
-         resultEl.style.color = "red";
-         secondsLeft = secondsLeft - 10;
+            scoreCounter.textContent = totScore;
+            this.className = "list-group-item list-group-item-action list-group-item-danger";
+            secondsLeft = secondsLeft - 10;
         }
     }
 

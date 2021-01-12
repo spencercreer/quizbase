@@ -26,8 +26,8 @@ function renderPlayerScores() {
         var player = players[i];
         var score = scores[i];
 
-        var playerLi = document.createElement("li");
-        playerLi.textContent = player + ":\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + score;
+        var playerLi = document.createElement("a");
+        playerLi.innerHTML = player + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + score;
         playerLi.setAttribute("data-index", i);    
         playerLi.className = "list-group-item"; 
        
@@ -37,7 +37,7 @@ function renderPlayerScores() {
 }
 
 // On Clear Highscores click, clear scores list
-function clearScores(){
+function clearScores(){s
     localStorage.removeItem("storedPlayers");
     localStorage.removeItem("storedScores");
     location.reload();
