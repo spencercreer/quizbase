@@ -132,11 +132,25 @@ var questions = [
         "choice3": "getElement(myFunction)",
     },
     {
+        "question": "What is the index number of the first element in a JavaScript array?",
+        "answer": "0",
+        "choice1": "1",
+        "choice2": "2",
+        "choice3": "3",
+    },
+    {
         "question": "Which of the following is a correct JavaScript array?",
         "answer": 'var classmates = ["Bob","Jane","Mary"]',
         "choice1": 'var classmates = {"Bob","Jane","Mary"}',
         "choice2": 'var classmates = ("Bob","Jane","Mary")',
         "choice3": 'var classmates = [1:"Bob",2:"Jane",3:"Mary"]',
+    }, 
+    {
+        "question": "How do you return the number of elements in a JavaScript array?",
+        "answer": "array.length",
+        "choice1": "array.numberElements",
+        "choice2": "array.getLength",
+        "choice3": "array(totalElements)",
     }
 ]
 
@@ -167,7 +181,7 @@ function quizTime() {
          timeEl.textContent = secondsLeft;
 
          if (secondsLeft <= 15){
-             document.getElementById("timer").style.color = "red";
+             document.getElementById("timer").className = "text-center text-danger";
          }
  
          if(secondsLeft <= 0) {
@@ -262,7 +276,6 @@ function quizTime() {
         oldScore = storedScores[index];
 
         if(playerScore > oldScore){
-            console.log("hit");
             storedPlayers.splice(index,0,playerInitials);
             storedScores.splice(index,0,playerScore);
             index = m;

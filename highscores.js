@@ -26,14 +26,21 @@ function renderPlayerScores() {
         var player = players[i];
         var score = scores[i];
 
-        var playerLi = document.createElement("a");
-        playerLi.innerHTML = player + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + score;
-        playerLi.setAttribute("data-index", i);    
-        playerLi.className = "list-group-item"; 
+        var playerNewRow = document.createElement("tr");
+        var position = document.createElement("td");
+        var playerInitials = document.createElement("td");
+        var playerScore = document.createElement("td");
+        position.className = "text-center";
+        playerInitials.className = "text-center";
+        playerScore.className = "text-center";
+        
+        position.innerHTML = i+1;
+        playerInitials.innerHTML = player;
+        playerScore.innerHTML = score;  
        
-        scoresList.appendChild(playerLi);
+        playerNewRow.append(position,playerInitials,playerScore);
+        scoresList.append(playerNewRow);
       }
-
 }
 
 // On Clear Highscores click, clear scores list
