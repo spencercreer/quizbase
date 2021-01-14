@@ -44,7 +44,7 @@ function renderPlayerScores() {
 }
 
 // On Clear Highscores click, clear scores list
-function clearScores(){s
+function clearScores(){
     localStorage.removeItem("storedPlayers");
     localStorage.removeItem("storedScores");
     location.reload();
