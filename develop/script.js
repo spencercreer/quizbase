@@ -29,6 +29,7 @@ var totScore = 0;
 
 var result = document.querySelector(".result");
 var resultEl = document.getElementById("result");
+var scoreAlert = document.querySelector(".score-alert")
 
 var quizQuestions = [];
 
@@ -154,17 +155,14 @@ var questions = [
     }
 ]
 
+// Create and shuffle questions array
 for(let i = 0; i < questions.length; i++){
     quizQuestions[i] = i;
 }
-console.log(quizQuestions);
-
 for (let i = quizQuestions.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [quizQuestions[i], quizQuestions[j]] = [quizQuestions[j], quizQuestions[i]];
 }
-console.log(quizQuestions);
-
 
 // On Start Quiz button click, hide homePage and show quizPage
 function startQuiz(){
@@ -198,29 +196,41 @@ function quizTime() {
 
 // getQuestion function gets a question and prints it to screen
  function getQuestion(){
-    qNum = quizQuestions[k];
-    questionText.textContent = questions[qNum].question;
-    
-    //  Shuffle an array to randomly determine location of choices
-    function shuffleArray(arr) {
-        for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]];
+    if(k < quizQuestions.length){
+        qNum = quizQuestions[k];
+        questionText.textContent = questions[qNum].question;
+        
+        //  Shuffle an array to randomly determine location of choices
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
         }
-    }
-    let arr = ["answer", "choice1", "choice2", "choice3"];
-    shuffleArray(arr);
+        let arr = ["answer", "choice1", "choice2", "choice3"];
+        shuffleArray(arr);
+        
+        // Insert shuffled choices into multChoice buttons
+        var A = arr[0];
+        var B = arr[1];
+        var C = arr[2];
+        var D = arr[3];
     
-    // Insert shuffled choices into multChoice buttons
-    var A = arr[0];
-    var B = arr[1];
-    var C = arr[2];
-    var D = arr[3];
-
-    multChoiceA.textContent = questions[qNum][A];
-    multChoiceB.textContent = questions[qNum][B];
-    multChoiceC.textContent = questions[qNum][C];
-    multChoiceD.textContent = questions[qNum][D];
+        multChoiceA.textContent = questions[qNum][A];
+        multChoiceB.textContent = questions[qNum][B];
+        multChoiceC.textContent = questions[qNum][C];
+        multChoiceD.textContent = questions[qNum][D];
+    } else{
+        // Show initials page, hide quizPage
+        quizPage.hidden = true;
+        initialsPage.hidden = false;
+        scoreAlert.textContent = "Great Job! You answered all questions correctly!"
+        // Set timer to zero
+        secondsLeft = 0;
+        timeEl.textContent = secondsLeft;
+        clearInterval(timerInterval);
+        finalScore.textContent= totScore;
+    }
  }
 
 //  Check if clicked button contains correct answer
