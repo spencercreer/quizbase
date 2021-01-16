@@ -87,7 +87,7 @@ var questions = [
         "answer": "&&",
         "choice1": "||",
         "choice2": "!",
-        "choice3": '\xa0\xa0"',
+        "choice3": '"\xa0\xa0"',
     },
     {
         "question": "What is the OR logical operator in JavaScript?",
@@ -286,7 +286,7 @@ function quizTime() {
     localStorage.setItem("storedPlayers",JSON.stringify(storedPlayers));
     localStorage.setItem("storedScores",JSON.stringify(storedScores));
 
-    window.location.replace("highscores.html");   
+    window.location.replace("develop/highscores.html");   
 }
 
 aBtn.onclick = ansCheck;
