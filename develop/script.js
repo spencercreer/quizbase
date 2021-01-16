@@ -222,6 +222,7 @@ function quizTime() {
         multChoiceD.textContent = questions[qNum][D];
     } else{
         // Show initials page, hide quizPage
+        finalScore.textContent= totScore;
         quizPage.hidden = true;
         initialsPage.hidden = false;
         scoreAlert.textContent = "Great Job! You answered all questions correctly!"
@@ -229,7 +230,6 @@ function quizTime() {
         secondsLeft = 0;
         timeEl.textContent = secondsLeft;
         clearInterval(timerInterval);
-        finalScore.textContent= totScore;
     }
  }
 

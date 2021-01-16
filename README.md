@@ -17,4 +17,4 @@ Repository: https://github.com/spencercreer/code-quiz
 
 The following animation demonstrates the application functionality:
 
-![JavaScript code quiz](./assets/JavaScript_Quiz.mp4)
+![JavaScript code quiz](./assets/JavaScript_Quiz.gif)
