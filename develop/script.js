@@ -263,7 +263,7 @@ function quizTime() {
     var playerInitials = document.getElementById("initials").value;
     var playerScore = totScore;
 
-    // If local storage is empty, make an empty arrays. Push player initials and player score to array.
+    // If local storage is empty, make empty arrays. Push player initials and player score to array.
     // Else get from local storage and insert in correct location.
     if(!localStorage.getItem("storedPlayers")){
         localStorage.setItem("storedPlayers","[]");
