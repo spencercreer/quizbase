@@ -263,40 +263,44 @@ function quizTime() {
     var playerInitials = document.getElementById("initials").value;
     var playerScore = totScore;
 
-    // If local storage is empty, make empty arrays. Push player initials and player score to array.
-    // Else get from local storage and insert in correct location.
-    if(!localStorage.getItem("storedPlayers")){
-        localStorage.setItem("storedPlayers","[]");
-        var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
-        storedPlayers.push(playerInitials);
-    } else{
-        var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
+    if(playerInitials == ""){
+        confirm("Please enter your initials.")
+    } else {
+        // If local storage is empty, make empty arrays. Push player initials and player score to array.
+        // Else get from local storage and insert in correct location.
+        if(!localStorage.getItem("storedPlayers")){
+            localStorage.setItem("storedPlayers","[]");
+            var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
+            storedPlayers.push(playerInitials);
+        } else{
+            var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
+        }
+        if(!localStorage.getItem("storedScores")){
+            localStorage.setItem("storedScores","[]");
+            var storedScores = JSON.parse(localStorage.getItem("storedScores"));
+            storedScores.push(playerScore);
+        } else{
+            var storedScores = JSON.parse(localStorage.getItem("storedScores"));
+        }
+    
+        var m = storedScores.length;
+    
+        for(var index=0; index < m; index++){
+            oldScore = storedScores[index];
+    
+            if(playerScore > oldScore){
+                storedPlayers.splice(index,0,playerInitials);
+                storedScores.splice(index,0,playerScore);
+                index = m;
+                }
+        }
+    
+        // Stringify storedPlayers and storedScores array
+        localStorage.setItem("storedPlayers",JSON.stringify(storedPlayers));
+        localStorage.setItem("storedScores",JSON.stringify(storedScores));
+    
+        window.location.replace("develop/highscores.html");   
     }
-    if(!localStorage.getItem("storedScores")){
-        localStorage.setItem("storedScores","[]");
-        var storedScores = JSON.parse(localStorage.getItem("storedScores"));
-        storedScores.push(playerScore);
-    } else{
-        var storedScores = JSON.parse(localStorage.getItem("storedScores"));
-    }
-
-    var m = storedScores.length;
-
-    for(var index=0; index < m; index++){
-        oldScore = storedScores[index];
-
-        if(playerScore > oldScore){
-            storedPlayers.splice(index,0,playerInitials);
-            storedScores.splice(index,0,playerScore);
-            index = m;
-            }
-    }
-
-    // Stringify storedPlayers and storedScores array
-    localStorage.setItem("storedPlayers",JSON.stringify(storedPlayers));
-    localStorage.setItem("storedScores",JSON.stringify(storedScores));
-
-    window.location.replace("develop/highscores.html");   
 }
 
 aBtn.onclick = ansCheck;
