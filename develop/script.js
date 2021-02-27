@@ -304,4 +304,10 @@ bBtn.onclick = ansCheck;
 cBtn.onclick = ansCheck;
 dBtn.onclick = ansCheck;
 submitButton.onclick = scoreSubmit;
+// Input keypress 'Enter' add name to list
+document.getElementById("initials").addEventListener("keyup", function(event){
+    if(event.key == "Enter") {
+        scoreSubmit();
+    }
+})
 startButton.onclick = startQuiz;
