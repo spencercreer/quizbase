@@ -1,6 +1,5 @@
 var scoresList = document.querySelector("#scoresList");
 var clearButton = document.getElementById("clearBtn");
-var clearOp = false;
 
 var players = [];
 var scores = [];

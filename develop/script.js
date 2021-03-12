@@ -6,6 +6,8 @@ var submitButton = document.getElementById("submitBtn");
 var homePage = document.getElementById("index");
 var quizPage = document.getElementById("quiz");
 var initialsPage = document.getElementById("initialsPg");
+var highscoresPage = document.getElementById("highscoresPg");
+var quizTitleText = document.querySelector(".highscoresTitle");
 
 var timeEl = document.querySelector(".time");
 var secondsLeft = 75;
@@ -32,8 +34,10 @@ var quizTitle = document.querySelector(".quiz-title");
 var result = document.querySelector(".result");
 var resultEl = document.getElementById("result");
 var scoreAlert = document.querySelector(".score-alert");
-var quiz;
-var questions = javaScript;
+var quiz, questions;
+
+var scoresList = document.querySelector("#scoresList");
+var clearButton = document.getElementById("clearBtn");
 
 
 // On Start Quiz button click, hide homePage and show quizPage
@@ -42,9 +46,11 @@ function startQuiz(){
 
     if(quiz == "javaScript"){
         questions = javaScript;
+        quizTitleText.textContent = "JavaScript Coding Quiz";
         quizTitle.textContent = "JavaScript Coding Quiz";
     } else {
         questions = python;
+        quizTitleText.textContent = "Python Coding Quiz";
         quizTitle.textContent = "Python Coding Quiz";
     }
 
@@ -146,30 +152,31 @@ function quizTime() {
 // Store score and player initials to localStorage
  function scoreSubmit(){
 
+    var quizPlayers = quiz + "Players";
+    var quizScores = quiz + "Scores";
+    var storedPlayers = "[]";
+    var storedScores = "[]";
     var playerInitials = document.getElementById("initials").value;
     var playerScore = totScore;
 
-    if(playerInitials == ""){
+    if(playerInitials === ""){
         confirm("Please enter your initials.")
     } else {
         // If local storage is empty, make empty arrays. Push player initials and player score to array.
         // Else get from local storage and insert in correct location.
-        if(!localStorage.getItem("storedPlayers")){
-            localStorage.setItem("storedPlayers","[]");
-            var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
+        if(!localStorage.getItem(quizPlayers)){
+            localStorage.setItem(quizPlayers,"[]");
+            storedPlayers = JSON.parse(localStorage.getItem(quizPlayers));
             storedPlayers.push(playerInitials);
-        } else{
-            var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
-        }
-        if(!localStorage.getItem("storedScores")){
-            localStorage.setItem("storedScores","[]");
-            var storedScores = JSON.parse(localStorage.getItem("storedScores"));
+
+            localStorage.setItem(quizScores,"[]");
+            storedScores = JSON.parse(localStorage.getItem(quizScores));
             storedScores.push(playerScore);
         } else{
-            var storedScores = JSON.parse(localStorage.getItem("storedScores"));
-        }
-    
-        var m = storedScores.length;
+            storedPlayers = JSON.parse(localStorage.getItem(quizPlayers));
+            storedScores = JSON.parse(localStorage.getItem(quizScores));
+            var m = storedScores.length;
+        }    
     
         for(var index=0; index < m; index++){
             oldScore = storedScores[index];
@@ -177,18 +184,53 @@ function quizTime() {
             if(playerScore > oldScore){
                 storedPlayers.splice(index,0,playerInitials);
                 storedScores.splice(index,0,playerScore);
+                document.getElementById("highscore-message").textContent = `Congratulations! You placed number ${index+1} on the highscores list. See if you can do even better.`;
                 index = m;
+                } else {
+                    document.getElementById("highscore-message").textContent = "You did not make the highscores list. Try again to see if you can improve."
                 }
         }
     
         // Stringify storedPlayers and storedScores array
-        localStorage.setItem("storedPlayers",JSON.stringify(storedPlayers));
-        localStorage.setItem("storedScores",JSON.stringify(storedScores));
+        localStorage.setItem(quizPlayers,JSON.stringify(storedPlayers));
+        localStorage.setItem(quizScores,JSON.stringify(storedScores));
+        storedPlayers = JSON.parse(localStorage.getItem(quizPlayers));
+        storedScores = JSON.parse(localStorage.getItem(quizScores));
+
+        scoresList.innerHTML = "";
+
+        for (var i = 0; i < storedScores.length; i++) {
+            var player = storedPlayers[i];
+            var score = storedScores[i];
     
-        window.location.replace("develop/highscores.html");   
+            var playerNewRow = document.createElement("tr");
+            var positionEl = document.createElement("td");
+            var playerInitialsEl = document.createElement("td");
+            var playerScoreEl = document.createElement("td");
+            positionEl.className = "text-center";
+            playerInitialsEl.className = "text-center";
+            playerScoreEl.className = "text-center";
+            
+            positionEl.innerHTML = i+1;
+            playerInitialsEl.innerHTML = player;
+            playerScoreEl.innerHTML = score;  
+           
+            playerNewRow.append(positionEl,playerInitialsEl,playerScoreEl);
+            scoresList.append(playerNewRow);
+          }
+          // Add quiz difficulty and type to title show highscores page
+        initialsPage.hidden = true;
+        highscoresPage.hidden = false;
     }
 }
 
+// On Clear Highscores click, clear scores list
+function clearScores(){
+    localStorage.removeItem(quiz + "Players");
+    localStorage.removeItem(quiz + "Scores");
+}
+
+clearButton.onclick = clearScores;
 aBtn.onclick = ansCheck;
 bBtn.onclick = ansCheck;
 cBtn.onclick = ansCheck;
@@ -200,5 +242,54 @@ document.getElementById("initials").addEventListener("keyup", function(event){
         scoreSubmit();
     }
 })
+
+submitButton.onclick = scoreSubmit;
+// Initials input keypress 'Enter' scoreSubmit function
+document.getElementById("initials").addEventListener("keyup", function(event){
+    if(event.key == "Enter") {
+        scoreSubmit();
+    }
+});
 javaScriptButton.onclick = startQuiz;
 pythonButton.onclick = startQuiz;
+
+
+
+
+
+
+
+
+// var players = [];
+// var scores = [];
+
+// // Get storedPlayers from local storage
+// function scoreSubmit(){
+
+
+//     var quizPlayers = quiz + "Players";
+//     var quizScores = quiz + "Scores";
+//     var storedPlayers = "[]";
+//     var storedScores = "[]";
+//     var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
+//     var storedScores = JSON.parse(localStorage.getItem(quizScores));
+//     if(storedPlayers !== null){
+//         players = storedPlayers;
+//     }
+//     if(storedScores !== null){
+//         scores = storedScores;
+//     }
+//     renderPlayerScores();
+// }
+
+// // Append players and scores to list element
+// function renderPlayerScores() {
+
+
+// // On Clear Highscores click, clear scores list
+// function clearScores(){
+//     localStorage.removeItem("storedPlayers");
+//     localStorage.removeItem("storedScores");
+//     location.reload();
+// }
+
