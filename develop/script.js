@@ -190,44 +190,50 @@ function quizTime() {
                     document.getElementById("highscore-message").textContent = "You did not make the highscores list. Try again to see if you can improve."
                 }
         }
-    
         // Stringify storedPlayers and storedScores array
         localStorage.setItem(quizPlayers,JSON.stringify(storedPlayers));
         localStorage.setItem(quizScores,JSON.stringify(storedScores));
-        storedPlayers = JSON.parse(localStorage.getItem(quizPlayers));
-        storedScores = JSON.parse(localStorage.getItem(quizScores));
+        loadScoresTable();
 
-        scoresList.innerHTML = "";
-
-        for (var i = 0; i < storedScores.length; i++) {
-            var player = storedPlayers[i];
-            var score = storedScores[i];
-    
-            var playerNewRow = document.createElement("tr");
-            var positionEl = document.createElement("td");
-            var playerInitialsEl = document.createElement("td");
-            var playerScoreEl = document.createElement("td");
-            positionEl.className = "text-center";
-            playerInitialsEl.className = "text-center";
-            playerScoreEl.className = "text-center";
-            
-            positionEl.innerHTML = i+1;
-            playerInitialsEl.innerHTML = player;
-            playerScoreEl.innerHTML = score;  
-           
-            playerNewRow.append(positionEl,playerInitialsEl,playerScoreEl);
-            scoresList.append(playerNewRow);
-          }
           // Add quiz difficulty and type to title show highscores page
         initialsPage.hidden = true;
         highscoresPage.hidden = false;
     }
 }
 
+function loadScoresTable() {
+  
+    storedPlayers = JSON.parse(localStorage.getItem(quiz + "Players"));
+    storedScores = JSON.parse(localStorage.getItem(quiz + "Scores"));
+
+    scoresList.innerHTML = "";
+
+    for (var i = 0; i < storedScores.length; i++) {
+        var player = storedPlayers[i];
+        var score = storedScores[i];
+
+        var playerNewRow = document.createElement("tr");
+        var positionEl = document.createElement("td");
+        var playerInitialsEl = document.createElement("td");
+        var playerScoreEl = document.createElement("td");
+        positionEl.className = "text-center";
+        playerInitialsEl.className = "text-center";
+        playerScoreEl.className = "text-center";
+        
+        positionEl.innerHTML = i+1;
+        playerInitialsEl.innerHTML = player;
+        playerScoreEl.innerHTML = score;  
+        
+        playerNewRow.append(positionEl,playerInitialsEl,playerScoreEl);
+        scoresList.append(playerNewRow);
+        }
+}
+
 // On Clear Highscores click, clear scores list
 function clearScores(){
     localStorage.removeItem(quiz + "Players");
     localStorage.removeItem(quiz + "Scores");
+    loadScoresTable();
 }
 
 clearButton.onclick = clearScores;
@@ -252,44 +258,3 @@ document.getElementById("initials").addEventListener("keyup", function(event){
 });
 javaScriptButton.onclick = startQuiz;
 pythonButton.onclick = startQuiz;
-
-
-
-
-
-
-
-
-// var players = [];
-// var scores = [];
-
-// // Get storedPlayers from local storage
-// function scoreSubmit(){
-
-
-//     var quizPlayers = quiz + "Players";
-//     var quizScores = quiz + "Scores";
-//     var storedPlayers = "[]";
-//     var storedScores = "[]";
-//     var storedPlayers = JSON.parse(localStorage.getItem("storedPlayers"));
-//     var storedScores = JSON.parse(localStorage.getItem(quizScores));
-//     if(storedPlayers !== null){
-//         players = storedPlayers;
-//     }
-//     if(storedScores !== null){
-//         scores = storedScores;
-//     }
-//     renderPlayerScores();
-// }
-
-// // Append players and scores to list element
-// function renderPlayerScores() {
-
-
-// // On Clear Highscores click, clear scores list
-// function clearScores(){
-//     localStorage.removeItem("storedPlayers");
-//     localStorage.removeItem("storedScores");
-//     location.reload();
-// }
-
