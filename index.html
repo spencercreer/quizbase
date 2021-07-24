@@ -1,109 +1,141 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>JavaScript Quiz</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-light bg-info">
-        <a class="navbar-brand py-2" href="index.html" style="color:white; font-size: 25px;">Code Quiz</a>
-        <p class="text-left mb-0 py-2" style="color: white; font-size: 25px;">Score: <span class="score"> 0 </span></p>
-    </nav>
+<head>
+  <title>JavaScript Quiz</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Homepage -->
-    <div id="index">
-        <div class="jumbotron pt-2 mb-0">
-            <h1 class="display-4 text-center">Coding Quiz</h1>
-            <p class="lead">Answer as many coding questions as you can within the time limit. </p>
-            <hr class="my-4">
-            <p>Your timer will begin with seventy-five seconds. Incorrect answers will reduce your time by ten seconds!</p>
-            <button class="btn btn-info btn-lg btn-block" id="javaScriptBtn" value="javaScript">JavaScript Quiz</button>
-            <button class="btn btn-info btn-lg btn-block" id="pythonBtn" value="python">Python Quiz</button>
-        </div>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" sizes="57x57" href="./assets">
+  <link rel="apple-touch-icon" sizes="60x60" href="./assets/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./assets/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./assets/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./assets/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./assets/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./assets/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+  <link rel="manifest" href="./assets/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-info">
+    <a class="navbar-brand py-2" href="index.html" style="color:white; font-size: 25px;">Code Quiz</a>
+    <p class="text-left mb-0 py-2" style="color: white; font-size: 25px;">Score: <span class="score"> 0 </span></p>
+  </nav>
+
+  <!-- Homepage -->
+  <div id="index">
+    <div class="jumbotron pt-2 mb-0">
+      <h1 class="display-4 text-center">Coding Quiz</h1>
+      <p class="lead">Answer as many coding questions as you can within the time limit. </p>
+      <hr class="my-4">
+      <p>Your timer will begin with seventy-five seconds. Incorrect answers will reduce your time by ten seconds!</p>
+      <button class="btn btn-info btn-lg btn-block" id="javaScriptBtn" value="javaScript">JavaScript Quiz</button>
+      <button class="btn btn-info btn-lg btn-block" id="pythonBtn" value="python">Python Quiz</button>
     </div>
+  </div>
 
-    <!-- Quiz page -->
-    <div id="quiz" hidden>
-        <div class="jumbotron jumbotron-fluid pt-2 mb-0">
-            <div class="container">
-                <h1 class="display-4 text-center quiz-title">JavaScript Coding Quiz</h1>
-                <p class="question lead"></p>
-                <div class="list-group">
-                    <a class="choiceA list-group-item list-group-item-action" id="choiceA"></a>
-                    <a class="choiceB list-group-item list-group-item-action" id="choiceB"></a>
-                    <a class="choiceC list-group-item list-group-item-action" id="choiceC"></a>
-                    <a class="choiceD list-group-item list-group-item-action" id="choiceD"></a>
-                </div>
-                <p class="text-center" id="timer" style="font-size: 100px"><span class="fa fa-clock-o mr-2"></span><span class="time"> 75 </span></p>
-                
-            </div> 
+  <!-- Quiz page -->
+  <div id="quiz" hidden>
+    <div class="jumbotron jumbotron-fluid pt-2 mb-0">
+      <div class="container">
+        <h1 class="display-4 text-center quiz-title">JavaScript Coding Quiz</h1>
+        <p class="question lead"></p>
+        <div class="list-group">
+          <a class="choiceA list-group-item list-group-item-action" id="choiceA"></a>
+          <a class="choiceB list-group-item list-group-item-action" id="choiceB"></a>
+          <a class="choiceC list-group-item list-group-item-action" id="choiceC"></a>
+          <a class="choiceD list-group-item list-group-item-action" id="choiceD"></a>
         </div>
-    </div>
+        <p class="text-center" id="timer" style="font-size: 100px"><span class="fa fa-clock-o mr-2"></span><span
+            class="time"> 75 </span></p>
 
-    <!-- Initials page -->
-    <div id="initialsPg" hidden>
-        <div class="jumbotron jumbotron-fluid pt-4 mb-0">
-            <div class="container">
-              <h1 class="display-4 text-center score-alert">Time's Up!</h1>
-              <p class="lead text-center">Your total score is: <span class="finalScore">0</span></p>
-            
-              <!-- User intials submit button and input group -->
-              <div class="input-group mb-3 justify-content-center">
-                <div class="input-group-prepend">
-                  <button class="btn btn-info" type="button" id="submitBtn">Submit</button>
-                </div>
-                <input type="text" id="initials" placeholder="Enter your initials" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                </div>
-            </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Initials page -->
+  <div id="initialsPg" hidden>
+    <div class="jumbotron jumbotron-fluid pt-4 mb-0">
+      <div class="container">
+        <h1 class="display-4 text-center score-alert">Time's Up!</h1>
+        <p class="lead text-center">Your total score is: <span class="finalScore">0</span></p>
+
+        <!-- User intials submit button and input group -->
+        <div class="input-group mb-3 justify-content-center">
+          <div class="input-group-prepend">
+            <button class="btn btn-info" type="button" id="submitBtn">Submit</button>
+          </div>
+          <input type="text" id="initials" placeholder="Enter your initials" aria-label="Example text with button addon"
+            aria-describedby="button-addon1">
         </div>
       </div>
+    </div>
+  </div>
 
-      <div id="highscoresPg" hidden>
-        <div class="jumbotron jumbotron-fluid pt-4 mb-0">
-            <div class="container">
-              <h1 class="display-4 text-center highscoresTitle">Highscores</h1>
-              <p id="highscore-message" class="lead text-center">Try to see if you can top the scores list.</p>
+  <div id="highscoresPg" hidden>
+    <div class="jumbotron jumbotron-fluid pt-4 mb-0">
+      <div class="container">
+        <h1 class="display-4 text-center highscoresTitle">Highscores</h1>
+        <p id="highscore-message" class="lead text-center">Try to see if you can top the scores list.</p>
 
-              <table class="table table-sm">
-                <thead>
-                  <tr>
-                    <th class="text-center" scope="col">Place</th>
-                    <th class="text-center" scope="col">Player</th>
-                    <th class="text-center" scope="col">Score</th>
-                  </tr>
-                </thead>
-                <tbody id="scoresList">
-                </tbody>
-              </table>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th class="text-center" scope="col">Place</th>
+              <th class="text-center" scope="col">Player</th>
+              <th class="text-center" scope="col">Score</th>
+            </tr>
+          </thead>
+          <tbody id="scoresList">
+          </tbody>
+        </table>
 
-              <!-- Clear Highscores buttons -->
-                <button class="btn btn-info btn-lg btn-block" id="clearBtn" style = "margin-top: 50px" role="button">Clear Highscores</button>
-            </div>
-        </div>
+        <!-- Clear Highscores buttons -->
+        <button class="btn btn-info btn-lg btn-block" id="clearBtn" style="margin-top: 50px" role="button">Clear
+          Highscores</button>
       </div>
+    </div>
+  </div>
 
-      <footer class="footer mt-auto">
-        <div class="container py-3">
-          <span class="text-muted">Coded by Spencer Creer using Bootstrap CSS framework 
-            <a class="text-dark link-text mx-2" href="https://www.linkedin.com/in/spencer-creer-023246109/" target="_blank" style="font-size: 25px;"><i class="fa fa-linkedin-square link-in"></i></a>
-            <a class="text-dark link-text mx-2 pt-3" href="https://github.com/spencercreer" target="_blank"><i class="fa fa-github link-git" style="font-size: 25px;"></i></a>
-          </span>
-        </div>
-      </footer>
+  <footer class="footer mt-auto">
+    <div class="container py-3">
+      <span class="text-muted">Coded by Spencer Creer using Bootstrap CSS framework
+        <a class="text-dark link-text mx-2" href="https://www.linkedin.com/in/spencer-creer-023246109/" target="_blank"
+          style="font-size: 25px;"><i class="fa fa-linkedin-square link-in"></i></a>
+        <a class="text-dark link-text mx-2 pt-3" href="https://github.com/spencercreer" target="_blank"><i
+            class="fa fa-github link-git" style="font-size: 25px;"></i></a>
+      </span>
+    </div>
+  </footer>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="develop/questions.js"></script>
-    <script src="develop/script.js"></script>
-  </body>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="develop/questions.js"></script>
+  <script src="develop/script.js"></script>
+</body>
+
 </html>
