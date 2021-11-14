@@ -13,8 +13,8 @@ The quiz ends when the user either answers all of the questions or when the time
 ## Table of Contents
 * [Links](#links)
 * [Animation](#animation) 
- * [Technologies](#technologies)  
- * [License](#license)
+* [Technologies](#technologies)  
+* [License](#license)
 * [Contact](#contact)
 
 ## Links
@@ -33,6 +33,7 @@ Please submit a PR if you would like to contribute.
  * JavaScript
  * HTML
  * Bootstrap
+ * Express
 
 ## License
 This project is licensed under the MIT license.
