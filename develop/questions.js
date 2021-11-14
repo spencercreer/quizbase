@@ -276,3 +276,41 @@ var python = [
         "choice3": "listName(totalElements)",
     }
 ]
+
+var cPlusPlus = [
+    {
+        "question": 'How do you output "Hello World!" in C++?',
+        "answer": 'cout >> "Hellow World!";',
+        "choice1": 'print("Hello World!")',
+        "choice2": 'prompt("Hello World!")',
+        "choice3": 'output("Hello World!")',
+    },
+    {
+        "question": "How do single line comments begin in C++?",
+        "answer": '//',
+        "choice1": '##',
+        "choice2": '%',
+        "choice3": '</',
+    },
+    {
+        "question": "How do multi-line comments begin in C++?",
+        "answer": '/*',
+        "choice1": '##',
+        "choice2": '%',
+        "choice3": '<<',
+    },
+    {
+        "question": "Which of the following is not a variable type in C++?",
+        "answer": 'varchar',
+        "choice1": 'bool',
+        "choice2": 'float',
+        "choice3": 'void',
+    },
+    {
+        "question": "?",
+        "answer": 'answer',
+        "choice1": '1',
+        "choice2": 'float',
+        "choice3": 'void',
+    },
+]

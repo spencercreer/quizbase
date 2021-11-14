@@ -1,0 +1,26 @@
+{
+  "name": "code-quiz",
+  "version": "1.0.0",
+  "description": "A coding quiz application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencercreer/code-quiz.git"
+  },
+  "keywords": [],
+  "author": "Spencer Creer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spencercreer/code-quiz/issues"
+  },
+  "homepage": "https://github.com/spencercreer/code-quiz",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
