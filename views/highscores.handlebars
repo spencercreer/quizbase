@@ -13,6 +13,13 @@
                     </tr>
                 </thead>
                 <tbody id="scoresList">
+                    {{#each highscores}}
+                    <tr>
+                        <td class="text-center">Place</td>
+                        <td class="text-center">{{this.initials}}</td>
+                        <td class="text-center">{{this.score}}</th>
+                    </tr>
+                    {{/each}}
                 </tbody>
             </table>
 
