@@ -1,23 +1,23 @@
-<div class="container-fluid">
-    <div class="jumbotron jumbotron-fluid mb-0 pb-3">
+<div id="highscoresPg">
+    <div class="jumbotron jumbotron-fluid pt-4 mb-0">
         <div class="container">
-            <h1 class="display-3">Highscores</h1>
-            <p class="lead">Text Here!!!!!!</p>
-            <hr class="my-2">
-            <form action="/api/add-highscore" method="POST">
-                <div class="form-group">
-                    <label for="score">Score</label>
-                    <input type="text" class="form-control" name="score" id="score" aria-describedby="helpId"
-                        placeholder="">
-                    <label for="initials">Initials</label>
-                    <input type="text" class="form-control" name="initials" id="initials" aria-describedby="helpId"
-                        placeholder="">
-                         <label for="quiz">Quiz</label>
-                    <input type="text" class="form-control" name="quiz" id="quiz" aria-describedby="helpId"
-                        placeholder="">
-                </div>
-                <input type="submit" value="Add Score" class="btn btn-primary btn-lg">
-            </form>
+            <h1 class="display-4 text-center highscoresTitle">Highscores</h1>
+            <p id="highscore-message" class="lead text-center">Try to see if you can top the scores list.</p>
+
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">Place</th>
+                        <th class="text-center" scope="col">Player</th>
+                        <th class="text-center" scope="col">Score</th>
+                    </tr>
+                </thead>
+                <tbody id="scoresList">
+                </tbody>
+            </table>
+
+            <button class="btn btn-info btn-lg btn-block" id="clearBtn" style="margin-top: 50px" role="button">Clear
+                Highscores</button>
         </div>
     </div>
 </div>
