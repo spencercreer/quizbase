@@ -12,7 +12,10 @@ The quiz ends when the user either answers all of the questions or when the time
 
 ## Table of Contents
 * [Links](#links)
-* [Animation](#animation) 
+* [Animation](#animation)
+* [Installation](#installations) 
+* [Tests](#tests)
+* [Contribute](#contribute) 
 * [Technologies](#technologies)  
 * [License](#license)
 * [Contact](#contact)
@@ -26,13 +29,42 @@ Repository: [https://github.com/spencercreer/code-quiz](https://github.com/spenc
 The following animation demonstrates the application functionality:
 ![JavaScript Code Quiz animation](./assets/JavaScript_Quiz.gif)
 
+## Installation
+This application utilizes the following dependencies:
+
+ * express
+ * dotenv
+ * express-handlebars
+ * handlebars
+ * mysql2
+ * sequelize
+ * body-parser
+
+To install necessary dependencies, run the following command:
+
+  ```
+  npm install
+  ```
+
+## Tests
+Tests are written using Frisby and Jest. To run tests, start the server and run the following command:
+
+  ```
+  npm test
+  ```
+    
 ## Contribute
-Please submit a PR if you would like to contribute.
+Please submit a PR if you would like to contribute
 
 ## Technologies
  * JavaScript
- * HTML
+ * CSS
  * Bootstrap
+ * Node.js
+ * npm
+ * MySQL
+ * Sequelize
+ * Heroku
  * Express
 
 ## License
