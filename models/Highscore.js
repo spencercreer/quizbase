@@ -7,6 +7,9 @@ const HighScore = connection.define('highscore', {
     },
     score: {
         type: Sequelize.INTEGER
+    },
+    quiz: {
+        type: Sequelize.STRING
     }
 })
 

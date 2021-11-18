@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="jumbotron jumbotron-fluid mb-0 pb-3">
+        <div class="container">
+            <h1 class="display-3">Highscores</h1>
+            <p class="lead">Text Here!!!!!!</p>
+            <hr class="my-2">
+            <form action="/api/add-highscore" method="POST">
+                <div class="form-group">
+                    <label for="score">Score</label>
+                    <input type="text" class="form-control" name="score" id="score" aria-describedby="helpId"
+                        placeholder="">
+                    <label for="initials">Initials</label>
+                    <input type="text" class="form-control" name="initials" id="initials" aria-describedby="helpId"
+                        placeholder="">
+                         <label for="quiz">Quiz</label>
+                    <input type="text" class="form-control" name="quiz" id="quiz" aria-describedby="helpId"
+                        placeholder="">
+                </div>
+                <input type="submit" value="Add Score" class="btn btn-primary btn-lg">
+            </form>
+        </div>
+    </div>
+</div>
