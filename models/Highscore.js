@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const connection = require('../config/connection')
 
-const HighScore = connection.define('highscore', {
+const Highscore = connection.define('highscore', {
     initials: {
         type: Sequelize.STRING
     },
@@ -13,4 +13,4 @@ const HighScore = connection.define('highscore', {
     }
 })
 
-module.exports = HighScore
+module.exports = Highscore

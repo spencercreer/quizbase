@@ -1,16 +1,57 @@
-// Declare variables
-var javaScriptButton = document.getElementById("javaScriptBtn");
-var pythonButton = document.getElementById("pythonBtn");
-var cPlusPlusButton = document.getElementById("cPlusPlusBtn")
-var submitButton = document.getElementById("submitBtn");
-var homePage = document.getElementById("index");
-var quizPage = document.getElementById("quiz");
-var initialsPage = document.getElementById("initialsPg");
-var highscoresPage = document.getElementById("highscoresPg");
-var quizTitleText = document.querySelector(".highscoresTitle");
-var timeEl = document.querySelector(".time");
+document.getElementById("start-btn").addEventListener("click", () => {
+    startTimer()
+    loadQuestion()
+})
 
-// var secondsLeft = 75;
+function startTimer() {
+    let time = 10
+    setInterval(() => {
+        console.log(time)
+        time--
+    }, 1000)
+}
+
+function loadQuestion() {
+    console.log("Hello")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var submitButton = document.getElementById("submitBtn");
+
+
+// var quizTitleText = document.querySelector(".highscoresTitle");
+// var timeEl = document.querySelector(".time");
+
+// var time = 75;
 // var i;
 // var k = 0;
 // var index = 0;
@@ -45,11 +86,11 @@ var timeEl = document.querySelector(".time");
 //     quiz = this.value;
 
 //     if (quiz == "javaScript") {
-//         questions = javaScript;
+//         // questions = javaScript;
 //         quizTitleText.textContent = "JavaScript Coding Quiz";
 //         quizTitle.textContent = "JavaScript Coding Quiz";
 //     } else {
-//         questions = python;
+//         // questions = python;
 //         quizTitleText.textContent = "Python Coding Quiz";
 //         quizTitle.textContent = "Python Coding Quiz";
 //     }
@@ -67,17 +108,17 @@ var timeEl = document.querySelector(".time");
 // // Quiz page timer 
 // function quizTime() {
 //     var timerInterval = setInterval(function () {
-//         secondsLeft--;
-//         timeEl.textContent = secondsLeft;
+//         time--;
+//         timeEl.textContent = time;
 
 //         // Change timer color to red at 15 seconds
-//         if (secondsLeft <= 15) {
+//         if (time <= 15) {
 //             document.getElementById("timer").className = "text-center text-danger";
 //         }
 
-//         if (secondsLeft <= 0) {
-//             secondsLeft = 0;
-//             timeEl.textContent = secondsLeft;
+//         if (time <= 0) {
+//             time = 0;
+//             timeEl.textContent = time;
 //             clearInterval(timerInterval);
 //             finalScore.textContent = totScore;
 //             // Show initials page, hide quizPage
@@ -120,8 +161,8 @@ var timeEl = document.querySelector(".time");
 //         initialsPage.hidden = false;
 //         scoreAlert.textContent = "Great Job! You answered all questions correctly!"
 //         // Set timer to zero
-//         secondsLeft = 0;
-//         timeEl.textContent = secondsLeft;
+//         time = 0;
+//         timeEl.textContent = time;
 //         clearInterval(timerInterval);
 //     }
 // }
@@ -146,7 +187,7 @@ var timeEl = document.querySelector(".time");
 //     } else {
 //         scoreCounter.textContent = totScore;
 //         this.className = "list-group-item list-group-item-action list-group-item-danger";
-//         secondsLeft = secondsLeft - 10;
+//         time = time - 10;
 //     }
 // }
 
@@ -237,25 +278,25 @@ var timeEl = document.querySelector(".time");
 //     loadScoresTable();
 // }
 // //
-// clearButton.onclick = clearScores;
-// aBtn.onclick = answerCheck;
-// bBtn.onclick = answerCheck;
-// cBtn.onclick = answerCheck;
-// dBtn.onclick = answerCheck;
-// submitButton.onclick = scoreSubmit;
+// // clearButton.onclick = clearScores;
+// // aBtn.onclick = answerCheck;
+// // bBtn.onclick = answerCheck;
+// // cBtn.onclick = answerCheck;
+// // dBtn.onclick = answerCheck;
+// // submitButton.onclick = scoreSubmit;
 // // Input keypress 'Enter' add name to list
-// document.getElementById("initials").addEventListener("keyup", function (event) {
-//     if (event.key == "Enter") {
-//         scoreSubmit();
-//     }
-// })
+// // document.getElementById("initials").addEventListener("keyup", function (event) {
+// //     if (event.key == "Enter") {
+// //         scoreSubmit();
+// //     }
+// // })
 
-// submitButton.onclick = scoreSubmit;
+// // submitButton.onclick = scoreSubmit;
 // // Initials input keypress 'Enter' scoreSubmit function
-// document.getElementById("initials").addEventListener("keyup", function (event) {
-//     if (event.key == "Enter") {
-//         scoreSubmit();
-//     }
-// });
+// // document.getElementById("initials").addEventListener("keyup", function (event) {
+// //     if (event.key == "Enter") {
+// //         scoreSubmit();
+// //     }
+// // });
 // javaScriptButton.onclick = startQuiz;
 // pythonButton.onclick = startQuiz;

@@ -1,12 +1,19 @@
 const router = require('express').Router()
-const HighScore = require('../models/Highscore')
+const Question = require('../models/Question')
+const Highscore = require('../models/Highscore')
+const path = require('path')
 
 router.get('/', (req, res) => {
     res.render('index')
 })
 
 router.get('/quiz', (req, res) => {
-    res.render('quiz')
+    const questions = Question.findAll({
+        where: {
+            quiz_id: 1,
+        },
+    })
+    res.render('question')
 })
 
 router.get('/add-highscore', (req, res) => {
@@ -14,9 +21,13 @@ router.get('/add-highscore', (req, res) => {
 })
 
 router.get('/highscores', (req, res) => {
-    HighScore.findAll()
-        .then(highscores => res.render('highscores', { highscores }))
-        .catch(err => console.log(err))
+    Highscore.findAll()
+    .then(highscores => res.render('highscores', { 
+        layout: 'main',
+        highscores,
+    }))
+    .catch(err => console.log(err))
 })
+
 
 module.exports = router
