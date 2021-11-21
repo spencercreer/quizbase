@@ -1,0 +1,314 @@
+[
+    {
+        "question": "Which of the following is not a JavaScript data type?",
+        "answer": "True",
+        "choice_a": "Number",
+        "choice_b": "String",
+        "choice_c": "Boolean",
+        "quiz_id": 1
+    },
+    {
+        "question": "Which of the following is not a JavaScript variable declaration?",
+        "answer": "div",
+        "choice_a": "var",
+        "choice_b": "let",
+        "choice_c": "const",
+        "quiz_id": 1
+    },
+    {
+        "question": "Which of the following JavaScript variable declaration has a global scope?",
+        "answer": "var",
+        "choice_a": "let",
+        "choice_b": "const",
+        "choice_c": "function",
+        "quiz_id": 1
+    },
+    {
+        "question": "Which of the following JavaScript variable declarations has a block scope?",
+        "answer": "let",
+        "choice_a": "var",
+        "choice_b": "function",
+        "choice_c": "num",
+        "quiz_id": 1
+    },
+    {
+        "question": "Which of the following is an increment operator in JavaScript?",
+        "answer": "++",
+        "choice_a": "--",
+        "choice_b": "//",
+        "choice_c": "&&",
+        "quiz_id": 1
+    },
+    {
+        "question": "How do you begin a single line comment in JavaScript?",
+        "answer": "//",
+        "choice_a": "<!--",
+        "choice_b": "#",
+        "choice_c": "%",
+        "quiz_id": 1
+    },
+    {
+        "question": "Which of the following is not a logical operator in JavaScript?",
+        "answer": "%%",
+        "choice_a": "&&",
+        "choice_b": "||",
+        "choice_c": "!",
+        "quiz_id": 1
+    },
+    {
+        "question": "What is the AND logical operator in JavaScript?",
+        "answer": "&&",
+        "choice_a": "||",
+        "choice_b": "!",
+        "choice_c": "##",
+        "quiz_id": 1
+    },
+    {
+        "question": "What is the OR logical operator in JavaScript?",
+        "answer": "||",
+        "choice_a": "&&",
+        "choice_b": "!",
+        "choice_c": "**",
+        "quiz_id": 1
+    },
+    {
+        "question": "What is the NOT logical operator in JavaScript?",
+        "answer": "!",
+        "choice_a": "&&",
+        "choice_b": "||",
+        "choice_c": "//",
+        "quiz_id": 1
+    },
+    {
+        "question": "Which of the following is a correctly defined JavaScript function?",
+        "answer": "function myFunction()",
+        "choice_a": "function myFunction[]",
+        "choice_b": "function myFunction{}",
+        "choice_c": "function == myFunction()",
+        "quiz_id": 1
+    },
+    {
+        "question": "Inside which HTML element do we put the script?",
+        "answer": "<script>",
+        "choice_a": "<js>",
+        "choice_b": "<javascript>",
+        "choice_c": "<body>",
+        "quiz_id": 1
+    },
+    {
+        "question": "What is the correct syntax for linking an external JavaScript file?",
+        "answer": "<script src=\"xxx.js\">",
+        "choice_a": "<script href=\"xxx.js\">",
+        "choice_b": "<script alt=\"xxx.js\">",
+        "choice_c": "getElement(\"xxx.js\")",
+        "quiz_id": 1
+    },
+    {
+        "question": "How do you call a function named myFunction?",
+        "answer": "myFunction()",
+        "choice_a": "call myFunction()",
+        "choice_b": "alert(myFunction)",
+        "choice_c": "getElement(myFunction)",
+        "quiz_id": 1
+    },
+    {
+        "question": "What is the index number of the first element in a JavaScript array?",
+        "answer": "0",
+        "choice_a": "1",
+        "choice_b": "2",
+        "choice_c": "3",
+        "quiz_id": 1
+    },
+    {
+        "question": "Which of the following is a correct JavaScript array?",
+        "answer": "var classmates = [\"Bob\",\"Jane\",\"Mary\"]",
+        "choice_a": "var classmates = {\"Bob\",\"Jane\",\"Mary\"}",
+        "choice_b": "var classmates = (\"Bob\",\"Jane\",\"Mary\")",
+        "choice_c": "var classmates = [1:\"Bob\",2:\"Jane\",3:\"Mary\"]",
+        "quiz_id": 1
+    }, 
+    {
+        "question": "How do you return the number of elements in a JavaScript array?",
+        "answer": "array.length",
+        "choice_a": "array.numberElements",
+        "choice_b": "array.getLength",
+        "choice_c": "array(totalElements)",
+        "quiz_id": 1
+    },
+    {
+        "question": "How do you allow a user to enter a value that is stored as a string in Python?",
+        "answer": "input(\"Enter a value: \")",
+        "choice_a": "cin(\"Enter a value: \")",
+        "choice_b": "insert(\"Enter a value: \")",
+        "choice_c": "prompt(\"Enter a value: \")",
+        "quiz_id": 2
+    },
+    {
+        "question": "How do you output \"Hello World\" to the user in Python?",
+        "answer": "print(\"Hello World\")",
+        "choice_a": "output(\"Hello World\")",
+        "choice_b": "display(\"Hello World\")",
+        "choice_c": "cout(\"Hello World\")",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which of the following is not a Python reserved word?",
+        "answer": "local",
+        "choice_a": "global",
+        "choice_b": "assert",
+        "choice_c": "yield",
+        "quiz_id": 2
+    },
+    {
+        "question": "How do you begin a single line comment in Python?",
+        "answer": "#",
+        "choice_a": "<!--",
+        "choice_b": "//",
+        "choice_c": "%",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which of the following is the modulo operator in Python?",
+        "answer": "%",
+        "choice_a": "^",
+        "choice_b": "*",
+        "choice_c": "#",
+        "quiz_id": 2
+    },
+    {
+        "question": "How do you reverse the string \"Hello World\" in Python?",
+        "answer": "\"Hello World[::-1]\"",
+        "choice_a": "reverse(\"Hello World\")",
+        "choice_b": "\"Hello World\".switch",
+        "choice_c": "\"Hello World\"(end 0)",
+        "quiz_id": 2
+    },
+    {
+        "question": "What is the correct file etension for Python files?",
+        "answer": ".py",
+        "choice_a": ".pyth",
+        "choice_b": ".pt",
+        "choice_c": ".js",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which operator is used to multiply numbers in Python?",
+        "answer": "*",
+        "choice_a": "x",
+        "choice_b": "#",
+        "choice_c": "%",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which of the following is the correct way to define a TUPLE in Python?",
+        "answer": "(\"apple\", \"banana\", \"cherry\")",
+        "choice_a": "[\"apple\", \"banana\", \"cherry\"]",
+        "choice_b": "{\"apple\", \"banana\", \"cherry\"}",
+        "choice_c": "/\"apple\", \"banana\", \"cherry\"/",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which of the following is the correct way to define a SET in Python?",
+        "answer": "{\"apple\", \"banana\", \"cherry\"}",
+        "choice_a": "[\"apple\", \"banana\", \"cherry\"]",
+        "choice_b": "(\"apple\", \"banana\", \"cherry\")",
+        "choice_c": "/\"apple\", \"banana\", \"cherry\"/",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which of the following is the correct way to define a LIST in Python?",
+        "answer": "[\"apple\", \"banana\", \"cherry\"]",
+        "choice_a": "{\"apple\", \"banana\", \"cherry\"}",
+        "choice_b": "(\"apple\", \"banana\", \"cherry\")",
+        "choice_c": "/\"apple\", \"banana\", \"cherry\"/",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which of the following is the correct way to define a DICTIONARY in Python?",
+        "answer": "[\"name\": \"apple\", \"color\": \"red\"]",
+        "choice_a": "{\"apple\", \"banana\", \"cherry\"}",
+        "choice_b": "(\"apple\", \"banana\", \"cherry\")",
+        "choice_c": "/\"apple\", \"banana\", \"cherry\"/",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which of the following Python collections is unordered and unindexed?",
+        "answer": "Set",
+        "choice_a": "List",
+        "choice_b": "Tuple",
+        "choice_c": "Dictionary",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which of the following Python collections is ordered and unchangeable?",
+        "answer": "Tuple",
+        "choice_a": "Set",
+        "choice_b": "List",
+        "choice_c": "Dictionary",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which of the following Python collections is ordered and changeable?",
+        "answer": "List",
+        "choice_a": "Set",
+        "choice_b": "Tuple",
+        "choice_c": "Dictionary",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which of the following Python collections stores data in key:value pairs?",
+        "answer": "Dictionary",
+        "choice_a": "Set",
+        "choice_b": "Tuple",
+        "choice_c": "List",
+        "quiz_id": 2
+    },
+    {
+        "question": "What is the index number of the first element in a Python array?",
+        "answer": "0",
+        "choice_a": "1",
+        "choice_b": "2",
+        "choice_c": "3",
+        "quiz_id": 2
+    },
+    {
+        "question": "How do you start writing an if statement in Python?",
+        "answer": "if x > y:",
+        "choice_a": "if x > y then:",
+        "choice_b": "if (x > y)",
+        "choice_c": "if => x > y",
+        "quiz_id": 2
+    },
+    {
+        "question": "How do you start writing a while loop in Python?",
+        "answer": "while x > y:",
+        "choice_a": "while (x > y)",
+        "choice_b": "while x > y {",
+        "choice_c": "while => x > y",
+        "quiz_id": 2
+    },
+    {
+        "question": "How do you start writing a for loop in Python?",
+        "answer": "for x in y:",
+        "choice_a": "for x > y",
+        "choice_b": "for each x in y",
+        "choice_c": "for (x > y)",
+        "quiz_id": 2
+    },
+    {
+        "question": "Which statemen is used to stop a loop in Python?",
+        "answer": "break",
+        "choice_a": "return",
+        "choice_b": "stop",
+        "choice_c": "exit",
+        "quiz_id": 2
+    },
+    {
+        "question": "How do you return the number of elements in a Python list?",
+        "answer": "len(listName)",
+        "choice_a": "listName.numberElements",
+        "choice_b": "listName.length",
+        "choice_c": "listName(totalElements)",
+        "quiz_id": 2
+    }
+]

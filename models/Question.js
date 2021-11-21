@@ -6,7 +6,7 @@ const Question = connection.define('question', {
         type: Sequelize.STRING
     },
     answer: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
     },
     choice_a: {
         type: Sequelize.STRING
