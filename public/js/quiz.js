@@ -1,9 +1,26 @@
-// document.getElementById("start-btn").addEventListener("click", () => {
-//     loadQuestion()
-// })
 function init() {
+    getQuizzes()
     startTimer()
-    getQuestions()
+}
+
+const getQuizzes = async () => {
+    await fetch(`/api/quizzes`, {
+        method: 'Get'
+    })
+        .then(response => {
+            response.json().then((data) => {
+                data.forEach(({ id, quiz }) => {
+                    quizBtn = document.createElement('button')
+                    quizBtn.innerText = quiz
+                    quizBtn.setAttribute('class', 'quiz-btn btn btn-info btn-lg btn-block')
+                    quizBtn.setAttribute('value', `${id}`)
+                    quizBtn.addEventListener('click', getQuestions)
+                    document.getElementById('quiz-btns').append(quizBtn)
+                })
+            });
+
+        })
+        .catch(err => console.log(err))
 }
 
 function startTimer() {
@@ -17,8 +34,10 @@ function startTimer() {
     }, 1000)
 }
 
-const getQuestions = async () => {
-    await fetch(`/api/questions`, {
+async function getQuestions() {
+    let id = this.value
+    console.log(this)
+    await fetch(`/api/questions/${id}`, {
         method: 'GET'
     })
         .then(response => {
@@ -62,7 +81,6 @@ init()
 
 
 // var submitButton = document.getElementById("submitBtn");
-
 
 // var quizTitleText = document.querySelector(".highscoresTitle");
 // var timeEl = document.querySelector(".time");
