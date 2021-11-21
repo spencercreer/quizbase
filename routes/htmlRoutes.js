@@ -4,16 +4,11 @@ const Highscore = require('../models/Highscore')
 const path = require('path')
 
 router.get('/', (req, res) => {
-    res.render('index')
+    res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
 router.get('/quiz', (req, res) => {
-    const questions = Question.findAll({
-        where: {
-            quiz_id: 1,
-        },
-    })
-    res.render('question')
+    res.sendFile(path.join(__dirname, '../public/quiz.html'))
 })
 
 router.get('/add-highscore', (req, res) => {
@@ -28,6 +23,5 @@ router.get('/highscores', (req, res) => {
     }))
     .catch(err => console.log(err))
 })
-
 
 module.exports = router

@@ -1,20 +1,36 @@
-document.getElementById("start-btn").addEventListener("click", () => {
+// document.getElementById("start-btn").addEventListener("click", () => {
+//     loadQuestion()
+// })
+function init() {
     startTimer()
-    loadQuestion()
-})
+    getQuestions()
+}
 
 function startTimer() {
     let time = 10
     setInterval(() => {
-        console.log(time)
         time--
+        if (time < 0) {
+            time = 0
+        }
+        document.getElementById("timer").textContent = time
     }, 1000)
 }
 
-function loadQuestion() {
-    console.log("Hello")
+const getQuestions = async () => {
+    await fetch(`/api/questions`, {
+        method: 'GET'
+    })
+        .then(response => {
+            response.json().then((data) => {
+                console.log(data);
+            });
+
+        })
+        .catch(err => console.log(err))
 }
 
+init()
 
 
 
