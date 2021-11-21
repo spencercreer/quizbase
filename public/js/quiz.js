@@ -1,9 +1,22 @@
+var questions
+var questionIndex = 0
+
 function init() {
-    getQuizzes()
-    startTimer()
+    loadQuizzes()
 }
 
-const getQuizzes = async () => {
+function startQuiz(data) {
+    questions = data
+    startTimer()
+    getQuestion()
+}
+
+document.getElementById('choiceA').addEventListener('click', getQuestion)
+document.getElementById('choiceB').addEventListener('click', getQuestion)
+document.getElementById('choiceC').addEventListener('click', getQuestion)
+document.getElementById('choiceD').addEventListener('click', getQuestion)
+
+const loadQuizzes = async () => {
     await fetch(`/api/quizzes`, {
         method: 'Get'
     })
@@ -14,9 +27,23 @@ const getQuizzes = async () => {
                     quizBtn.innerText = quiz
                     quizBtn.setAttribute('class', 'quiz-btn btn btn-info btn-lg btn-block')
                     quizBtn.setAttribute('value', `${id}`)
-                    quizBtn.addEventListener('click', getQuestions)
+                    quizBtn.addEventListener('click', loadQuestions)
                     document.getElementById('quiz-btns').append(quizBtn)
                 })
+            });
+
+        })
+        .catch(err => console.log(err))
+}
+
+async function loadQuestions() {
+    let id = this.value
+    await fetch(`/api/questions/${id}`, {
+        method: 'GET'
+    })
+        .then(response => {
+            response.json().then((data) => {
+                startQuiz(data)
             });
 
         })
@@ -34,19 +61,13 @@ function startTimer() {
     }, 1000)
 }
 
-async function getQuestions() {
-    let id = this.value
-    console.log(this)
-    await fetch(`/api/questions/${id}`, {
-        method: 'GET'
-    })
-        .then(response => {
-            response.json().then((data) => {
-                console.log(data);
-            });
-
-        })
-        .catch(err => console.log(err))
+function getQuestion() {
+    document.getElementById('question').textContent = questions[questionIndex].question
+    document.getElementById('choiceA').textContent = questions[questionIndex].choice_a
+    document.getElementById('choiceB').textContent = questions[questionIndex].choice_b
+    document.getElementById('choiceC').textContent = questions[questionIndex].choice_c
+    document.getElementById('choiceD').textContent = questions[questionIndex].answer
+    questionIndex++
 }
 
 init()
