@@ -1,23 +1,28 @@
 var questions
 var questionIndex = 0
+var time = 10
+var score = 0
 
 function init() {
+    // fetch quizzes from databas and load quiz buttons
     loadQuizzes()
+    // set up choice buttons with click event
+    document.getElementById('choiceA').addEventListener('click', checkAnswer)
+    document.getElementById('choiceB').addEventListener('click', checkAnswer)
+    document.getElementById('choiceC').addEventListener('click', checkAnswer)
+    document.getElementById('choiceD').addEventListener('click', checkAnswer)
 }
 
 function startQuiz(data) {
+    // start quiz timer, suffle questions, and display first question
+    startTimer()
     questions = shuffleQuestions(data)
-    console.log(questions)
+    getQuestion()
+    // hide home page and show quiz page
     document.getElementById('quiz-page').setAttribute('style', 'display: inline;')
     document.getElementById('home-page').setAttribute('style', 'display: none;')
-    startTimer()
-    getQuestion()
 }
 
-document.getElementById('choiceA').addEventListener('click', getQuestion)
-document.getElementById('choiceB').addEventListener('click', getQuestion)
-document.getElementById('choiceC').addEventListener('click', getQuestion)
-document.getElementById('choiceD').addEventListener('click', getQuestion)
 
 const loadQuizzes = async () => {
     await fetch(`/api/quizzes`, {
@@ -25,6 +30,7 @@ const loadQuizzes = async () => {
     })
         .then(response => {
             response.json().then((data) => {
+                // create a button for each quiz and add to homepage html
                 data.forEach(({ id, quiz }) => {
                     quizBtn = document.createElement('button')
                     quizBtn.innerText = quiz
@@ -54,7 +60,6 @@ async function loadQuestions() {
 }
 
 function startTimer() {
-    let time = 10
     setInterval(() => {
         time--
         if (time < 0) {
@@ -65,6 +70,7 @@ function startTimer() {
 }
 
 function shuffleQuestions(questions) {
+    // shuffle the questions array
     for (let i = questions.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [questions[i], questions[j]] = [questions[j], questions[i]];
@@ -73,18 +79,41 @@ function shuffleQuestions(questions) {
 }
 
 function getQuestion() {
-    // shuffle choices 
+    // shuffle choices for the question
     let shuffledArray = [questions[questionIndex].answer, questions[questionIndex].choice_a, questions[questionIndex].choice_b, questions[questionIndex].choice_c];
     for (let i = shuffledArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
     }
+    // display question and choices to quiz page html
     document.getElementById('question').textContent = questions[questionIndex].question
     document.getElementById('choiceA').textContent = shuffledArray[0]
     document.getElementById('choiceB').textContent = shuffledArray[1]
     document.getElementById('choiceC').textContent = shuffledArray[2]
     document.getElementById('choiceD').textContent = shuffledArray[3]
-    questionIndex++
+}
+
+function checkAnswer() {
+    if (this.textContent === questions[questionIndex].answer) {
+        // if selection matches answer add five to the score and make button green
+        score += 5
+        this.setAttribute('class', 'list-group-item list-group-item-action list-group-item-success')
+    } else {
+        // else subtract ten from the time and make button red
+        time -= 10
+        this.setAttribute('class', 'list-group-item list-group-item-action list-group-item-danger')  
+    }
+    document.getElementById('score').innerText = score
+    // remove color from buttons and get the next question
+    setTimeout(function () {
+        document.getElementById('choiceA').setAttribute('class', 'list-group-item list-group-item-action')
+        document.getElementById('choiceB').setAttribute('class', 'list-group-item list-group-item-action')
+        document.getElementById('choiceC').setAttribute('class', 'list-group-item list-group-item-action')
+        document.getElementById('choiceD').setAttribute('class', 'list-group-item list-group-item-action')
+        questionIndex++
+        getQuestion();
+    }, 300);
+
 }
 
 init()
