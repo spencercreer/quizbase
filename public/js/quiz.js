@@ -7,6 +7,8 @@ function init() {
 
 function startQuiz(data) {
     questions = data
+    document.getElementById('quiz-page').setAttribute('style', 'display: inline;')
+    document.getElementById('home-page').setAttribute('style', 'display: none;')
     startTimer()
     getQuestion()
 }
