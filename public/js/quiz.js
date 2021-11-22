@@ -6,7 +6,8 @@ function init() {
 }
 
 function startQuiz(data) {
-    questions = data
+    questions = shuffleQuestions(data)
+    console.log(questions)
     document.getElementById('quiz-page').setAttribute('style', 'display: inline;')
     document.getElementById('home-page').setAttribute('style', 'display: none;')
     startTimer()
@@ -63,12 +64,26 @@ function startTimer() {
     }, 1000)
 }
 
+function shuffleQuestions(questions) {
+    for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+    return questions
+}
+
 function getQuestion() {
+    // shuffle choices 
+    let shuffledArray = [questions[questionIndex].answer, questions[questionIndex].choice_a, questions[questionIndex].choice_b, questions[questionIndex].choice_c];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
     document.getElementById('question').textContent = questions[questionIndex].question
-    document.getElementById('choiceA').textContent = questions[questionIndex].choice_a
-    document.getElementById('choiceB').textContent = questions[questionIndex].choice_b
-    document.getElementById('choiceC').textContent = questions[questionIndex].choice_c
-    document.getElementById('choiceD').textContent = questions[questionIndex].answer
+    document.getElementById('choiceA').textContent = shuffledArray[0]
+    document.getElementById('choiceB').textContent = shuffledArray[1]
+    document.getElementById('choiceC').textContent = shuffledArray[2]
+    document.getElementById('choiceD').textContent = shuffledArray[3]
     questionIndex++
 }
 
