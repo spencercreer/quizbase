@@ -2,11 +2,12 @@ var questions
 var questionIndex = 0
 var time = 10
 var score = 0
+var timer
 
 function init() {
     // fetch quizzes from databas and load quiz buttons
     loadQuizzes()
-    // set up choice buttons with click event
+    // add click event to question choice buttons
     document.getElementById('choiceA').addEventListener('click', checkAnswer)
     document.getElementById('choiceB').addEventListener('click', checkAnswer)
     document.getElementById('choiceC').addEventListener('click', checkAnswer)
@@ -15,7 +16,7 @@ function init() {
 
 function startQuiz(data) {
     // start quiz timer, suffle questions, and display first question
-    startTimer()
+    timer = setInterval(quizTimer, 1000)
     questions = shuffleQuestions(data)
     getQuestion()
     // hide home page and show quiz page
@@ -59,14 +60,14 @@ async function loadQuestions() {
         .catch(err => console.log(err))
 }
 
-function startTimer() {
-    setInterval(() => {
-        time--
-        if (time < 0) {
-            time = 0
-        }
-        document.getElementById("timer").textContent = time
-    }, 1000)
+function quizTimer() {
+    time--
+    if (time < 0) {
+        time = 0
+        endQuiz()
+    }
+    console.log(time)
+    document.getElementById("timer").textContent = time
 }
 
 function shuffleQuestions(questions) {
@@ -104,16 +105,26 @@ function checkAnswer() {
         this.setAttribute('class', 'list-group-item list-group-item-action list-group-item-danger')  
     }
     document.getElementById('score').innerText = score
-    // remove color from buttons and get the next question
     setTimeout(function () {
+        // remove color from choice buttons
         document.getElementById('choiceA').setAttribute('class', 'list-group-item list-group-item-action')
         document.getElementById('choiceB').setAttribute('class', 'list-group-item list-group-item-action')
         document.getElementById('choiceC').setAttribute('class', 'list-group-item list-group-item-action')
         document.getElementById('choiceD').setAttribute('class', 'list-group-item list-group-item-action')
         questionIndex++
-        getQuestion();
+        // show next question or end the quiz if there are no more questions
+        if(questionIndex < questions.length) {
+            getQuestion();
+        } else {
+            endQuiz()
+        }
     }, 300);
+}
 
+function endQuiz() {
+    clearInterval(timer)
+    document.getElementById('initials-page').setAttribute('style', 'display: inline;')
+    document.getElementById('quiz-page').setAttribute('style', 'display: none;')
 }
 
 init()
