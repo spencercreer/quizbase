@@ -12,6 +12,8 @@ function init() {
     document.getElementById('choiceB').addEventListener('click', checkAnswer)
     document.getElementById('choiceC').addEventListener('click', checkAnswer)
     document.getElementById('choiceD').addEventListener('click', checkAnswer)
+    // add click event to initials submit button
+    document.getElementById('submitBtn').addEventListener('click', submitScore)
 }
 
 function startQuiz(data) {
@@ -125,6 +127,16 @@ function endQuiz() {
     clearInterval(timer)
     document.getElementById('initials-page').setAttribute('style', 'display: inline;')
     document.getElementById('quiz-page').setAttribute('style', 'display: none;')
+}
+
+async function submitScore() {
+    initial = document.getElementById('initials').value
+    console.log(initials)
+    console.log(score)
+    // await fetch (`/api/add-highscore`, {
+    //     method: 'POST',
+    //     body: JSON.stringify('hello')
+    // }) 
 }
 
 init()

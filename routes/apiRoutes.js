@@ -21,7 +21,7 @@ router.get(`/questions/:id`, (req, res) => {
         .catch(err => console.log(err))
 })
 
-// get all highscores
+// post highscores
 router.post('/add-highscore', (req, res) => {
     let { initials, score, quiz } = req.body
     HighScore.create({

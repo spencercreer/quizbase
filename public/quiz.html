@@ -33,48 +33,54 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-info">
-        <a class="navbar-brand py-2" style="font-family: Consolas; color:white; font-size: 25px;">0U1Z</a>
-        <a class="text-left mb-0 py-2" style="color: white; font-size: 25px;">Create a QuizBit</a>
+        <a class="navbar-brand py-2" href="/" style="color:white; font-size: 25px;">Code Quiz</a>
+        <p class="text-left mb-0 py-2" style="color: white; font-size: 25px;">Score: <span id="score">0</span></p>
     </nav>
 
-    <div>
+    <div id="home-page">
         <div class="jumbotron pt-2 mb-0">
-            <h1 class="display-4 text-center" style="font-family: Consolas;">QuizBit 0U1ZB1T</h1>
-            <p class="lead">Welcome to QuizBit; Your database of coding quizzes.</p>
+            <h1 class="display-4 text-center">QuizBit</h1>
+            <p class="lead">Answer as many coding questions as you can within the time limit. </p>
             <hr class="my-4">
+            <p>Your timer will begin with seventy-five seconds. Incorrect answers will reduce your time by ten seconds!
+            </p>
             <div id="quiz-btns"></div>
         </div>
     </div>
 
-    <div>
-        <div class="jumbotron pt-2 mb-0">
-            <h1 class="display-4 text-center" style="font-family: Consolas;"></h1>
-            <p class="lead">Welcome to QuizBit; Your database of coding quizzes.</p>
-            <hr class="my-4">
-            <div>JavaScript Quiz</div>
-            <form action="/question/add/1" method="POST">
-                <div class="input-group">
-                    <label for="question">Question</label>
-                    <textarea name="question" id="question" class="input-box" rows="10"></textarea>
+    <div id="quiz-page" style="display: none;">
+        <div class="jumbotron jumbotron-fluid pt-2 mb-0">
+            <div class="container">
+                <h1 class="display-4 text-center quiz-title">QuizBit</h1>
+                <p id= question class="lead"></p>
+                <div class="list-group">
+                    <a id="choiceA" class="list-group-item list-group-item-action"></a>
+                    <a id="choiceB" class="list-group-item list-group-item-action"></a>
+                    <a id="choiceC" class="list-group-item list-group-item-action"></a>
+                    <a id="choiceD" class="list-group-item list-group-item-action"></a>
                 </div>
-                <div class="input-group">
-                    <label for="answer">Answer</label>
-                    <input type="text" name="answer" id="answer" class="input-box"maxlength="100">
+                <p class="text-center" style="font-size: 100px"><span class="fa fa-clock-o mr-2"></span>
+                    <span id="timer"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="initials-page" style="display: none;">
+        <div class="jumbotron jumbotron-fluid pt-4 mb-0">
+            <div class="container">
+                <h1 class="display-4 text-center score-alert">Time's Up!</h1>
+                <p class="lead text-center">Your total score is: <span class="finalScore">0</span></p>
+    
+                <div class="input-group mb-3 justify-content-center">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-info" type="button" id="submitBtn">Submit</button>
+                    </div>
+                    <form>
+                        <input type="text" id="initials" placeholder="Enter your initials" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    </form>
                 </div>
-                <div class="input-group">
-                    <label for="choice-a">Choice A</label>
-                    <input type="text" name="choice-a" id="choice-a" class="input-box">
-                </div>
-                <div class="input-group">
-                    <label for="choice-b">Choice B</label>
-                    <input type="text" name="choice-b" id="choice-b" class="input-box">
-                </div>
-                <div class="input-group">
-                    <label for="choice-c">Choice C</label>
-                    <input type="text" name="choice-c" id="choice-c" class="input-box">
-                </div>
-                <input type="submit" value="Add Question" class="btn btn-info">
-            </form>
+            </div>
         </div>
     </div>
 
@@ -98,7 +104,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="./js/index.js"></script>
+    <script src="./js/quiz.js"></script>
 </body>
 
 </html>
