@@ -1,6 +1,6 @@
 var questions
 var questionIndex = 0
-var time = 10
+var time = 75
 var score = 0
 var timer
 

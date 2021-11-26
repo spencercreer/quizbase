@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Coding Articles</title>
+    <title>QuizBit</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,26 +52,26 @@
             <p class="lead">Welcome to QuizBit; Your database of coding quizzes.</p>
             <hr class="my-4">
             <div>JavaScript Quiz</div>
-            <form action="/question/add/1" method="POST">
-                <div class="input-group">
-                    <label for="question">Question</label>
-                    <textarea name="question" id="question" class="input-box" rows="10"></textarea>
+            <form action="api/question/add/1" method="POST">
+                <div class="mb-3">
+                    <label for="question" class="form-label">Question</label>
+                    <input type="text" name="question" class="form-control" id="question">
                 </div>
-                <div class="input-group">
-                    <label for="answer">Answer</label>
-                    <input type="text" name="answer" id="answer" class="input-box"maxlength="100">
+                <div class="mb-3">
+                    <label for="answer" class="form-label">Answer</label>
+                    <input type="text" name="answer" class="form-control" id="answer">
                 </div>
-                <div class="input-group">
-                    <label for="choice-a">Choice A</label>
-                    <input type="text" name="choice-a" id="choice-a" class="input-box">
+                <div class="mb-3">
+                    <label for="choice_a" class="form-label">Choice A</label>
+                    <input type="text" name="choice_a" class="form-control" id="choice_a">
                 </div>
-                <div class="input-group">
-                    <label for="choice-b">Choice B</label>
-                    <input type="text" name="choice-b" id="choice-b" class="input-box">
+                <div class="mb-3">
+                    <label for="choice_b" class="form-label">Choice B</label>
+                    <input type="text" name="choice_b" class="form-control" id="choice_b">
                 </div>
-                <div class="input-group">
-                    <label for="choice-c">Choice C</label>
-                    <input type="text" name="choice-c" id="choice-c" class="input-box">
+                <div class="mb-3">
+                    <label for="choice_c" class="form-label">Choice C</label>
+                    <input type="text" name="choice_c" class="form-control" id="choice_c">
                 </div>
                 <input type="submit" value="Add Question" class="btn btn-info">
             </form>

@@ -17,9 +17,9 @@ const Question = connection.define('question', {
     choice_c: {
         type: Sequelize.STRING
     },
-    choice_d: {
-        type: Sequelize.STRING
-    },
+    quiz_id: {
+        type: Sequelize.INTEGER
+    }
 })
 
 module.exports = Question
