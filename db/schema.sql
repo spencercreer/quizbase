@@ -3,7 +3,7 @@ CREATE DATABASE coding_quiz_db;
 
 USE coding_quiz_db;
 
-CREATE TABLE quiz(
+CREATE TABLE quizzes(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     quiz VARCHAR(255),
     createdAt DATETIME NOT NULL,

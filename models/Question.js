@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const connection = require('../config/connection')
+const Quiz = require('./Quiz')
 
 const Question = connection.define('question', {
     question: {
@@ -18,7 +19,11 @@ const Question = connection.define('question', {
         type: Sequelize.STRING
     },
     quiz_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+            model: Quiz,
+            key: 'id'
+        }
     }
 })
 

@@ -1,9 +1,9 @@
 function init() {
-    loadQuizzes()
+    loadQuestions()
 }
 
-const loadQuizzes = async () => {
-    await fetch(`/api/quizzes`, {
+const loadQuestions = async () => {
+    await fetch(`/api/questions/${1}`, {
         method: 'Get'
     })
         .then(response => {
@@ -15,7 +15,7 @@ const loadQuizzes = async () => {
                       ${quiz}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                      <a class="dropdown-item" href="/questions-page/${id}">Add/Edit Questions</a>
+                      <a class="dropdown-item" href="/questions/${id}">Add/Edit Questions</a>
                       <a class="dropdown-item" href="">Take Quiz</a>
                       <a class="dropdown-item" href="#">View Highscores</a>
                     </div>

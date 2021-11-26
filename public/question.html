@@ -27,22 +27,62 @@
     <!-- Bootstrap CSS and Font Awesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/487e9d9145.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/487e9d9145.js" crossorigin="anonymous"></script> -->
+    <!-- <link rel="stylesheet" href="./style.css"> -->
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-info">
-        <a class="navbar-brand py-2" style="font-family: Consolas; color:white; font-size: 25px;">QuizBase</a>
-        <a class="text-left mb-0 py-2" style="color: white; font-size: 25px;">Create a QuizBit</a>
+        <a class="navbar-brand py-2" href="/" style="color:white; font-size: 25px;">Code Quiz</a>
+        <p class="text-left mb-0 py-2" style="color: white; font-size: 25px;">Score: <span id="score">0</span></p>
     </nav>
 
-    <div>
+    <div id="home-page">
         <div class="jumbotron pt-2 mb-0">
-            <h1 class="display-4 text-center">QuizBase</h1>
-            <p class="lead">Welcome to QuizBase; A database of coding quizzes.</p>
+            <h1 class="display-4 text-center">QuizBit</h1>
+            <p class="lead">Answer as many coding questions as you can within the time limit. </p>
             <hr class="my-4">
+            <p>Your timer will begin with seventy-five seconds. Incorrect answers will reduce your time by ten seconds!
+            </p>
             <div id="quiz-btns"></div>
+        </div>
+    </div>
+
+    <div id="quiz-page" style="display: none;">
+        <div class="jumbotron jumbotron-fluid pt-2 mb-0">
+            <div class="container">
+                <h1 class="display-4 text-center quiz-title">QuizBit</h1>
+                <p id=question class="lead"></p>
+                <div class="list-group">
+                    <a id="choiceA" class="list-group-item list-group-item-action"></a>
+                    <a id="choiceB" class="list-group-item list-group-item-action"></a>
+                    <a id="choiceC" class="list-group-item list-group-item-action"></a>
+                    <a id="choiceD" class="list-group-item list-group-item-action"></a>
+                </div>
+                <p class="text-center" style="font-size: 100px"><span class="fa fa-clock-o mr-2"></span>
+                    <span id="timer"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="initials-page" style="display: none;">
+        <div class="jumbotron jumbotron-fluid pt-4 mb-0">
+            <div class="container">
+                <h1 class="display-4 text-center score-alert">Time's Up!</h1>
+                <p class="lead text-center">Your total score is: <span class="finalScore">0</span></p>
+
+                <div class="input-group mb-3 justify-content-center">
+                    <form action="api/highscore/add/1" method="POST">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="text" name="initials" class="form-control" id="initials" placeholder="Enter your initials"
+                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <button type="submit" class="btn btn-info" id="submitBtn">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -66,7 +106,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="./js/index.js"></script>
+    <script src="./js/question.js"></script>
 </body>
 
 </html>
