@@ -1,8 +1,8 @@
 [
     {
-        "quiz": "JavaScript"
+        "quiz_name": "JavaScript"
     },
     {
-        "quiz": "Python"
+        "quiz_name": "Python"
     }
 ]

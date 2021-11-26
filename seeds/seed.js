@@ -1,4 +1,4 @@
-const sequelize = require('../config/connection')
+const sequelize = require('../config/config')
 const { Quiz, Question, Highscore } = require('../models')
 
 const quizData = require('./quizData.json')

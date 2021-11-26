@@ -1,21 +1,22 @@
-const Sequelize = require('sequelize')
-const connection = require('../config/connection')
-const Quiz = require('./Quiz')
+const { Sequelize, Model, DataTypes } = require('sequelize')
+const sequelize = require('../config/config')
 
-const Highscore = connection.define('highscore', {
-    initials: {
-        type: Sequelize.STRING
-    },
-    score: {
-        type: Sequelize.INTEGER
-    },
-    quiz_id: {
-        type: Sequelize.INTEGER,
-        references: {
-            model: Quiz,
-            key: 'id'
+class Highscore extends Model { }
+
+Highscore.init(
+    {
+        initials: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        score: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
+    },
+    {
+        sequelize
     }
-})
+)
 
 module.exports = Highscore

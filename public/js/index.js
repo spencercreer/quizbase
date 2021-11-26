@@ -9,10 +9,10 @@ const loadQuizzes = async () => {
         .then(response => {
             response.json().then((data) => {
                 // create a button for each quiz and add to homepage html
-                data.forEach(({ id, quiz }) => {
+                data.forEach(({ id, quiz_name }) => {
                     quizBtn = $(`<div class="btn-group m-1" role="group">
                     <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      ${quiz}
+                      ${quiz_name}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                       <a class="dropdown-item" href="/questions-page/${id}">Add/Edit Questions</a>

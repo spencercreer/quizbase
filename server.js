@@ -7,8 +7,8 @@ require('dotenv').config()
 
 
 // connect to database
-const connection = require('./config/connection')
-connection.authenticate()
+const sequelize = require('./config/config')
+sequelize.authenticate()
 .then(() => console.log('coding_quiz_db connected...'))
 .catch(err => console.log('db.authenticate error: ' + err))
 
