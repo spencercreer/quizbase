@@ -7,6 +7,11 @@ Question.belongsTo(Quiz, {
     onDelete: 'CASCADE'
 })
 
+Highscore.belongsTo(Quiz, {
+    foreignKey: 'quiz_id',
+    onDelete: 'CASCADE'
+})
+
 module.exports = {
     Quiz,
     Question,

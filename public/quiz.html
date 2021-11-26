@@ -25,9 +25,10 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Bootstrap CSS and Font Awesome -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!-- <script src="https://kit.fontawesome.com/487e9d9145.js" crossorigin="anonymous"></script> -->
-        <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <script src="https://kit.fontawesome.com/487e9d9145.js" crossorigin="anonymous"></script> -->
+    <!-- <link rel="stylesheet" href="./style.css"> -->
 </head>
 
 <body>
@@ -52,7 +53,7 @@
         <div class="jumbotron jumbotron-fluid pt-2 mb-0">
             <div class="container">
                 <h1 class="display-4 text-center quiz-title">QuizBit</h1>
-                <p id= question class="lead"></p>
+                <p id=question class="lead"></p>
                 <div class="list-group">
                     <a id="choiceA" class="list-group-item list-group-item-action"></a>
                     <a id="choiceB" class="list-group-item list-group-item-action"></a>
@@ -71,13 +72,14 @@
             <div class="container">
                 <h1 class="display-4 text-center score-alert">Time's Up!</h1>
                 <p class="lead text-center">Your total score is: <span class="finalScore">0</span></p>
-    
+
                 <div class="input-group mb-3 justify-content-center">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-info" type="button" id="submitBtn">Submit</button>
-                    </div>
-                    <form>
-                        <input type="text" id="initials" placeholder="Enter your initials" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    <form action="api/highscore/add/1" method="POST">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="text" name="initials" class="form-control" id="initials" placeholder="Enter your initials"
+                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <button type="submit" class="btn btn-info" id="submitBtn">Submit</button>
                     </form>
                 </div>
             </div>

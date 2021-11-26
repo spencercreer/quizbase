@@ -8,8 +8,8 @@ const Highscore = connection.define('highscore', {
     score: {
         type: Sequelize.INTEGER
     },
-    quiz: {
-        type: Sequelize.STRING
+    quiz_id: {
+        type: Sequelize.INTEGER
     }
 })
 

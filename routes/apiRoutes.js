@@ -22,14 +22,14 @@ router.get('/questions/:id', (req, res) => {
 })
 
 // post highscores
-router.post('/add-highscore', (req, res) => {
-    let { initials, score, quiz } = req.body
+router.post('/highscore/add/:id', (req, res) => {
+    let { initials, score } = req.body
     HighScore.create({
         initials,
-        score,
-        quiz
+        score: 20,
+        quiz_id: parseInt(req.params.id)
     })
-        .then(highscore => res.redirect('/highscores'))
+        .then(highscore => res.redirect('/quiz'))
         .catch(err => console.log(err))
 })
 // post question
