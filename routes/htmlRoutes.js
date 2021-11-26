@@ -1,7 +1,5 @@
 const router = require('express').Router()
-const Quiz = require('../models/Quiz')
-const Question = require('../models/Question')
-const Highscore = require('../models/Highscore')
+const { Quiz, Question, Highscore } = require('../models')
 const path = require('path')
 
 router.get('/', (req, res) => {
@@ -17,15 +15,15 @@ router.get('/questions-page/:id', (req, res) => {
         where: {
             quiz_id: req.params.id,
         },
-        include: [{
-            model: Quiz,
-            required: true
-           }]
+        include: [Quiz]
     })
-        .then(questions => res.render('questions-page', { 
-            questions,
-            quiz_id: req.params.id 
-        }))
+        .then(questions => {
+            questions = questions.map(question => question.get({ plain: true }))
+            console.log(questions)
+            res.render('questions-page', { 
+                questions
+            })
+        })
         .catch(err => console.log(err))
 })
 

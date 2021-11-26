@@ -1,7 +1,5 @@
 const router = require('express').Router()
-const Quiz = require('../models/Quiz')
-const Question = require('../models/Question')
-const HighScore = require('../models/Highscore')
+const { Quiz, Question, Highscore } = require('../models')
 
 // get all quizzes
 router.get('/quizzes', (req, res) => {
