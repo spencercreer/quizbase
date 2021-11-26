@@ -15,7 +15,7 @@ const loadQuizzes = async () => {
                       ${quiz_name}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                      <a class="dropdown-item" href="/questions-page/${id}">Add/Edit Questions</a>
+                      <a class="dropdown-item" href="/questions/${id}">Add/Edit Questions</a>
                       <a class="dropdown-item" href="">Take Quiz</a>
                       <a class="dropdown-item" href="#">View Highscores</a>
                     </div>

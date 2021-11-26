@@ -28,8 +28,7 @@ app.set('view engine', 'handlebars')
 
 
 // routes
-app.use('/', require('./routes/htmlRoutes'))
-app.use('/api', require('./routes/apiRoutes'))
+app.use(require('./controllers/'));
 
 const PORT = 3001
 app.listen(3001, () => console.log(`listening on http://localhost:${3001}`))

@@ -1,9 +1,9 @@
 <section>
 
     <div class="jumbotron pt-2 mb-0">
-        <h1 class="display-4 text-center">{{questions.0.Quiz.quiz_name}}</h1>
+        <h1 class="display-4 text-center">{{questions.0.Quiz.quiz_name}} Quiz Questions</h1>
         <h2>Add Question</h2>
-        <form action="api/question/add/1" method="POST">
+        <form action="/questions/{{questions.0.Quiz.id}}" method="POST">
             <div class="mb-3">
                 <label for="question" class="form-label">Question</label>
                 <input type="text" name="question" class="form-control" id="question">
@@ -26,15 +26,21 @@
             </div>
             <input type="submit" value="Add Question" class="btn btn-info">
         </form>
-    {{#each questions}}
-    <div>
-        <h3>{{question}}</h3>
-        <ul>
-            <li>Answer: {{answer}}</li>
-            <li>Choice A: {{choice_a}}</li>
-        </ul>
-    </div>
-    {{/each}}
+        {{#each questions}}
+        <div>
+            <h3>{{question}}</h3>
+            <ul>
+                <li>Answer: {{answer}}</li>
+                <li>Choices:
+                    <ul>
+                        <li>{{choice_a}}</li>
+                        <li>{{choice_b}}</li>
+                        <li>{{choice_c}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        {{/each}}
     </div>
 
 </section>

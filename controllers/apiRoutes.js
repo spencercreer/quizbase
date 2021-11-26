@@ -9,15 +9,15 @@ router.get('/quizzes', (req, res) => {
 })
 
 // get questions for specific quiz
-router.get('/questions/:id', (req, res) => {
-    Question.findAll({
-        where: {
-            quiz_id: req.params.id,
-        },
-    })
-        .then(questions => res.send(questions))
-        .catch(err => console.log(err))
-})
+// router.get('/questions/:id', (req, res) => {
+//     Question.findAll({
+//         where: {
+//             quiz_id: req.params.id,
+//         },
+//     })
+//         .then(questions => res.send(questions))
+//         .catch(err => console.log(err))
+// })
 
 // post highscores
 router.post('/highscore/add/:id', (req, res) => {
@@ -31,19 +31,6 @@ router.post('/highscore/add/:id', (req, res) => {
         .catch(err => console.log(err))
 })
 // post question
-router.post('/question/add/:id', (req, res) => {
-    let { question, answer, choice_a, choice_b, choice_c } = req.body 
-    console.log(req.params.id)
-    Question.create({
-        question,
-        answer,
-        choice_a,
-        choice_b,
-        choice_c,
-        quiz_id: parseInt(req.params.id)
-    })
-    .then(question => res.redirect('/'))
-    .catch(err => console.log(err))
-})
+
 
 module.exports = router
