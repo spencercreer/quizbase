@@ -9,8 +9,8 @@ require('dotenv').config()
 // connect to database
 const sequelize = require('./config/config')
 sequelize.authenticate()
-.then(() => console.log('coding_quiz_db connected...'))
-.catch(err => console.log('db.authenticate error: ' + err))
+    .then(() => console.log('coding_quiz_db connected...'))
+    .catch(err => console.log('db.authenticate error: ' + err))
 
 const app = express()
 
@@ -22,7 +22,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
-    handlebars: allowInsecurePrototypeAccess(Handlebars)
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
+    helpers: {
+        inc: function (value, options) {
+            return parseInt(value) + 1;
+        }
+    }
 }))
 app.set('view engine', 'handlebars')
 

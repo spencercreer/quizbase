@@ -1,7 +1,7 @@
 <div id="highscoresPg">
     <div class="jumbotron jumbotron-fluid pt-4 mb-0">
         <div class="container">
-            <h1 class="display-4 text-center highscoresTitle">Highscores</h1>
+            <h1 class="display-4 text-center highscoresTitle">{{highscores.0.Quiz.quiz_name}} Highscores</h1>
             <p id="highscore-message" class="lead text-center">Try to see if you can top the scores list.</p>
 
             <table class="table table-sm">
@@ -15,7 +15,7 @@
                 <tbody id="scoresList">
                     {{#each highscores}}
                     <tr>
-                        <td class="text-center">Place</td>
+                        <td class="text-center">{{inc @index}}</td>
                         <td class="text-center">{{this.initials}}</td>
                         <td class="text-center">{{this.score}}</th>
                     </tr>
