@@ -1,11 +1,13 @@
 const router = require('express').Router()
 
-const apiRoutes = require('./apiRoutes')
-const homeRoutes = require('./homeRoutes')
-const questionRoutes = require('./questionRoutes')
+const homeRoutes = require('./routes/homeRoutes')
+const questionRoutes = require('./routes/questionRoutes')
+const quizRoutes = require('./routes/quizRoutes')
+const highscoreRoutes = require('./routes/highscoreRoutes')
 
 router.use('/', homeRoutes)
 router.use('/questions', questionRoutes)
-router.use('/api', apiRoutes)
+router.use('/quiz', quizRoutes)
+router.use('/highscores', highscoreRoutes)
 
 module.exports = router

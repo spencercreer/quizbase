@@ -6,7 +6,7 @@ var timer
 
 function init() {
     // fetch quizzes from databas and load quiz buttons
-    loadQuizzes()
+    loadQuestions()
     // add click event to question choice buttons
     document.getElementById('choiceA').addEventListener('click', checkAnswer)
     document.getElementById('choiceB').addEventListener('click', checkAnswer)
@@ -26,31 +26,9 @@ function startQuiz(data) {
     document.getElementById('home-page').setAttribute('style', 'display: none;')
 }
 
-
-const loadQuizzes = async () => {
-    await fetch(`/api/quizzes`, {
-        method: 'Get'
-    })
-        .then(response => {
-            response.json().then((data) => {
-                // create a button for each quiz and add to homepage html
-                data.forEach(({ id, quiz }) => {
-                    quizBtn = document.createElement('button')
-                    quizBtn.innerText = quiz
-                    quizBtn.setAttribute('class', 'quiz-btn btn btn-info btn-lg btn-block')
-                    quizBtn.setAttribute('value', `${id}`)
-                    quizBtn.addEventListener('click', loadQuestions)
-                    document.getElementById('quiz-btns').append(quizBtn)
-                })
-            });
-
-        })
-        .catch(err => console.log(err))
-}
-
 async function loadQuestions() {
     let id = this.value
-    await fetch(`/api/questions/${id}`, {
+    await fetch(`/quiz/questions/${id}`, {
         method: 'GET'
     })
         .then(response => {
