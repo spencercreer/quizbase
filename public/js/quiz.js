@@ -21,18 +21,16 @@ function startQuiz(data) {
     timer = setInterval(quizTimer, 1000)
     questions = shuffleQuestions(data)
     getQuestion()
-    // hide home page and show quiz page
-    document.getElementById('quiz-page').setAttribute('style', 'display: inline;')
-    document.getElementById('home-page').setAttribute('style', 'display: none;')
 }
 
 async function loadQuestions() {
-    let id = this.value
+    let id = document.getElementById('quiz-id').textContent
     await fetch(`/quiz/questions/${id}`, {
         method: 'GET'
     })
         .then(response => {
             response.json().then((data) => {
+                console.log(data)
                 startQuiz(data)
             });
 
@@ -46,7 +44,6 @@ function quizTimer() {
         time = 0
         endQuiz()
     }
-    console.log(time)
     document.getElementById("timer").textContent = time
 }
 
@@ -103,6 +100,7 @@ function checkAnswer() {
 
 function endQuiz() {
     clearInterval(timer)
+    document.getElementById('final-score').textContent = score
     document.getElementById('initials-page').setAttribute('style', 'display: inline;')
     document.getElementById('quiz-page').setAttribute('style', 'display: none;')
 }

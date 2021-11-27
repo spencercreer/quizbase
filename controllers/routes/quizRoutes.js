@@ -18,7 +18,7 @@ router.get('/questions/:id', (req, res) => {
             quiz_id: req.params.id,
         }
     })
-        .then(quizzes => res.send(quizzes))
+        .then(questions => res.send(questions))
         .catch(err => console.log(err))
 })
 

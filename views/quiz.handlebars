@@ -1,26 +1,29 @@
 <div id="quiz-page">
     <div class="jumbotron jumbotron-fluid pt-2 mb-0">
         <div class="container">
-            <h1 class="display-4 text-center quiz-title">{{quiz_name}} Quiz</h1>
-            <p id=question class="lead"></p>
+            <h1 class="display-4 text-center quiz-title">{{quiz.0.quiz_name}} Quiz <span id="quiz-id" style="display: none;">{{quiz.0.id}}</span></h1>
+            <p id="question" class="lead"></p>
             <div class="list-group">
                 <a id="choiceA" class="list-group-item list-group-item-action"></a>
                 <a id="choiceB" class="list-group-item list-group-item-action"></a>
                 <a id="choiceC" class="list-group-item list-group-item-action"></a>
                 <a id="choiceD" class="list-group-item list-group-item-action"></a>
             </div>
-            <p class="text-center" style="font-size: 100px"><span class="fa fa-clock-o mr-2"></span>
-                <span id="timer"></span>
+            <p class="text-center" style="font-size: 50px">
+                <span class="fa fa-clock-o mr-2"></span><span id="timer">75</span>
+            </p>
+            <p class="text-center" style="font-size: 50px">
+                <span>Score: </span><span id="score">0</span>
             </p>
         </div>
     </div>
 </div>
 
-<div id="initials-page">
+<div id="initials-page" style="display: none;">
     <div class="jumbotron jumbotron-fluid pt-4 mb-0">
         <div class="container">
             <h1 class="display-4 text-center score-alert">Time's Up!</h1>
-            <p class="lead text-center">Your total score is: <span class="finalScore">0</span></p>
+            <p class="lead text-center">You scored <span id="final-score">0</span> points</p>
 
             <div class="input-group mb-3 justify-content-center">
                 <form action="api/highscore/add/1" method="POST">
