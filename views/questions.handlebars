@@ -36,28 +36,25 @@
         </form> --}}
 
         <!-- Button trigger modal -->
-        <button id="add-modal-btn" type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#staticBackdrop">Add Question</button>
+        <button id="add-modal-btn" type="button" class="btn btn-block btn-info" data-toggle="modal"
+            data-target="#staticBackdrop">Add Question</button>
 
         {{#each questions}}
         <div class="card my-1">
             <div class="card-body pb-1 mx-1">
                 <div style="display: flex; justify-content: left;">
+                    <a class="delete-button px-1 mx-1" data-id={{id}}
+                        style="text-align: center; background-color: red; color: white; height: 30px; width: 30px; border-radius: 5px; border-style: none; font-weight: bold; font-size: 18px;">X</a>
                     <button class="edit-button fas fa-edit p-1" data-id={{id}} data-toggle="modal"
                         data-target="#staticBackdrop"
                         style="height: 30px; width: 30px; color:white; background-color: #18A2B8; border-radius: 5px; border-style: none;"></button>
-                    <a class="delete-button px-1 mx-1" data-id={{id}}
-                        style="text-align: center; background-color: red; color: white; height: 30px; width: 30px; border-radius: 5px; border-style: none; font-weight: bold; font-size: 18px;">X</a>
-                    <h4 class="px-1">{{question}}</h4>
+                    <h4 class="px-1" style="display: block;">{{question}}</h4>
                 </div>
                 <ul>
                     <li>Answer: {{answer}}</li>
-                    <li>Choices:
-                        <ul>
-                            <li>{{choice_a}}</li>
-                            <li>{{choice_b}}</li>
-                            <li>{{choice_c}}</li>
-                        </ul>
-                    </li>
+                    <li>{{choice_a}}</li>
+                    <li>{{choice_b}}</li>
+                    <li>{{choice_c}}</li>
                 </ul>
             </div>
         </div>
