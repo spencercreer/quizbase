@@ -28,7 +28,11 @@
         </form>
         {{#each questions}}
         <div>
-            <h3>{{question}}</h3>
+            <div style="display: flex; justify-content: left;">
+                <a class="edit-button px-1" data-id={{id}}><i class="fas fa-edit"></i></a>
+                <a class="delete-button px-1" data-id={{id}} style="color: red; font-weight: bold;">X</a>
+                <h4>{{question}}</h4>
+            </div>
             <ul>
                 <li>Answer: {{answer}}</li>
                 <li>Choices:
@@ -44,3 +48,4 @@
     </div>
 
 </section>
+<script src="/js/questions.js"></script>
