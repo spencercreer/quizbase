@@ -1,7 +1,8 @@
 <div id="quiz-page">
     <div class="jumbotron jumbotron-fluid pt-2 mb-0">
         <div class="container">
-            <h1 class="display-4 text-center quiz-title">{{quiz.0.quiz_name}} Quiz <span id="quiz-id" style="display: none;">{{quiz.0.id}}</span></h1>
+            <h1 class="display-4 text-center quiz-title">{{quiz.0.quiz_name}} Quiz <span id="quiz-id"
+                    style="display: none;">{{quiz.0.id}}</span></h1>
             <p id="question" class="lead"></p>
             <div class="list-group">
                 <a id="choiceA" class="list-group-item list-group-item-action"></a>
@@ -25,18 +26,17 @@
             <h1 class="display-4 text-center score-alert">Time's Up!</h1>
             <p class="lead text-center">You scored <span id="final-score">0</span> points</p>
 
-            <div class="input-group mb-3 justify-content-center">
-                <form action="api/highscore/add/1" method="POST">
+            <form action="/highscores/add/{{quiz.0.id}}" method="POST">
+                <div class="input-group mb-3 justify-content-center">
                     <div class="input-group-prepend">
+                        <button type="submit" class="btn btn-info" id="submitBtn">Submit</button>
                     </div>
-                    <input type="text" name="initials" class="form-control" id="initials"
-                        placeholder="Enter your initials" aria-label="Example text with button addon"
-                        aria-describedby="button-addon1">
-                    <button type="submit" class="btn btn-info" id="submitBtn">Submit</button>
-                </form>
-            </div>
+                    <input type="text" name="initials" class="form-control" id="initials" placeholder="Enter your initials">
+                    <input type="text" name="score" id="score-input" style="display: none;" readonly>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
- <script src="/js/quiz.js"></script>
+<script src="/js/quiz.js"></script>

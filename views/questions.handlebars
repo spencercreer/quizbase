@@ -1,27 +1,35 @@
 <section>
 
     <div class="jumbotron pt-2 mb-0">
-        <h1 class="display-4 text-center">{{questions.0.Quiz.quiz_name}} Quiz Questions</h1>
-        <h2>Add Question</h2>
-        <form action="/questions/{{questions.0.Quiz.id}}" method="POST">
-            <div class="mb-3">
-                <label for="question" class="form-label">Question</label>
-                <input type="text" name="question" class="form-control" id="question">
+        <h1 class="display-4 text-center my-4">{{questions.0.Quiz.quiz_name}} Quiz Questions</h1>
+        <form class="mb-4" action="/questions/{{questions.0.Quiz.id}}" method="POST">
+            <div class="row">
+                <div class="col mb-2">
+                    <label for="question" class="form-label">Question <span style="color: red;">*</span></label>
+                    <input type="text" name="question" class="form-control" id="question">
+                </div>
+                <div class="col mb-2">
+                    <label for="answer" class="form-label">Answer <span style="color: red;">*</span></label>
+                    <input type="text" name="answer" class="form-control" id="answer">
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="answer" class="form-label">Answer</label>
-                <input type="text" name="answer" class="form-control" id="answer">
-            </div>
-            <div class="mb-3">
-                <label for="choice_a" class="form-label">Choice A</label>
+            <label class="form-label">Multiple Choices <span style="color: red;">*</span></label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">1:</div>
+                </div>
                 <input type="text" name="choice_a" class="form-control" id="choice_a">
             </div>
-            <div class="mb-3">
-                <label for="choice_b" class="form-label">Choice B</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">2:</div>
+                </div>
                 <input type="text" name="choice_b" class="form-control" id="choice_b">
             </div>
-            <div class="mb-3">
-                <label for="choice_c" class="form-label">Choice C</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">3:</div>
+                </div>
                 <input type="text" name="choice_c" class="form-control" id="choice_c">
             </div>
             <input type="submit" value="Add Question" class="btn btn-info">

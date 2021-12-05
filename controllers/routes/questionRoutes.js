@@ -7,7 +7,10 @@ router.get('/:id', (req, res) => {
         where: {
             quiz_id: req.params.id,
         },
-        include: [Quiz]
+        include: [Quiz],
+        order: [
+            ['id', 'DESC']
+        ]
     })
         .then(questions => res.render('questions', { questions }))
         .catch(err => console.log(err))

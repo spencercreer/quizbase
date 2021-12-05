@@ -16,17 +16,15 @@ router.get('/:id', (req, res) => {
         .catch(err => console.log(err))
 })
 
-// post highscores
 router.post('/add/:id', (req, res) => {
     let { initials, score } = req.body
-    HighScore.create({
+    Highscore.create({
         initials,
-        score: 20,
+        score,
         quiz_id: parseInt(req.params.id)
     })
-        .then(highscore => res.redirect('/quiz'))
+        .then(highscores => res.redirect(`/highscores/${req.params.id}`))
         .catch(err => console.log(err))
 })
-
 
 module.exports = router
