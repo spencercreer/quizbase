@@ -2,7 +2,7 @@
 
     <div class="jumbotron pt-2 mb-0">
         <h1 class="display-4 text-center my-4">{{questions.0.Quiz.quiz_name}} Quiz Questions</h1>
-        <form class="mb-4" action="/questions/{{questions.0.Quiz.id}}" method="POST">
+        {{!-- <form class="mb-4" action="/questions/{{questions.0.Quiz.id}}" method="POST">
             <div class="row">
                 <div class="col mb-2">
                     <label for="question" class="form-label">Question <span style="color: red;">*</span></label>
@@ -33,14 +33,20 @@
                 <input type="text" name="choice_c" class="form-control" id="choice_c">
             </div>
             <input type="submit" value="Add Question" class="btn btn-info">
-        </form>
+        </form> --}}
+
+        <!-- Button trigger modal -->
+        <button id="add-modal-btn" type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#staticBackdrop">Add Question</button>
+
         {{#each questions}}
         <div class="card my-1">
-            <div class="card-body pb-1">
+            <div class="card-body pb-1 mx-1">
                 <div style="display: flex; justify-content: left;">
-                    <a class="edit-button px-1" data-id={{id}}><i class="fas fa-edit"></i></a>
-                    <a class="delete-button px-1" data-id={{id}}
-                        style="color: red; font-weight: bold; font-size: 18px;">X</a>
+                    <button class="edit-button fas fa-edit p-1" data-id={{id}} data-toggle="modal"
+                        data-target="#staticBackdrop"
+                        style="height: 30px; width: 30px; color:white; background-color: #18A2B8; border-radius: 5px; border-style: none;"></button>
+                    <a class="delete-button px-1 mx-1" data-id={{id}}
+                        style="text-align: center; background-color: red; color: white; height: 30px; width: 30px; border-radius: 5px; border-style: none; font-weight: bold; font-size: 18px;">X</a>
                     <h4 class="px-1">{{question}}</h4>
                 </div>
                 <ul>
@@ -56,6 +62,59 @@
             </div>
         </div>
         {{/each}}
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="question-modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="mb-4" action="/questions/{{questions.0.Quiz.id}}" method="POST">
+                        <div class="row">
+                            <div class="col mb-2">
+                                <label for="question" class="form-label">Question</label>
+                                <input type="text" name="question" class="form-control" id="question">
+                            </div>
+                            <div class="col mb-2">
+                                <label for="answer" class="form-label">Answer</label>
+                                <input type="text" name="answer" class="form-control" id="answer">
+                            </div>
+                        </div>
+                        <label class="form-label">Multiple Choices</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">1:</div>
+                            </div>
+                            <input type="text" name="choice_a" class="form-control" id="choice_a">
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">2:</div>
+                            </div>
+                            <input type="text" name="choice_b" class="form-control" id="choice_b">
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">3:</div>
+                            </div>
+                            <input type="text" name="choice_c" class="form-control" id="choice_c">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" value="Add Question" class="btn btn-info">
+                </div>
+            </div>
+        </div>
     </div>
 
 </section>
