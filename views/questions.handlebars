@@ -27,22 +27,25 @@
             <input type="submit" value="Add Question" class="btn btn-info">
         </form>
         {{#each questions}}
-        <div>
-            <div style="display: flex; justify-content: left;">
-                <a class="edit-button px-1" data-id={{id}}><i class="fas fa-edit"></i></a>
-                <a class="delete-button px-1" data-id={{id}} style="color: red; font-weight: bold;">X</a>
-                <h4>{{question}}</h4>
+        <div class="card my-1">
+            <div class="card-body pb-1">
+                <div style="display: flex; justify-content: left;">
+                    <a class="edit-button px-1" data-id={{id}}><i class="fas fa-edit"></i></a>
+                    <a class="delete-button px-1" data-id={{id}}
+                        style="color: red; font-weight: bold; font-size: 18px;">X</a>
+                    <h4 class="px-1">{{question}}</h4>
+                </div>
+                <ul>
+                    <li>Answer: {{answer}}</li>
+                    <li>Choices:
+                        <ul>
+                            <li>{{choice_a}}</li>
+                            <li>{{choice_b}}</li>
+                            <li>{{choice_c}}</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <ul>
-                <li>Answer: {{answer}}</li>
-                <li>Choices:
-                    <ul>
-                        <li>{{choice_a}}</li>
-                        <li>{{choice_b}}</li>
-                        <li>{{choice_c}}</li>
-                    </ul>
-                </li>
-            </ul>
         </div>
         {{/each}}
     </div>

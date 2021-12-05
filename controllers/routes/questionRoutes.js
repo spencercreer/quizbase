@@ -27,4 +27,14 @@ router.post('/:id', (req, res) => {
     .catch(err => console.log(err))
 })
 
+router.delete('/delete/:id', (req, res) => {
+    Question.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(res.status(204).end())
+    .catch(err => console.log(err))
+})
+
 module.exports = router
