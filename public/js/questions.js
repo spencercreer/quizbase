@@ -1,10 +1,13 @@
-const addModalBtn = document.getElementById('add-modal-btn').addEventListener('click', function() {
+const addModalBtn = document.getElementById('add-modal-btn').addEventListener('click', function () {
     document.getElementById('question-modal-title').textContent = 'Add Question'
     document.getElementById('question').value = ''
     document.getElementById('answer').value = ''
     document.getElementById('choice_a').value = ''
     document.getElementById('choice_b').value = ''
     document.getElementById('choice_c').value = ''
+    let modalBtn = document.getElementById('modal-button')
+    modalBtn.textContent = 'Add Question'
+    modalBtn.addEventListener('click', addQuestion)
 })
 
 const editBtns = document.querySelectorAll('.edit-button')
@@ -16,7 +19,7 @@ for (const btn of editBtns) {
         document.getElementById('choice_a').value = this.parentNode.nextElementSibling.children[1].textContent
         document.getElementById('choice_b').value = this.parentNode.nextElementSibling.children[2].textContent
         document.getElementById('choice_c').value = this.parentNode.nextElementSibling.children[3].textContent
-        
+
     })
 }
 
@@ -25,7 +28,6 @@ for (const btn of deleteBtns) {
     btn.addEventListener('click', function (event) {
         event.preventDefault()
         const id = this.getAttribute('data-id')
-        console.log(id + ' delete button clicked')
         fetch(`delete/${id}`, {
             method: 'DELETE',
         })
@@ -35,6 +37,29 @@ for (const btn of deleteBtns) {
             })
             .catch(err => console.log(err))
     })
+}
+
+function addQuestion(event) {
+    event.preventDefault()
+    let quizId = this.getAttribute('data-id')
+    let question = document.getElementById('question').value
+    let answer = document.getElementById('answer').value
+    let choice_a = document.getElementById('choice_a').value
+    let choice_b = document.getElementById('choice_b').value
+    let choice_c = document.getElementById('choice_c').value
+    console.log(question)
+    fetch(`/questions/${quizId}`, {
+        method: 'POST',
+        body: JSON.stringify({ question, answer, choice_a, choice_b, choice_c }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(res => {
+            console.log(res)
+            window.location.reload()
+        })
+        .catch(err => console.log(err))
 }
 
 // const editBtns = document.querySelectorAll(".edit-button")
