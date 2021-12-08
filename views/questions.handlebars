@@ -2,6 +2,7 @@
 
     <div class="jumbotron pt-2 mb-0">
         <h1 class="display-4 text-center my-4">{{questions.0.Quiz.quiz_name}} Quiz Questions</h1>
+        <div id="quiz-id" style="display: none;">{{questions.0.Quiz.id}}</div>
         {{!-- <form class="mb-4" action="/questions/{{questions.0.Quiz.id}}" method="POST">
             <div class="row">
                 <div class="col mb-2">
@@ -37,7 +38,7 @@
 
         <!-- Button trigger modal -->
         <button id="add-modal-btn" type="button" class="btn btn-block btn-info" data-toggle="modal"
-            data-target="#staticBackdrop">Add Question</button>
+            data-target="#staticBackdrop" data-id="{{questions.0.Quiz.id}}">Add Question</button>
 
         {{#each questions}}
         <div class="card my-1">
@@ -51,7 +52,7 @@
                     <h4 class="px-1" style="display: block;">{{question}}</h4>
                 </div>
                 <ul>
-                    <li>Answer: {{answer}}</li>
+                    <li>Answer: <span>{{answer}}</span></li>
                     <li>{{choice_a}}</li>
                     <li>{{choice_b}}</li>
                     <li>{{choice_c}}</li>
@@ -108,7 +109,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-info" id="modal-button" data-id="{{questions.0.Quiz.id}}"></button>
+                    <button type="submit" class="btn btn-info" id="modal-button"></button>
                 </div>
             </div>
         </div>
