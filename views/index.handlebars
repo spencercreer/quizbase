@@ -1,21 +1,57 @@
-    <div>
-        <div class="jumbotron pt-2 mb-0">
-            <h1 class="display-4 text-center">QuizBase</h1>
-            <p class="lead">Welcome to QuizBase; A database of coding quizzes.</p>
-            <hr class="my-4">
-            <div id="quiz-btns">
-                {{#each quizzes}}
-                <div class="btn-group m-1" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      {{quiz_name}}
+<div>
+  <div class="jumbotron pt-2 mb-0">
+    <h1 class="display-4 text-center">QuizBase</h1>
+    <p class="lead">Welcome to QuizBase; A database of coding quizzes.</p>
+    <button id="add-quiz-btn" type="button" class="btn btn-block btn-info" data-toggle="modal"
+      data-target="#staticBackdrop">Add Quiz</button>
+    <hr class="my-4">
+    <div id="quiz-btns">
+      {{#each quizzes}}
+      <div class="btn-group m-1" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          {{quiz_name}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <a class="dropdown-item" href="/questions/{{id}}">Add/Edit Questions</a>
+          <a class="dropdown-item" href="/quiz/{{id}}">Take Quiz</a>
+          <a class="dropdown-item" href="/highscores/{{id}}">View Highscores</a>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+   <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quiz-modal-title">Create a Quiz</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                      <a class="dropdown-item" href="/questions/{{id}}">Add/Edit Questions</a>
-                      <a class="dropdown-item" href="/quiz/{{id}}">Take Quiz</a>
-                      <a class="dropdown-item" href="/highscores/{{id}}">View Highscores</a>
-                    </div>
-                  </div>
-                {{/each}}
+                </div>
+                <div class="modal-body">
+                    <form class="mb-4" id="add-quiz-form">
+                        <div class="row">
+                            <div class="col mb-2">
+                                <label for="question" class="form-label">Quiz Name</label>
+                                <input type="text" name="question" class="form-control" id="question">
+                            </div>
+                        </div>
+                        <h5>Add Questions</h5>
+                    </form>
+                    
+                    <button id="add-quiz-questions" class="btn btn-info">+</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info" id="modal-button">Add Quiz</button>
+                </div>
             </div>
         </div>
     </div>
+</div>
+<script src="/js/index.js"></script>
