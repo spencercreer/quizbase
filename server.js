@@ -13,6 +13,7 @@ sequelize.authenticate()
     .catch(err => console.log('db.authenticate error: ' + err))
 
 const app = express()
+const PORT = 3001
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
@@ -35,5 +36,4 @@ app.set('view engine', 'handlebars')
 // routes
 app.use(require('./controllers/'));
 
-const PORT = 3001
-app.listen(3001, () => console.log(`listening on http://localhost:${3001}`))
+app.listen(PORT, () => console.log(`listening on http://localhost:${PORT}`))
