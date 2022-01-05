@@ -4,11 +4,10 @@ $('#modal-button').click(createQuiz)
 function createQuiz(event) {
     event.preventDefault()
     console.log('add quiz clicked')
+    let quizName = $('#quiz-name').val()
     let questionsArray = []
     $('.question-form').each(function() {
-        // let question = {
-        //     question: this.
-        // }
+       
         let question = this.children[0].children[0].children[1].value;
         let answer = this.children[0].children[1].children[1].value;
         let choice_a = this.children[2].children[1].value
@@ -25,25 +24,19 @@ function createQuiz(event) {
         questionsArray.push(questionObject)
     })
     console.log(questionsArray)
-    // let quizId = this.getAttribute('data-id')
-    // let question = $('#question').value
-    // let answer = $('#answer').value
-    // let choice_a = $('#choice_a').value
-    // let choice_b = $('#choice_b').value
-    // let choice_c = $('#choice_c').value
-    // console.log(question)
-    // fetch(`/questions/add/${quizId}`, {
-    //     method: 'POST',
-    //     body: JSON.stringify({ question, answer, choice_a, choice_b, choice_c }),
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    // })
-    //     .then(res => {
-    //         console.log(res)
-    //         window.location.reload()
-    //     })
-    //     .catch(err => console.log(err))
+   
+    fetch(`/quiz/add`, {
+        method: 'POST',
+        body: JSON.stringify({ quizName, questionsArray }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(res => {
+            console.log(res)
+            window.location.reload()
+        })
+        .catch(err => console.log(err))
 }
 
 $('#add-quiz-questions').click(function() {
