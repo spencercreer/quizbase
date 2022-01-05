@@ -17,6 +17,8 @@ router.post('/add', (req, res) => {
                 individualHooks: true,
                 returning: true,
             })
+
+            res.redirect('/')
         })
         .catch(err => console.log(err))
 })
@@ -29,6 +31,15 @@ router.get('/:id', (req, res) => {
     })
         .then(quiz => res.render('quiz', { quiz }))
         .catch(err => console.log(err))
+})
+
+// delete one quiz
+router.delete('/delete/:id', (req, res) => {
+    Quiz.destroy({
+        where: { id: req.params.id }
+    })
+    .then(res.status(204).end())
+    .catch(err => console.log(err))
 })
 
 router.get('/questions/:id', (req, res) => {

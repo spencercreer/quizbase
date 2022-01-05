@@ -1,5 +1,6 @@
 // load modal inputs on "Add Button" click
 document.getElementById('add-modal-btn').addEventListener('click', function () {
+    console.log('hello')
     document.getElementById('question-modal-title').textContent = 'Add Question'
     document.getElementById('question').value = ''
     document.getElementById('answer').value = ''

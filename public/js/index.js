@@ -2,46 +2,46 @@ $('#modal-button').click(createQuiz)
 
 // create quiz with fetch post method
 function createQuiz(event) {
-    event.preventDefault()
-    console.log('add quiz clicked')
-    let quizName = $('#quiz-name').val()
-    let questionsArray = []
-    $('.question-form').each(function() {
-       
-        let question = this.children[0].children[0].children[1].value;
-        let answer = this.children[0].children[1].children[1].value;
-        let choice_a = this.children[2].children[1].value
-        let choice_b = this.children[3].children[1].value
-        let choice_c = this.children[4].children[1].value
+  event.preventDefault()
+  console.log('add quiz clicked')
+  let quizName = $('#quiz-name').val()
+  let questionsArray = []
+  $('.question-form').each(function () {
 
-        let questionObject = {
-            question: question,
-            answer: answer,
-            choice_a: choice_a,
-            choice_b: choice_b,
-            choice_c: choice_c
-        }
-        questionsArray.push(questionObject)
+    let question = this.children[0].children[0].children[1].value;
+    let answer = this.children[0].children[1].children[1].value;
+    let choice_a = this.children[2].children[1].value
+    let choice_b = this.children[3].children[1].value
+    let choice_c = this.children[4].children[1].value
+
+    let questionObject = {
+      question: question,
+      answer: answer,
+      choice_a: choice_a,
+      choice_b: choice_b,
+      choice_c: choice_c
+    }
+    questionsArray.push(questionObject)
+  })
+  console.log(questionsArray)
+
+  fetch(`/quiz/add`, {
+    method: 'POST',
+    body: JSON.stringify({ quizName, questionsArray }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(res => {
+      console.log(res)
+      // window.location.reload()
     })
-    console.log(questionsArray)
-   
-    fetch(`/quiz/add`, {
-        method: 'POST',
-        body: JSON.stringify({ quizName, questionsArray }),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-        .then(res => {
-            console.log(res)
-            window.location.reload()
-        })
-        .catch(err => console.log(err))
+    .catch(err => console.log(err))
 }
 
-$('#add-quiz-questions').click(function() {
-    console.log("clicked")
-    $('#add-quiz-form').append(`<div class='question-form'>
+$('#add-quiz-questions').click(function () {
+  console.log("clicked")
+  $('#add-quiz-form').append(`<div class='question-form'>
     <div class="row">
       <div class="col mb-2">
         <label for="question" class="form-label">Question</label>
@@ -73,3 +73,30 @@ $('#add-quiz-questions').click(function() {
     </div>
   </div>`)
 })
+
+
+function deleteQuiz(event) {
+  event.preventDefault()
+  let id = this.getAttribute('data-id')
+  fetch(`/quiz/delete/${id}`, {
+    method: 'DELETE',
+})
+    .then(res => {
+        window.location.reload()
+    })
+    .catch(err => console.log(err))
+}
+
+// delete question with fetch delete method
+const deleteQuizBtns = document.querySelectorAll(".delete-button")
+for (const btn of deleteQuizBtns) {
+  btn.addEventListener('click', function (event) {
+    console.log('clicked')
+    event.preventDefault()
+    document.getElementById('delete-modal-title').textContent = this.getAttribute('data-name')
+    let modalBtn = document.getElementById('delete-modal-button')
+    modalBtn.setAttribute('data-id', this.getAttribute('data-id'))
+    modalBtn.addEventListener('click', deleteQuiz)
+    console.log(modalBtn)
+  })
+}
