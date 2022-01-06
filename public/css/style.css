@@ -1,0 +1,74 @@
+#quiz-cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.card-container{
+	display: flex;
+	position: relative;
+	perspective: 200rem;
+	height: 412px;
+	flex: 0 1 100%;	
+}
+
+.card-container:hover .card-front{
+	transform: rotateY(180deg);
+}
+
+.card-container:hover .card-back{
+	transform: rotateY(0deg);
+}
+
+.card-back{
+	transform: rotateY(180deg);
+}
+
+.card{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	transition: all 0.9s;
+	backface-visibility: hidden;
+}
+
+.card-back .card-body{
+	position: relative;
+}
+
+.card-body div{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	margin: -15% 0 0 -23%;
+	
+}
+
+a {
+	color: white;
+}
+
+@media screen and (min-width: 40em) {
+    .quiz-cards {
+		display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+   }
+ 
+    .card-container {
+		flex: 0 1 calc(50% - 1em);
+    }
+}
+ 
+@media screen and (min-width: 60em) {
+    .quiz-cards {
+		display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+   }
+     
+    .card-container {
+		flex: 0 1 calc(25% - 1em);
+     }
+}
+ 
