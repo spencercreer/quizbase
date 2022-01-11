@@ -5,10 +5,6 @@ class Highscore extends Model { }
 
 Highscore.init(
     {
-        initials: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         score: {
             type: DataTypes.INTEGER,
             allowNull: false

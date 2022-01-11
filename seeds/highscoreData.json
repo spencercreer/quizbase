@@ -1,17 +1,17 @@
 [
     {
-        "initials": "SC",
         "score": 20,
+        "user_id": 1,
         "quiz_id": 1
     },
     {
-        "initials": "BS",
-        "score": 10,
+        "score": 15,
+        "user_id": 1,
         "quiz_id": 1
     },
     {
-        "initials": "TW",
         "score": 10,
+        "user_id": 1,
         "quiz_id": 2
     }
 ]

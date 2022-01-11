@@ -1,12 +1,12 @@
 const router = require('express').Router()
-const { Quiz, Question, Highscore } = require('../../models')
+const { User, Quiz, Question, Highscore } = require('../../models')
 
 router.get('/:id', (req, res) => {
     Highscore.findAll({
         where: {
             quiz_id: req.params.id
         },
-        include: [Quiz],
+        include: [Quiz, User],
         order: [
             ['score', 'DESC']
         ],

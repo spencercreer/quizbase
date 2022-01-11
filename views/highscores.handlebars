@@ -16,7 +16,7 @@
                     {{#each highscores}}
                     <tr>
                         <td class="text-center">{{inc @index}}</td>
-                        <td class="text-center">{{this.initials}}</td>
+                        <td class="text-center">{{this.User.username}}</td>
                         <td class="text-center">{{this.score}}</th>
                     </tr>
                     {{/each}}

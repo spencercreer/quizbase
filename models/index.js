@@ -23,6 +23,16 @@ Question.belongsTo(Quiz, {
     onDelete: 'CASCADE'
 })
 
+User.hasMany(Highscore, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+})
+
+Highscore.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+})
+
 Quiz.hasMany(Highscore, {
     foreignKey: 'quiz_id',
     onDelete: 'CASCADE'
