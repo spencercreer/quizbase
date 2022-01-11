@@ -1,9 +1,8 @@
 const router = require('express').Router()
 const { Quiz, Question, Highscore } = require('../../models')
-const path = require('path')
 
 router.post('/add', (req, res) => {
-    let {quizName, questionsArray } = req.body
+    let { quizName, questionsArray } = req.body
     
     Quiz.create({
         quiz_name: quizName

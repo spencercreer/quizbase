@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const { Quiz, Question, Highscore } = require('../../models')
-const path = require('path')
 
 router.get('/', (req, res) => {
     Quiz.findAll({})
@@ -10,6 +9,10 @@ router.get('/', (req, res) => {
 
 router.get('/login', (req, res) => {
     res.render('login')
+})
+
+router.get('/signup', (req, res) => {
+    res.render('signup')
 })
 
 module.exports = router
