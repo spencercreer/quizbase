@@ -8,4 +8,8 @@ router.get('/', (req, res) => {
         .catch(err => console.log(err))
 })
 
+router.get('/login', (req, res) => {
+    res.render('login')
+})
+
 module.exports = router
