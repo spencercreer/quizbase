@@ -11,22 +11,16 @@
       {{#each quizzes}}
       <div class="card-container mt-5">
         <div class="card card-front">
-          <img class="card-img-top" src="card-img.jpg" alt="Card image cap">
           <div class="card-body">
-            <h1 class="card-title">{{quiz_name}}</h1>
-            {{!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p> --}}
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <h1 class="text-center">{{quiz_name}}</h1>
           </div>
         </div>
-        <div class="card card-back">
+        <div class="card card-back text-light">
           <div class="card-body bg-secondary">
-            <div>
-              <h1 class="card-title">{{quiz_name}}</h1>
-              <a class="" href="/questions/{{id}}">Add/Edit Questions</a>
-              <a class="" href="/quiz/{{id}}">Take Quiz</a>
+            <h1 class="text-center">{{quiz_name}}</h1>
+            <div class="quiz-btns">
+              <a class="btn btn-info btn-block" href="/quiz/{{id}}">Take Quiz</a>
+              <a class="mt-4" href="/questions/{{id}}">View Questions</a>
               <a class="" href="/highscores/{{id}}">View Highscores</a>
               <a class="delete-button" data-id={{id}} data-toggle="modal" data-target="#deleteQuizModal">Delete
                 Quiz</a>
