@@ -14,6 +14,10 @@ Quiz.init(
         quiz_name: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        image_link: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     },
     {

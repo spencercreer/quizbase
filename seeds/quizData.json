@@ -1,8 +1,30 @@
 [
     {
-        "quiz_name": "JavaScript"
+        "quiz_name": "JavaScript",
+        "image_link": "./assets/javascript_256x256.png"
     },
     {
-        "quiz_name": "Python"
+        "quiz_name": "CSS",
+        "image_link": "./assets/css_256x256.png"
+    },
+    {
+        "quiz_name": "HTML",
+        "image_link": "./assets/html_256x256.png"
+    },
+    {
+        "quiz_name": "C#",
+        "image_link": "./assets/csharp_256x256.png"
+    },
+    {
+        "quiz_name": "C++",
+        "image_link": "./assets/cpp_256x256.png"
+    },
+    {
+        "quiz_name": "Java",
+        "image_link": "./assets/java_256x256.png"
+    },
+    {
+        "quiz_name": "Python",
+        "image_link": "./assets/python_256x256.png"
     }
 ]

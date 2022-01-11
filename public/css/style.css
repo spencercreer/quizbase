@@ -4,27 +4,29 @@
 	justify-content: space-around;
 }
 
-.card-container{
+.card-container {
 	display: flex;
 	position: relative;
 	perspective: 200rem;
-	height: 250px;
+	height: 256px;
+	max-width: 256px;
+	margin: 40px 10px;
 	flex: 0 1 100%;	
 }
 
-.card-container:hover .card-front{
+.card-container:hover .card-front {
 	transform: rotateY(180deg);
 }
 
-.card-container:hover .card-back{
+.card-container:hover .card-back {
 	transform: rotateY(0deg);
 }
 
-.card-back{
+.card-back {
 	transform: rotateY(180deg);
 }
 
-.card{
+.card {
 	position: absolute;
 	height: 100%;
 	width: 100%;
@@ -32,11 +34,21 @@
 	backface-visibility: hidden;
 }
 
-.card-back .card-body{
+.card-front {
+	height: 256px;
+	width: 256px;
+}
+
+.card-back {
+	height: 256px;
+	width: 256px;
+}
+
+.card-back .card-body {
 	position: relative;
 }
 
-.card-body .quiz-btns{
+.card-body .quiz-btns {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
