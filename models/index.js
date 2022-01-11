@@ -1,6 +1,17 @@
+const User = require('./User')
 const Quiz = require('./Quiz')
 const Question = require('./Question')
 const Highscore = require('./Highscore')
+
+User.hasMany(Quiz, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+})
+
+Quiz.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+})
 
 Quiz.hasMany(Question, {
     foreignKey: 'quiz_id',
@@ -23,6 +34,7 @@ Highscore.belongsTo(Quiz, {
 })
 
 module.exports = {
+    User,
     Quiz,
     Question,
     Highscore
