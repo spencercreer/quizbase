@@ -3,9 +3,12 @@
 <div>
   <div class="jumbotron pt-2 mb-0">
     <h1 class="display-4 text-center">QuizBase</h1>
+    {{#if user}}
+    <p class="lead">Welcome <strong>{{user.username}}</strong></p>
+    <button id="add-quiz-btn" type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#staticBackdrop">Add Quiz</button>
+    {{else}}
     <p class="lead">Welcome to QuizBase; A database of coding quizzes. Sign up to create quizzes of your own. Share your quizzes and test yourself and your friends.</p>
-    <button id="add-quiz-btn" type="button" class="btn btn-block btn-info" data-toggle="modal"
-      data-target="#staticBackdrop">Add Quiz</button>
+    {{/if}}
     <hr class="my-4">
     <div id="quiz-cards" class="container-fluid">
       {{#each quizzes}}
@@ -20,11 +23,9 @@
               <a class="btn btn-info btn-block" href="/quiz/{{id}}">Take Quiz</a>
               <a class="btn btn-info btn-block" href="/quiz/{{id}}">Flashcards</a>
               <div class="btn-group-vertical mt-4" role="group" aria-label="Basic example">
-                <a class="btn btn-info btn-block" href="/questions/{{id}}">View Questions</a>
                 <a class="btn btn-info btn-block" href="/highscores/{{id}}">View Highscores</a>
-                <a class="btn btn-info btn-block delete-button" data-id={{id}} data-toggle="modal"
-                  data-target="#deleteQuizModal">Delete
-                  Quiz</a>
+                <a class="btn btn-info btn-block" href="/questions/{{id}}">Edit Questions</a>
+                <a class="btn btn-info btn-block delete-button" data-id={{id}} data-toggle="modal" data-target="#deleteQuizModal">Delete Quiz</a>
               </div>
             </div>
           </div>

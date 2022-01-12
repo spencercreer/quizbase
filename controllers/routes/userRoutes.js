@@ -29,14 +29,25 @@ router.post('/login', async (req, res) => {
     
 })
 
-router.post('/signup', (req, res) => {
+router.post('/signup', async (req, res) => {
     let { email, username, password } = req.body
-    User.create({
-        email,
-        username,
-        password
-    })
-    .then(user => res.json(user))
+    try {
+        const newUser = await User.create({
+            email,
+            username,
+            password
+        })
+
+        req.session.save(() => {
+            req.session.userId = newUser.id;
+            req.session.username = newUser.username;
+            req.session.loggedIn = true;
+      
+            res.json({ newUser, message: 'You are now logged in!' });
+          });
+    } catch (err) {
+        res.status(500).json(err)
+    }
 })
 
 module.exports = router
