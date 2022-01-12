@@ -141,7 +141,7 @@
         "choice_a": "cin(\"Enter a value: \")",
         "choice_b": "insert(\"Enter a value: \")",
         "choice_c": "prompt(\"Enter a value: \")",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "How do you output \"Hello World\" to the user in Python?",
@@ -149,7 +149,7 @@
         "choice_a": "output(\"Hello World\")",
         "choice_b": "display(\"Hello World\")",
         "choice_c": "cout(\"Hello World\")",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which of the following is not a Python reserved word?",
@@ -157,7 +157,7 @@
         "choice_a": "global",
         "choice_b": "assert",
         "choice_c": "yield",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "How do you begin a single line comment in Python?",
@@ -165,7 +165,7 @@
         "choice_a": "<!--",
         "choice_b": "//",
         "choice_c": "%",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which of the following is the modulo operator in Python?",
@@ -173,7 +173,7 @@
         "choice_a": "^",
         "choice_b": "*",
         "choice_c": "#",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "How do you reverse the string \"Hello World\" in Python?",
@@ -181,7 +181,7 @@
         "choice_a": "reverse(\"Hello World\")",
         "choice_b": "\"Hello World\".switch",
         "choice_c": "\"Hello World\"(end 0)",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "What is the correct file etension for Python files?",
@@ -189,7 +189,7 @@
         "choice_a": ".pyth",
         "choice_b": ".pt",
         "choice_c": ".js",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which operator is used to multiply numbers in Python?",
@@ -197,7 +197,7 @@
         "choice_a": "x",
         "choice_b": "#",
         "choice_c": "%",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which of the following is the correct way to define a TUPLE in Python?",
@@ -205,7 +205,7 @@
         "choice_a": "[\"apple\", \"banana\", \"cherry\"]",
         "choice_b": "{\"apple\", \"banana\", \"cherry\"}",
         "choice_c": "/\"apple\", \"banana\", \"cherry\"/",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which of the following is the correct way to define a SET in Python?",
@@ -213,7 +213,7 @@
         "choice_a": "[\"apple\", \"banana\", \"cherry\"]",
         "choice_b": "(\"apple\", \"banana\", \"cherry\")",
         "choice_c": "/\"apple\", \"banana\", \"cherry\"/",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which of the following is the correct way to define a LIST in Python?",
@@ -221,7 +221,7 @@
         "choice_a": "{\"apple\", \"banana\", \"cherry\"}",
         "choice_b": "(\"apple\", \"banana\", \"cherry\")",
         "choice_c": "/\"apple\", \"banana\", \"cherry\"/",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which of the following is the correct way to define a DICTIONARY in Python?",
@@ -229,7 +229,7 @@
         "choice_a": "{\"apple\", \"banana\", \"cherry\"}",
         "choice_b": "(\"apple\", \"banana\", \"cherry\")",
         "choice_c": "/\"apple\", \"banana\", \"cherry\"/",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which of the following Python collections is unordered and unindexed?",
@@ -237,7 +237,7 @@
         "choice_a": "List",
         "choice_b": "Tuple",
         "choice_c": "Dictionary",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which of the following Python collections is ordered and unchangeable?",
@@ -245,7 +245,7 @@
         "choice_a": "Set",
         "choice_b": "List",
         "choice_c": "Dictionary",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which of the following Python collections is ordered and changeable?",
@@ -253,7 +253,7 @@
         "choice_a": "Set",
         "choice_b": "Tuple",
         "choice_c": "Dictionary",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which of the following Python collections stores data in key:value pairs?",
@@ -261,7 +261,7 @@
         "choice_a": "Set",
         "choice_b": "Tuple",
         "choice_c": "List",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "What is the index number of the first element in a Python array?",
@@ -269,7 +269,7 @@
         "choice_a": "1",
         "choice_b": "2",
         "choice_c": "3",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "How do you start writing an if statement in Python?",
@@ -277,7 +277,7 @@
         "choice_a": "if x > y then:",
         "choice_b": "if (x > y)",
         "choice_c": "if => x > y",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "How do you start writing a while loop in Python?",
@@ -285,7 +285,7 @@
         "choice_a": "while (x > y)",
         "choice_b": "while x > y {",
         "choice_c": "while => x > y",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "How do you start writing a for loop in Python?",
@@ -293,7 +293,7 @@
         "choice_a": "for x > y",
         "choice_b": "for each x in y",
         "choice_c": "for (x > y)",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "Which statemen is used to stop a loop in Python?",
@@ -301,7 +301,7 @@
         "choice_a": "return",
         "choice_b": "stop",
         "choice_c": "exit",
-        "quiz_id": 2
+        "quiz_id": 7
     },
     {
         "question": "How do you return the number of elements in a Python list?",
@@ -309,6 +309,6 @@
         "choice_a": "listName.numberElements",
         "choice_b": "listName.length",
         "choice_c": "listName(totalElements)",
-        "quiz_id": 2
+        "quiz_id": 7
     }
 ]

@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { Quiz, Question, Highscore } = require('../../models')
+const withAuth = require('../../utils/auth')
 
 router.post('/add', (req, res) => {
     let { quizName, questionsArray } = req.body
@@ -33,7 +34,7 @@ router.get('/:id', (req, res) => {
 })
 
 // delete one quiz
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', withAuth, (req, res) => {
     Quiz.destroy({
         where: { id: req.params.id }
     })

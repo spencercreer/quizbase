@@ -14,7 +14,15 @@ router.post('/login', async (req, res) => {
             res.status(400).json({ message: 'Invalid user email'})
             return
         }
-        res.json({ user, message: 'Logged in'})
+        
+        req.session.save(() => {
+            req.session.userId = user.id;
+            req.session.username = user.username;
+            req.session.loggedIn = true;
+      
+            res.json({ user, message: 'You are now logged in!' });
+          });
+
     } catch (err) {
         res.status(400).json({ message: 'Something went wrong '})
     }

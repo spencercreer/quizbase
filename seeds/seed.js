@@ -14,15 +14,17 @@ const seedDatabase = async () =>{
         returning: true,
     })
     
-    const quizzes = await Quiz.bulkCreate(quizData, {
-        individualHooks: true,
-        returning: true,
-    })
+    for (const quiz of quizData) {
+        await Quiz.create({
+            ...quiz
+        })
+    }
 
-    const questions = await Question.bulkCreate(questionData, {
-        individualHooks: true,
-        returning: true,
-    })
+    for (const question of questionData) {
+        await Question.create({
+            ...question
+        })
+    }
 
     const highscore = await Highscore.bulkCreate(highscoreData, {
         individualHooks: true,
