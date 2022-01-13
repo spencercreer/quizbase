@@ -25,8 +25,18 @@ router.post('/login', async (req, res) => {
 
     } catch (err) {
         res.status(400).json({ message: 'Something went wrong '})
+    }  
+})
+
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        console.log('logged out')
+        req.session.destroy(() => {
+            res.status(204).end()
+        })
+    } else {
+        res.status(404).end()
     }
-    
 })
 
 router.post('/signup', async (req, res) => {

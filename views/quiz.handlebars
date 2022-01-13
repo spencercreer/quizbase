@@ -1,3 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <a class="navbar-brand" href="/" style="color:white; font-size: 25px;">QuizBase</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link" href="/login">Login</a>
+            <a id="logout-link" class="nav-link">Logout</a>
+        </div>
+    </div>
+</nav>
+
 <div id="quiz-page">
     <div class="jumbotron jumbotron-fluid pt-2 mb-0">
         <div class="container">
@@ -31,7 +45,8 @@
                     <div class="input-group-prepend">
                         <button type="submit" class="btn btn-info" id="submitBtn">Submit</button>
                     </div>
-                    <input type="text" name="initials" class="form-control" id="initials" placeholder="Enter your initials">
+                    <input type="text" name="initials" class="form-control" id="initials"
+                        placeholder="Enter your initials">
                     <input type="text" name="score" id="score-input" style="display: none;" readonly>
                 </div>
             </form>
@@ -40,3 +55,4 @@
 </div>
 
 <script src="/js/quiz.js"></script>
+<script src="/js/logout.js"></script>

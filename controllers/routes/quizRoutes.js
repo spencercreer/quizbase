@@ -2,7 +2,8 @@ const router = require('express').Router()
 const { Quiz, Question, Highscore } = require('../../models')
 const withAuth = require('../../utils/auth')
 
-router.post('/add', (req, res) => {
+// add a quiz
+router.post('/add', withAuth, (req, res) => {
     let { quizName, questionsArray } = req.body
     
     Quiz.create({

@@ -55,10 +55,6 @@
 	flex-wrap: wrap;
 }
 
-a {
-	color: white;
-}
-
 @media screen and (min-width: 40em) {
     .quiz-cards {
 		display: flex;
