@@ -28,7 +28,16 @@ router.post('/add', withAuth, (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-    let { username, userId } = req.session
+    let username
+    let userId
+    if(req.session.userId) {
+        username = req.session.username
+        console.log('session' + req.session)
+    }
+    else {
+        username = null
+        userId = null
+    }
 
     Quiz.findAll({
         where: {

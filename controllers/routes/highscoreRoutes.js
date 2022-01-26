@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { User, Quiz, Question, Highscore } = require('../../models')
+const withAuth = require('../../utils/auth')
 
 router.get('/:id', (req, res) => {
     const session = req.session
@@ -17,7 +18,7 @@ router.get('/:id', (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.post('/add/:id', (req, res) => {
+router.post('/add/:id', withAuth, (req, res) => {
     let { userId, score } = req.body
     Highscore.create({
         user_id: userId,
