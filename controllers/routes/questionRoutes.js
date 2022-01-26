@@ -43,7 +43,7 @@ router.put('/edit/:id', (req, res) => {
         choice_c
     },
     {
-        where: { id: req.params.id}
+        where: { id: req.params.id }
     })
     .then(() => res.redirect(`/questions/${quiz_id}`))
     .catch(err => console.log(err))

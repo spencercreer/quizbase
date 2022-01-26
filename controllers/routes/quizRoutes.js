@@ -28,12 +28,17 @@ router.post('/add', withAuth, (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
+    let { username, userId } = req.session
+
     Quiz.findAll({
         where: {
             id: req.params.id,
         }
     })
-        .then(quiz => res.render('quiz', { quiz }))
+        .then(([quiz]) => {
+            console.log(username)
+            res.render('quiz', { quiz, username, userId })
+        })
         .catch(err => console.log(err))
 })
 

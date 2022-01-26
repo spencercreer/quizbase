@@ -18,9 +18,9 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/add/:id', (req, res) => {
-    let { initials, score } = req.body
+    let { userId, score } = req.body
     Highscore.create({
-        initials,
+        user_id: userId,
         score,
         quiz_id: parseInt(req.params.id)
     })
