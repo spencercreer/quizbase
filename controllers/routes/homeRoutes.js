@@ -30,7 +30,14 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/logout', (req, res) => {
-    res.render('login')
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.redirect('/')
+            res.status(204).end()
+        })
+    } else {
+        res.status(404).end()
+    }
 })
 
 router.get('/signup', (req, res) => {

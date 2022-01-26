@@ -28,17 +28,6 @@ router.post('/login', async (req, res) => {
     }  
 })
 
-router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-        console.log('logged out')
-        req.session.destroy(() => {
-            res.status(204).end()
-        })
-    } else {
-        res.status(404).end()
-    }
-})
-
 router.post('/signup', async (req, res) => {
     let { email, username, password } = req.body
     try {

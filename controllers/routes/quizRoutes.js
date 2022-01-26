@@ -5,9 +5,12 @@ const withAuth = require('../../utils/auth')
 // add a quiz
 router.post('/add', withAuth, (req, res) => {
     let { quizName, questionsArray } = req.body
+    let imageLink = './assets/ms-icon-310x310.png'
     
     Quiz.create({
-        quiz_name: quizName
+        user_id: req.session.userId,
+        quiz_name: quizName,
+        image_link: imageLink
     })
         .then(async (quiz) => {
             questionsArray.forEach(question => {
