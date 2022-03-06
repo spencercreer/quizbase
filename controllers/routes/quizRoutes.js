@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Quiz, Question, Highscore } = require('../../models')
+const { User, Quiz, Question, Highscore } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 // add a quiz
@@ -27,28 +27,40 @@ router.post('/add', withAuth, (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.get('/:id', (req, res) => {
-    let username
-    let userId
+router.get('/:id', async (req, res) => {
+    console.log(43110)
+    console.log(req.session.userId)
     if(req.session.userId) {
-        username = req.session.username
-        console.log('session' + req.session)
+        try {
+            let user = await User.findOne({
+                where: {
+                    id: req.session.userId
+                }
+            })
+            user = user.dataValues
+            const quiz = await Quiz.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            console.log(quiz)
+            res.render('quiz', { quiz, user })
+        } catch (err) {
+            res.status(500).json(err)
+        }
     }
     else {
-        username = null
-        userId = null
-    }
-
-    Quiz.findAll({
-        where: {
-            id: req.params.id,
+        try {
+            const quiz = await Quiz.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.render('quiz', { quiz })
+        } catch (err) {
+            res.status(500).json(err)
         }
-    })
-        .then(([quiz]) => {
-            console.log(username)
-            res.render('quiz', { quiz, username, userId })
-        })
-        .catch(err => console.log(err))
+    }
 })
 
 // delete one quiz

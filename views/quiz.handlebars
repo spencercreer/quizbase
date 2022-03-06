@@ -6,8 +6,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-link" href="/login">Login</a>
+            {{#if user}}
             <a class="nav-link" href="/logout">Logout</a>
+            {{else}}
+            <a class="nav-link" href="/login">Log in</a>
+            <a class="nav-link" href="/signup">Sign up</a>
+            {{/if}}
         </div>
     </div>
 </nav>
@@ -39,26 +43,27 @@
         <div class="container">
             <h1 class="display-4 text-center score-alert">Time's Up!</h1>
             <p class="lead text-center">You scored <span id="final-score">0</span> points</p>
-            {{#if userId}}
+            {{#if user}}
             <form action="/highscores/add/{{quiz.id}}" method="POST">
                 <div class="input-group mb-3 justify-content-center">
                     <div class="input-group-prepend">
                         <button type="submit" class="btn btn-info" id="submitBtn">Submit</button>
                     </div>
-                    <input type="text" name="username" class="form-control" id="username" value={{username}} readonly>
-                    <input type="text" name="score" id="score-input" style="display: none;" readonly>
-                    <input type="text" name="userId" class="form-control" id="userId" value={{userId}}
+                    <input type="text" name="username" class="form-control" id="username" value={{user.username}} readonly>
+                    <input type="text" name="score" class="form-control" id="score-input" readonly>
+                    <input type="text" name="userId" class="form-control" id="userId" value={{user.id}}
                         style="display: none;" readonly>
                 </div>
             </form>
             {{else}}
             <div class="input-group mb-3 justify-content-center">
                 <div class="input-group-prepend">
-                    <button class="btn btn-info" class="form-control" disabled>Submit</button>
+                    <a class="btn btn-info" class="form-control" href="/login" >Submit</a>
                 </div>
                 <input type="text" name="score" id="score-input" readonly>
             </div>
-            <p class="lead">Submit your scores and see how you stack up by <a class="link-info" href="/login">logging in</a> or <a class="link-info" href="/signup">signing up</a></p>
+            <p class="lead">Submit your scores and see how you stack up by <a class="link-info" href="/login">logging
+                    in</a> or <a class="link-info" href="/signup">signing up</a></p>
             {{/if}}
         </div>
     </div>
