@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth')
 // add a quiz
 router.post('/add', withAuth, (req, res) => {
     let { quizName, questionsArray } = req.body
-    let imageLink = './assets/ms-icon-310x310.png'
+    let imageLink = './assets/quiz_base_logo.png'
     
     Quiz.create({
         user_id: req.session.userId,
