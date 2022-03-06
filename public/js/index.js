@@ -91,12 +91,10 @@ function deleteQuiz(event) {
 const deleteQuizBtns = document.querySelectorAll(".delete-button")
 for (const btn of deleteQuizBtns) {
   btn.addEventListener('click', function (event) {
-    console.log('clicked')
     event.preventDefault()
     document.getElementById('delete-modal-title').textContent = this.getAttribute('data-name')
     let modalBtn = document.getElementById('delete-modal-button')
     modalBtn.setAttribute('data-id', this.getAttribute('data-id'))
     modalBtn.addEventListener('click', deleteQuiz)
-    console.log(modalBtn)
   })
 }

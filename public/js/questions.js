@@ -79,18 +79,24 @@ function editQuestion(event) {
         .catch(err => console.log(err))
 }
 
-// delete question with fetch delete method
-const deleteBtns = document.querySelectorAll(".delete-button")
-for (const btn of deleteBtns) {
+function deleteQuestion(event) {
+    event.preventDefault()
+    let id = this.getAttribute('data-id')
+    fetch(`/questions/delete/${id}`, {
+        method: 'DELETE',
+    })
+        .then(res => {
+            window.location.reload()
+        })
+        .catch(err => console.log(err))
+}
+
+const deleteQuestionBtns = document.querySelectorAll(".delete-button")
+for (const btn of deleteQuestionBtns) {
     btn.addEventListener('click', function (event) {
         event.preventDefault()
-        const id = this.getAttribute('data-id')
-        fetch(`/questions/delete/${id}`, {
-            method: 'DELETE',
-        })
-            .then(res => {
-                window.location.reload()
-            })
-            .catch(err => console.log(err))
+        let modalBtn = document.getElementById('delete-modal-button')
+        modalBtn.setAttribute('data-id', this.getAttribute('data-id'))
+        modalBtn.addEventListener('click', deleteQuestion)
     })
 }
