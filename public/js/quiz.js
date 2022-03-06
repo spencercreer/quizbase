@@ -30,7 +30,6 @@ async function loadQuestions() {
     })
         .then(response => {
             response.json().then((data) => {
-                console.log(data)
                 startQuiz(data)
             });
 
