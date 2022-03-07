@@ -28,8 +28,6 @@ router.post('/add', withAuth, (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    console.log(43110)
-    console.log(req.session.userId)
     if(req.session.userId) {
         try {
             let user = await User.findOne({
@@ -43,7 +41,6 @@ router.get('/:id', async (req, res) => {
                     id: req.params.id
                 }
             })
-            console.log(quiz)
             res.render('quiz', { quiz, user })
         } catch (err) {
             res.status(500).json(err)
