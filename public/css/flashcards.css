@@ -1,11 +1,3 @@
-.logo {
-	width: 50px;
-}
-
-.hide {
-	display: none;
-}
-
 .card-container {
 	display: flex;
 	position: relative;

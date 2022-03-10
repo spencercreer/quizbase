@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/style.css" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/globalStyle.css" crossorigin="anonymous">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/"><img class="logo" src="/assets/quiz_base_black.png"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -19,15 +20,9 @@
 </nav>
 <div>
   <div class="jumbotron pt-2 mb-0">
-    <h1 class="display-4 text-center">QuizBase</h1>
-    {{#if user}}
-    <p class="lead">Welcome <strong>{{user.username}}</strong></p>
-    <button id="add-quiz-btn" type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#staticBackdrop">Add Quiz</button>
-    {{else}}
-    <p class="lead">Welcome to QuizBase; A database of coding quizzes. Create code quizzes to strengthen your knowledge of coding fundamentals. Sign up <a class="link-info" href="/signup">here</a></p>
-    {{/if}}
+    <h1 class="display-4 text-center">{{user.username}}'s QuizBase</h1>
     <hr class="my-4">
-    <div id="quiz-cards" class="container-fluid">
+    <div class="container-fluid quiz-cards">
       {{#each quizzes}}
       <div class="card-container">
         <div class="card card-front">
@@ -37,15 +32,13 @@
           <div class="card-body bg-secondary">
             <h1 class="text-center">{{quiz_name}}</h1>
             <div class="quiz-btns">
+            <a class="delete-button" data-id={{id}} data-toggle="modal" data-target="#deleteQuizModal">X</a>
               <a class="btn btn-info btn-block" href="/quiz/{{id}}">Take Quiz</a>
               <a class="btn btn-info btn-block" href="/questions/flashcards/{{id}}">Flashcards</a>
               <a class="btn btn-info btn-block" href="/highscores/{{id}}">View Highscores</a>
-              {{#if ../user}}
               <div class="btn-group mt-2" role="group">
                 <a class="btn btn-info" href="/questions/{{id}}">Edit</a>
-                <a class="btn btn-info delete-button" data-id={{id}} data-toggle="modal" data-target="#deleteQuizModal">Delete</a>
               </div>
-              {{/if}}
             </div>
           </div>
         </div>
@@ -137,4 +130,3 @@
     </div>
   </div>
 </div>
-

@@ -1,7 +1,3 @@
-.logo {
-	width: 50px;
-}
-
 .quiz-cards {
 	display: flex;
 	flex-wrap: wrap;
