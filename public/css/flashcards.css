@@ -1,15 +1,17 @@
-#quiz-cards {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
+.logo {
+	width: 50px;
+}
+
+.hide {
+	display: none;
 }
 
 .card-container {
 	display: flex;
 	position: relative;
 	perspective: 200rem;
-	height: 256px;
-	margin: 40px 10px;
+	height: 175px;
+	margin: 40px;
 	flex: 0 1 100%;	
 }
 
@@ -29,17 +31,18 @@
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	transition: all 0.9s;
+	padding: 15px 30px;
+	transition: all 0.5s;
 	backface-visibility: hidden;
 }
 
 .card-front {
-	height: 256px;
+	height: 175px;
 	width: 100%;
 }
 
 .card-back {
-	height: 256px;
+	height: 175px;
 	width: 100%;
 }
 
@@ -55,24 +58,12 @@
 }
 
 @media screen and (min-width: 40em) {
-    .quiz-cards {
-		display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-   }
-
    .card-container {
     flex: 0 1 calc(100% - 1em);
 }
 }
  
 @media screen and (min-width: 60em) {
-    .quiz-cards {
-		display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-   }
-
    .card-container {
     flex: 0 1 calc(100% - 1em);
 }

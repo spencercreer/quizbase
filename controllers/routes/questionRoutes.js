@@ -37,7 +37,6 @@ router.get('/flashcards/:id', async (req, res) => {
 
             let shuffledQuestion = questions.map((question) => {
                 q = question.dataValues
-                console.log(q.answer)
                 let shuffledChoices = [q.answer, q.choice_a, q.choice_b, q.choice_c];
                 for (let i = shuffledChoices.length - 1; i > 0; i--) {
                     let j = Math.floor(Math.random() * (i + 1));
@@ -62,7 +61,18 @@ router.get('/flashcards/:id', async (req, res) => {
                     ['id', 'DESC']
                 ]
             })
-            res.render('flashcards', { questions })
+
+            let shuffledQuestion = questions.map((question) => {
+                q = question.dataValues
+                let shuffledChoices = [q.answer, q.choice_a, q.choice_b, q.choice_c];
+                for (let i = shuffledChoices.length - 1; i > 0; i--) {
+                    let j = Math.floor(Math.random() * (i + 1));
+                    [shuffledChoices[i], shuffledChoices[j]] = [shuffledChoices[j], shuffledChoices[i]];
+                }
+                return { ...q, choices: shuffledChoices }
+            })
+
+            res.render('flashcards', { shuffledQuestion })
         } catch (err) {
             res.status(500).json(err)
         }

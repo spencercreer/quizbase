@@ -1,4 +1,8 @@
-#quiz-cards {
+.logo {
+	width: 50px;
+}
+
+.quiz-cards {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
