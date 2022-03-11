@@ -37,6 +37,11 @@ router.post('/signup', async (req, res) => {
             password
         })
 
+        if(!newUser) {
+            res.status(400).json({ message: 'Unable to sign up'})
+            return
+        }
+
         req.session.save(() => {
             req.session.userId = newUser.id;
             req.session.username = newUser.username;

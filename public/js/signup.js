@@ -5,6 +5,13 @@ const signupFormHandler = async function(event) {
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
 
+    if(password.length < 8) {
+        let errorAlertEl = document.getElementById('signup-alert')
+        errorAlertEl.textContent = 'Password length must be eight or more characters.'
+        errorAlertEl.classList.remove('hide')
+        return
+    }
+
     const response = await fetch('/user/signup', {
         method: 'POST',
         body: JSON.stringify({
