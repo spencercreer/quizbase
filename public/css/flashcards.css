@@ -2,21 +2,21 @@
 	display: flex;
 	position: relative;
 	perspective: 200rem;
-	height: 175px;
-	margin: 40px;
+	height: 380px;
+	margin: 20px 5px;
 	flex: 0 1 100%;	
 }
 
 .card-container:active .card-front {
-	transform: rotateX(180deg);
+	transform: rotateY(180deg);
 }
 
 .card-container:active .card-back {
-	transform: rotateX(0deg);
+	transform: rotateY(0deg);
 }
 
 .card-back {
-	transform: rotateX(180deg);
+	transform: rotateY(180deg);
 }
 
 .card {
@@ -28,13 +28,17 @@
 	backface-visibility: hidden;
 }
 
+.card-title {
+	margin-bottom: 20px;
+}
+
 .card-front {
-	height: 175px;
+	height: 380px;
 	width: 100%;
 }
 
 .card-back {
-	height: 175px;
+	height: 380px;
 	width: 100%;
 }
 
@@ -48,16 +52,27 @@
 	align-items: center;
 	flex-wrap: wrap;
 }
-
-@media screen and (min-width: 40em) {
-   .card-container {
-    flex: 0 1 calc(100% - 1em);
-}
-}
  
-@media screen and (min-width: 60em) {
+@media screen and (min-width: 425px) {
    .card-container {
-    flex: 0 1 calc(100% - 1em);
+    	height: 180px;
+	}
+	.card-title {
+		margin-bottom: 5px;
+	}
+	.card-back {
+		height: 180px;
+	}
+	.card-front {
+		height: 180px;
+	}
+	.card-container:active .card-front {
+		transform: rotateX(180deg);
+	}
+	.card-container:active .card-back {
+		transform: rotateX(0deg);
+	}
+	.card-back {
+		transform: rotateX(180deg);
+	}
 }
-}
- 
