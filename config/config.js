@@ -6,8 +6,8 @@ if (process.env.JAWSDB_URL) {
     connection = new Sequelize(process.env.JAWSDB_URL)
 } else {
     connection = new Sequelize(
-        'coding_quiz_db',
-        'root',
+        process.env.DB_NAME,
+        process.env.DB_USER,
         process.env.PASSWORD,
         {
             host: 'localhost',
