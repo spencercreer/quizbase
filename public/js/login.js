@@ -16,7 +16,9 @@ const loginFormHandler = async function (event) {
     if (response.ok) {
         document.location.replace('/')
     } else {
-        alert('Failed to log in')
+        const errorAlertEl = document.getElementById('signup-alert')
+        errorAlertEl.innerHTML = 'Invalid username or password. <a href="/">Forgot password</a>'
+        errorAlertEl.classList.remove('hide')
     }
 }
 
