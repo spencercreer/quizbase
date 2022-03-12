@@ -1,5 +1,6 @@
 const loginFormHandler = async function (event) {
     event.preventDefault()
+    const errorAlertEl = document.getElementById('login-alert')
 
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
@@ -16,8 +17,7 @@ const loginFormHandler = async function (event) {
     if (response.ok) {
         document.location.replace('/')
     } else {
-        const errorAlertEl = document.getElementById('signup-alert')
-        errorAlertEl.innerHTML = 'Invalid username or password. <a href="/">Forgot password</a>'
+        errorAlertEl.innerHTML = 'Invalid username or password. <a href="/updatePassword">Forgot password</a>'
         errorAlertEl.classList.remove('hide')
     }
 }

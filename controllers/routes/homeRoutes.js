@@ -68,4 +68,8 @@ router.get('/signup', (req, res) => {
     res.render('signup')
 })
 
+router.get('/updatePassword', (req, res) => {
+    res.render('updatePassword')
+})
+
 module.exports = router

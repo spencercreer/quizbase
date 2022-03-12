@@ -1,12 +1,12 @@
 const signupFormHandler = async function(event) {
     event.preventDefault()
+    const errorAlertEl = document.getElementById('signup-alert')
 
     const username = document.getElementById('username').value
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
 
     if(password.length < 8) {
-        const errorAlertEl = document.getElementById('signup-alert')
         errorAlertEl.textContent = 'Password must be eight or more characters.'
         errorAlertEl.classList.remove('hide')
         return
@@ -25,7 +25,6 @@ const signupFormHandler = async function(event) {
     if (response.ok) {
         document.location.replace('/')
     } else {
-        const errorAlertEl = document.getElementById('signup-alert')
         errorAlertEl.textContent = 'Invalid username or password.'
         errorAlertEl.classList.remove('hide')
         return
