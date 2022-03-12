@@ -1,4 +1,10 @@
-# QuizBase
+<div style="display: flex; justify-content: center;">
+<img src="./public/assets/name_logo_transparent.png" width="600">
+</div>
+
+____
+
+
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Description
@@ -23,7 +29,7 @@ The quiz ends when the user either answers all of the questions or when the time
 ## Links
 Published URL: [https://spencercreer.github.io/code-quiz/](https://spencercreer.github.io/code-quiz/)
 
-Repository: [https://github.com/spencercreer/code-quiz](https://github.com/spencercreer/code-quiz)
+Repository: [https://github.com/spencercreer/quizbase](https://github.com/spencercreer/quizbase)
 
 ## Animation
 The following animation demonstrates the application functionality:
