@@ -27,7 +27,7 @@ The quiz ends when the user either answers all of the questions or when the time
 * [Contact](#contact)
 
 ## Links
-Published URL: [https://spencercreer.github.io/code-quiz/](https://spencercreer.github.io/code-quiz/)
+Published URL: [https://qb-quizbase.herokuapp.com/](https://qb-quizbase.herokuapp.com/)
 
 Repository: [https://github.com/spencercreer/quizbase](https://github.com/spencercreer/quizbase)
 
