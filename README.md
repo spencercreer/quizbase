@@ -21,8 +21,8 @@ The quiz ends when the user either answers all of the questions or when the time
 * [Animation](#animation)
 * [Installation](#installations) 
 * [Tests](#tests)
+* [Dependencies](#dependencies)  
 * [Contribute](#contribute) 
-* [Technologies](#technologies)  
 * [License](#license)
 * [Contact](#contact)
 
@@ -32,20 +32,29 @@ Published URL: [https://qb-quizbase.herokuapp.com/](https://qb-quizbase.herokuap
 Repository: [https://github.com/spencercreer/quizbase](https://github.com/spencercreer/quizbase)
 
 ## Animation
-The following animation demonstrates the application functionality:
-![JavaScript Code Quiz animation](./assets/JavaScript_Quiz.gif)
+The following animation demonstrates the application functionality:<br>
+![QuizBase walkthrough](./assets/JavaScript_Quiz.gif)
 
 ## Installation
 This application utilizes the following [dependencies](#dependencies).
 
-After cloning the repo locally, install the necessary dependencies by running the following command:
+After cloning the repo, install the necessary dependencies by running the following command:
 
   ```
   npm install
   ```
+Start the application by running:
+
+  ```
+  npm start
+  ```
+You may seed your MySQL database by running:
+  ```
+  npm run seeds
+  ```
 
 ## Tests
-Tests are written using Frisby and Jest. To run tests, start the server and run the following command:
+Tests are written using Jest. To run tests, start the server and run the following command:
 
   ```
   npm test
@@ -64,19 +73,15 @@ This application utilizes the following dependencies:
 |sequelize            |0.0.0      |
 |body-parser          |0.0.0      |
 
+The following dev dependencies are also included:
+
+|devDependency        |Version    |
+|---------------------|-----------|
+|jest                 |0.0.0      |
+|nodemon              |0.0.0      |
+
 ## Contribute
 Please submit a PR if you would like to contribute
-
-## Technologies
- * JavaScript
- * CSS
- * Bootstrap
- * Node.js
- * npm
- * MySQL
- * Sequelize
- * Heroku
- * Express
 
 ## License
 This project is licensed under the MIT license.
