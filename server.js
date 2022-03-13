@@ -1,3 +1,4 @@
+//dependencies
 const express = require('express')
 const session = require('express-session')
 const Handlebars = require('handlebars')
@@ -6,22 +7,21 @@ const bodyParser = require('body-parser')
 const path = require('path')
 require('dotenv').config()
 
+//express
+const app = express()
+const PORT = process.env.PORT || 3001
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
-// connect to database
+//mysql2 and sequelize
 const sequelize = require('./config/config')
 sequelize.authenticate()
     .then(() => console.log('coding_quiz_db connected...'))
     .catch(err => console.log('db.authenticate error: ' + err))
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
-const app = express()
-const PORT = 3001
-
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: false }))
-
-// session
+//session
 const sess = {
     secret: 'Super secret secret',
     cookie: {},
@@ -31,10 +31,9 @@ const sess = {
         db: sequelize
     })
 }
-
 app.use(session(sess))
 
-// handlebars view engine
+//handlebars view engine
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
@@ -46,7 +45,6 @@ app.engine('handlebars', exphbs({
     }
 }))
 app.set('view engine', 'handlebars')
-
 
 // routes
 app.use(require('./controllers/'));

@@ -1,12 +1,12 @@
 {
-  "name": "code-quiz",
+  "name": "quizbase",
   "version": "1.0.0",
-  "description": "A coding quiz application",
+  "description": "A application for creating, storing, and sharing coding quizes.",
   "main": "server.js",
   "scripts": {
     "start": "node server",
     "dev": "nodemon server",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "seeds": "node seeds/seed.js"
   },
   "repository": {
@@ -14,12 +14,12 @@
     "url": "git+https://github.com/spencercreer/code-quiz.git"
   },
   "keywords": [],
-  "author": "Spencer Creer",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/spencercreer/code-quiz/issues"
   },
-  "homepage": "https://github.com/spencercreer/code-quiz",
+  "homepage": "https://github.com/spencercreer/code-quiz#readme",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
     "bcrypt": "^5.0.1",
@@ -34,7 +34,7 @@
     "sequelize": "^6.9.0"
   },
   "devDependencies": {
-    "jest": "^27.3.1",
+    "jest": "^27.5.1",
     "nodemon": "^2.0.15"
   }
 }
