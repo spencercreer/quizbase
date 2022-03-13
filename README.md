@@ -36,17 +36,9 @@ The following animation demonstrates the application functionality:
 ![JavaScript Code Quiz animation](./assets/JavaScript_Quiz.gif)
 
 ## Installation
-This application utilizes the following dependencies:
+This application utilizes the following [dependencies](#dependencies).
 
- * express
- * dotenv
- * express-handlebars
- * handlebars
- * mysql2
- * sequelize
- * body-parser
-
-To install necessary dependencies, run the following command:
+After cloning the repo locally, install the necessary dependencies by running the following command:
 
   ```
   npm install
@@ -58,7 +50,20 @@ Tests are written using Frisby and Jest. To run tests, start the server and run 
   ```
   npm test
   ```
-    
+## Dependencies
+
+This application utilizes the following dependencies:
+
+|Dependency           |Version    |
+|---------------------|-----------|
+|express              |0.0.0      |
+|dotenv               |0.0.0      |
+|express-handlebars   |0.0.0      |
+|handlebars           |0.0.0      |
+|mysql2               |0.0.0      |
+|sequelize            |0.0.0      |
+|body-parser          |0.0.0      |
+
 ## Contribute
 Please submit a PR if you would like to contribute
 
