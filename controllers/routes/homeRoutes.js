@@ -2,7 +2,6 @@ const router = require('express').Router()
 const { Quiz, User } = require('../../models')
 
 router.get('/', async (req, res) => {
-    console.log('userId', req.session.userId)
     if (req.session.userId) {
         try {
             let user = await User.findOne({
@@ -12,14 +11,14 @@ router.get('/', async (req, res) => {
             })
             user = user.dataValues
             const quizzes = await Quiz.findAll({})
-            res.render('index', { layout: 'landing', user, quizzes })
+            res.render('index', { layout: 'main', user, quizzes })
         } catch (err) {
             res.status(500).json(err)
         }
     } else {
         try {
             const quizzes = await Quiz.findAll({})
-            res.render('index', { layout: 'landing', quizzes })
+            res.render('index', { layout: 'main', quizzes })
         } catch (err) {
             res.status(500).json(err)
         }

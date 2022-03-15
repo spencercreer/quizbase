@@ -4,8 +4,6 @@ $('#modal-button').click(createQuiz)
 function createQuiz(event) {
   event.preventDefault()
   let quizName = $('#quiz-name').val()
-
-  //Test
   let errorAlert = document.getElementById('add-quiz-alert')
   let errorMessage = ''
 
@@ -16,32 +14,32 @@ function createQuiz(event) {
   let questionsArray = []
   $('.question-form').each(function () {
 
-    let question = this.children[0].children[0].children[1].value;
-    let answer = this.children[0].children[1].children[1].value;
-    let choice_a = this.children[2].children[1].value
-    let choice_b = this.children[3].children[1].value
-    let choice_c = this.children[4].children[1].value
-    
-    let questionObject = {
-      question: question,
-      answer: answer,
-      choice_a: choice_a,
-      choice_b: choice_b,
-      choice_c: choice_c
+    let question = this.children[0].children[0].children[1].value.trim()
+    let answer = this.children[0].children[1].children[1].value.trim()
+    let choice_a = this.children[2].children[1].value.trim()
+    let choice_b = this.children[3].children[1].value.trim()
+    let choice_c = this.children[4].children[1].value.trim()
+
+    if (question === '' || answer === '' || choice_a === '' || choice_b === '' || choice_c === '') {
+      errorMessage += 'Quiz question contains empty fields. '
     }
-    questionsArray.push(questionObject)
+    else {
+      let questionObject = {
+        question: question,
+        answer: answer,
+        choice_a: choice_a,
+        choice_b: choice_b,
+        choice_c: choice_c
+      }
+      questionsArray.push(questionObject)
+    }
   })
-  
-  // Test
-  if (questionsArray.length = 0) {
-    errorMessage += 'Quiz must contain at least one questions. '
-  }
 
   if (errorMessage !== '') {
+    errorAlert.textContent = errorMessage
     errorAlert.classList.remove('hide')
     return
   }
-  // Test
 
   fetch(`/quiz/add`, {
     method: 'POST',
@@ -57,7 +55,6 @@ function createQuiz(event) {
 }
 
 $('#add-quiz-questions').click(function () {
-  console.log("clicked")
   $('#add-quiz-form').append(`<div class='question-form'>
     <div class="row">
       <div class="col mb-2">

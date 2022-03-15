@@ -46,7 +46,6 @@
           <form class="mb-4" id="add-quiz-form">
             <div class="row">
               <div class="col mb-2">
-                <div id="add-quiz-alert" class="hide alert alert-danger mt-2 mb-0" role="alert"></div>
                 <label for="quiz-name" class="form-label">Quiz Name</label>
                 <input type="text" name="quiz-name" class="form-control" id="quiz-name">
                 <div class="form-text text-muted">Must be 3-15 characters long.</div>
@@ -87,6 +86,7 @@
           </form>
 
           <button id="add-quiz-questions" class="btn btn-info">+</button>
+          <div id="add-quiz-alert" class="hide alert alert-danger mt-2 mb-0" role="alert"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
