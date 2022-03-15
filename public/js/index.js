@@ -3,8 +3,16 @@ $('#modal-button').click(createQuiz)
 // create quiz with fetch post method
 function createQuiz(event) {
   event.preventDefault()
-  console.log('add quiz clicked')
   let quizName = $('#quiz-name').val()
+
+  //Test
+  let errorAlert = document.getElementById('add-quiz-alert')
+  let errorMessage = ''
+
+  if (quizName.length < 3 || quizName.length > 15) {
+    errorMessage += 'Invalid Quiz Name. '
+  }
+  
   let questionsArray = []
   $('.question-form').each(function () {
 
@@ -13,7 +21,7 @@ function createQuiz(event) {
     let choice_a = this.children[2].children[1].value
     let choice_b = this.children[3].children[1].value
     let choice_c = this.children[4].children[1].value
-
+    
     let questionObject = {
       question: question,
       answer: answer,
@@ -23,7 +31,17 @@ function createQuiz(event) {
     }
     questionsArray.push(questionObject)
   })
-  console.log(questionsArray)
+  
+  // Test
+  if (questionsArray.length = 0) {
+    errorMessage += 'Quiz must contain at least one questions. '
+  }
+
+  if (errorMessage !== '') {
+    errorAlert.classList.remove('hide')
+    return
+  }
+  // Test
 
   fetch(`/quiz/add`, {
     method: 'POST',
@@ -33,7 +51,6 @@ function createQuiz(event) {
     },
   })
     .then(res => {
-      console.log(res)
       window.location.reload()
     })
     .catch(err => console.log(err))
@@ -87,7 +104,7 @@ function deleteQuiz(event) {
     .catch(err => console.log(err))
 }
 
-// delete question with fetch delete method
+// delete quiz with fetch delete method
 const deleteQuizBtns = document.querySelectorAll(".delete-button")
 for (const btn of deleteQuizBtns) {
   btn.addEventListener('click', function (event) {
