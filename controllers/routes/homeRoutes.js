@@ -12,14 +12,14 @@ router.get('/', async (req, res) => {
             })
             user = user.dataValues
             const quizzes = await Quiz.findAll({})
-            res.render('index', { user, quizzes })
+            res.render('index', { layout: 'landing', user, quizzes })
         } catch (err) {
             res.status(500).json(err)
         }
     } else {
         try {
             const quizzes = await Quiz.findAll({})
-            res.render('index', { quizzes })
+            res.render('index', { layout: 'landing', quizzes })
         } catch (err) {
             res.status(500).json(err)
         }
@@ -40,17 +40,17 @@ router.get('/myQuizzes', async (req, res) => {
                     user_id: req.session.userId
                 }
             })
-            res.render('myQuizzes', { user, quizzes })
+            res.render('myQuizzes', { layout: 'main', user, quizzes })
         } catch (err) {
             res.status(500).json(err)
         }
     } else {
-        res.render('login')
+        res.render('login', { layout: 'landing' })
     } 
 })
 
 router.get('/login', (req, res) => {
-    res.render('login')
+    res.render('login', { layout: 'landing' })
 })
 
 router.get('/logout', (req, res) => {
@@ -65,11 +65,11 @@ router.get('/logout', (req, res) => {
 })
 
 router.get('/signup', (req, res) => {
-    res.render('signup')
+    res.render('signup', { layout: 'landing' })
 })
 
 router.get('/updatePassword', (req, res) => {
-    res.render('updatePassword')
+    res.render('updatePassword', { layout: 'landing' })
 })
 
 module.exports = router

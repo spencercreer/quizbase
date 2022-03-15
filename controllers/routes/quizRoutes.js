@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
                     id: req.params.id
                 }
             })
-            res.render('quiz', { quiz, user })
+            res.render('quiz', { layout: 'main', quiz, user })
         } catch (err) {
             res.status(500).json(err)
         }
@@ -53,14 +53,13 @@ router.get('/:id', async (req, res) => {
                     id: req.params.id
                 }
             })
-            res.render('quiz', { quiz })
+            res.render('quiz', { layout: 'main', quiz })
         } catch (err) {
             res.status(500).json(err)
         }
     }
 })
 
-// delete one quiz
 router.delete('/delete/:id', withAuth, (req, res) => {
     Quiz.destroy({
         where: { id: req.params.id }

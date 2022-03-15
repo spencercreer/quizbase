@@ -1,22 +1,3 @@
-<link rel="stylesheet" href="/css/globalStyle.css" crossorigin="anonymous">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/"><img class="logo" src="/assets/quiz_base_black.png" style="width: 50px;"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            {{#if user}}
-            <a class="nav-link" href="/logout">Logout</a>
-            <a class="nav-link" href="/myQuizzes">My Quizzes</a>
-            {{else}}
-            <a class="nav-link" href="/login">Login</a>
-            <a class="nav-link" href="/signup">Sign up</a>
-            {{/if}}
-        </div>
-    </div>
-</nav>
 <div id="highscoresPg">
     <div class="jumbotron jumbotron-fluid pt-4 mb-0">
         <div class="container">

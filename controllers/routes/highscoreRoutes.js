@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User, Quiz, Question, Highscore } = require('../../models')
+const { User, Quiz, Highscore } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 router.get('/:id', async (req, res) => {
@@ -22,7 +22,8 @@ router.get('/:id', async (req, res) => {
                 limit: 15
             })
 
-            res.render('highscores', { user, highscores })
+            res.render('highscores', { layout: 'main', user, highscores }
+            )
         }
         catch (err) {
             res.status(500).json(err)
@@ -41,7 +42,8 @@ router.get('/:id', async (req, res) => {
                 limit: 15
             })
 
-            res.render('highscores', { highscores })
+            res.render('highscores', { layout: 'main', highscores }
+            )
         }
         catch (err) {
             res.status(500).json(err)

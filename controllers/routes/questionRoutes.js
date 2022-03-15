@@ -12,7 +12,7 @@ router.get('/:id', (req, res) => {
             ['id', 'DESC']
         ]
     })
-        .then(questions => res.render('questions', { questions }))
+        .then(questions => res.render('questions', { layout: 'main', questions }))
         .catch(err => console.log(err))
 })
 
@@ -45,7 +45,7 @@ router.get('/flashcards/:id', async (req, res) => {
                 return { ...q, choices: shuffledChoices }
             })
 
-            res.render('flashcards', { user, shuffledQuestion })
+            res.render('flashcards', { layout: 'main', user, shuffledQuestion })
         } catch (err) {
             res.status(500).json(err)
         }
@@ -72,7 +72,7 @@ router.get('/flashcards/:id', async (req, res) => {
                 return { ...q, choices: shuffledChoices }
             })
 
-            res.render('flashcards', { shuffledQuestion })
+            res.render('flashcards', { layout: 'main', shuffledQuestion })
         } catch (err) {
             res.status(500).json(err)
         }
