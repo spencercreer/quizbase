@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User, Quiz, Question, Highscore } = require('../../models')
+const { User } = require('../../models')
 
 router.post('/login', async (req, res) => {
     let { email, password } = req.body

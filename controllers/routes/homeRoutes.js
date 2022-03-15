@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Quiz, Question, Highscore, User } = require('../../models')
+const { Quiz, User } = require('../../models')
 
 router.get('/', async (req, res) => {
     console.log('userId', req.session.userId)

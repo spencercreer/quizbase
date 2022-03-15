@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User, Quiz, Question, Highscore } = require('../../models')
+const { User, Quiz, Question } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 // add a quiz
