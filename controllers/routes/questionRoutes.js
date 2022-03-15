@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User, Quiz, Question, Highscore } = require('../../models')
+const { User, Quiz, Question } = require('../../models')
 
 // get all questions
 router.get('/:id', (req, res) => {
