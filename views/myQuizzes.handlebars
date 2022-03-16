@@ -12,16 +12,18 @@
         </div>
         <div class="card card-back text-light">
           <div class="card-body bg-secondary">
-            <h1 class="text-center">{{quiz_name}}</h1>
-            <div class="quiz-btns">
-              <a class="delete-button" data-id={{id}} data-toggle="modal" data-target="#deleteQuizModal">X</a>
+            <div class="row" style="display:flex; justify-content: space-between">
+              <h1 class="text-center ml-3">{{quiz_name}}</h1>
+              <a class="delete-button mt-2" data-id={{id}} data-toggle="modal" data-target="#deleteQuizModal">X</a>
+            </div>
+            <div class="quiz-btns btn-group-vertical">
               <a class="btn btn-info btn-block" href="/quiz/{{id}}">Take Quiz</a>
               <a class="btn btn-info btn-block" href="/questions/flashcards/{{id}}">Flashcards</a>
               <a class="btn btn-info btn-block" href="/highscores/{{id}}">View Highscores</a>
-              <div class="btn-group mt-2" role="group">
-                <a class="btn btn-info" href="/questions/{{id}}">Edit</a>
-              </div>
             </div>
+              <div class="btn-group quiz-btns mt-2" role="group">
+                <a class="btn btn-info" href="/questions/{{id}}">Edit Quiz</a>
+              </div>
           </div>
         </div>
       </div>
