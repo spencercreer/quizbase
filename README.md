@@ -39,18 +39,28 @@ The following animation demonstrates the application functionality:<br>
 This application utilizes the following [dependencies](#dependencies).
 
 After cloning the repo, install the necessary dependencies by running the following command:
-
   ```
   npm install
   ```
-Start the application by running:
-
+This application is setup to use MySQL database management system. If you do not have MySQL installed, you may install it [here](https://dev.mysql.com/downloads/mysql/).
+Once you have MySQL installed, you will need to create a .env file with the following credentials:
   ```
-  npm start
+  DB_NAME=math_quiz_db
+  DB_USER=<mysql user>
+  PASSWORD=<user password>
   ```
-You may seed your MySQL database by running:
+Set up the your local database by logging into MySQL in a terminal window and running the schema.sql file. When you log into MySQL, you will be prompted to enter your password.
+  ```
+  mysql -u <user> -p
+  SOURCE db/schema.sql
+  ```
+You may seed your MySQL database with test data by running:
   ```
   npm run seeds
+  ```
+Once your local database is setup, you may start the application by running:
+  ```
+  npm start
   ```
 
 ## Tests
