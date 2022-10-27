@@ -6,6 +6,7 @@ VALUES  ('JavaScript', './assets/javascript_256x256.png', '2022-03-13 07:46:35',
         ('C++', './assets/cpp_256x256.png', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 1),
         ('Java', './assets/java_256x256.png', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 1),
         ('Python', './assets/python_256x256.png', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 1);
+        ('PLP Assembly', './assets/quiz_base_logo.png', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 1);
 
 INSERT INTO questions (question, answer, choice_a, choice_b, choice_c, createdAt, updatedAt, quiz_id)
 VALUES  ('Which of the following is not a JavaScript data type?', 'True', 'Number','String', 'Boolean', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 1),
@@ -25,28 +26,6 @@ VALUES  ('Which of the following is not a JavaScript data type?', 'True', 'Numbe
         ('What is the index number of the first element in a JavaScript array?', '0', '1','2', '3', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 1),
         ('Which of the following is a correct JavaScript array?', 'var classmates = ["Bob","Jane","Mary"]', 'var classmates = {"Bob","Jane","Mary"}','var classmates = ("Bob","Jane","Mary")', 'var classmates = [1:"Bob",2:"Jane",3:"Mary"]', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 1),
         ( 'How do you return the number of elements in a JavaScript array?', 'array.length', 'array.numberElements','array.getLength', 'array(totalElements)', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 1),
-        ('How do you allow a user to enter a value that is stored as a string in Python?', 'input("Enter a value: ")', 'cin("Enter a value: ")','insert("Enter a value: ")', 'prompt("Enter a value: ")', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('How do you output "Hello World" to the user in Python?', 'print("Hello World")', 'output("Hello World")','display("Hello World")', 'cout("Hello World")', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which of the following is not a Python reserved word?', 'local', 'global','assert', 'yield', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('How do you begin a single line comment in Python?', '#', '<!--','//', '%', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which of the following is the modulo operator in Python?', '%', '^','*', '#', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('How do you reverse the string "Hello World" in Python?', '"Hello World[::-1]"', 'reverse("Hello World")','"Hello World".switch', '"Hello World"(end 0)', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('What is the correct file etension for Python files?', '.py', '.pyth','.pt', '.js', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which operator is used to multiply numbers in Python?', '*', 'x','#', '%', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which of the following is the correct way to define a TUPLE in Python?', '("apple", "banana", "cherry")', '["apple", "banana", "cherry"]','{"apple", "banana", "cherry"}', '/"apple", "banana", "cherry"/', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which of the following is the correct way to define a SET in Python?', '{"apple", "banana", "cherry"}', '["apple", "banana", "cherry"]','("apple", "banana", "cherry")', '/"apple", "banana", "cherry"/', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which of the following is the correct way to define a LIST in Python?', '["apple", "banana", "cherry"]', '{"apple", "banana", "cherry"}','("apple", "banana", "cherry")', '/"apple", "banana", "cherry"/', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which of the following is the correct way to define a DICTIONARY in Python?', '["name": "apple", "color": "red"]', '{"apple", "banana", "cherry"}','("apple", "banana", "cherry")', '/"apple", "banana", "cherry"/', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which of the following Python collections is unordered and unindexed?', 'Set', 'List','Tuple', 'Dictionary', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which of the following Python collections is ordered and unchangeable?', 'Tuple', 'Set','List', 'Dictionary', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which of the following Python collections is ordered and changeable?', 'List', 'Set','Tuple', 'Dictionary', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which of the following Python collections stores data in key:value pairs?', 'Dictionary', 'Set','Tuple', 'List', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('What is the index number of the first element in a Python array?', '0', '1','2', '3', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('How do you start writing an if statement in Python?', 'if x > y:', 'if x > y then:','if (x > y)', 'if => x > y', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('How do you start writing a while loop in Python?', 'while x > y:', 'while (x > y)','while x > y {', 'while => x > y', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('How do you start writing a for loop in Python?', 'for x in y:', 'for x > y','for each x in y', 'for (x > y)', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('Which statemen is used to stop a loop in Python?', 'break', 'return','stop', 'exit', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
-        ('How do you return the number of elements in a Python list?', 'len(listName)', 'listName.numberElements','listName.length', 'listName(totalElements)', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7)
         ('Which of the following is a method to print an output to the console?', 'Console.WriteLine("Hello World!")', 'console.log("Hello World!")','print("Hello World!")', 'Console.State("Hello World!")', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 4),
         ('How do you begin a single-line comment?', '//', '##','**','%%', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 4),
         ('How do you begin a multi-line comment?', '/*', '//','##', '|#', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 4),
@@ -68,4 +47,39 @@ VALUES  ('Which of the following is not a JavaScript data type?', 'True', 'Numbe
         ('Which access modifier makes the code only acccessible within the same class?', 'private', 'public','static', 'secure', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 4),
         ('Which access modifier makes the code accessible within the same class, or in a class that is inherited from that class?', 'protected', 'private','internal', 'inherit', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 4),
         ('Which access modifier makes the code accessible within its own assembly, but not from another assembly?', 'internal', 'protected','private', 'locked', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 4),
-        ('Which keyword breaks one iteration of a loop?', 'continue', 'break','skip', 'next', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 4);
+        ('Which keyword breaks one iteration of a loop?', 'continue', 'break','skip', 'next', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 4)
+        ('How do you allow a user to enter a value that is stored as a string in Python?', 'input("Enter a value: ")', 'cin("Enter a value: ")','insert("Enter a value: ")', 'prompt("Enter a value: ")', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('How do you output "Hello World" to the user in Python?', 'print("Hello World")', 'output("Hello World")','display("Hello World")', 'cout("Hello World")', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which of the following is not a Python reserved word?', 'local', 'global','assert', 'yield', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('How do you begin a single line comment in Python?', '#', '<!--','//', '%', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which of the following is the modulo operator in Python?', '%', '^','*', '#', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('How do you reverse the string "Hello World" in Python?', '"Hello World[::-1]"', 'reverse("Hello World")','"Hello World".switch', '"Hello World"(end 0)', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('What is the correct file etension for Python files?', '.py', '.pyth','.pt', '.js', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which operator is used to multiply numbers in Python?', '*', 'x','#', '%', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which of the following is the correct way to define a TUPLE in Python?', '("apple", "banana", "cherry")', '["apple", "banana", "cherry"]','{"apple", "banana", "cherry"}', '/"apple", "banana", "cherry"/', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which of the following is the correct way to define a SET in Python?', '{"apple", "banana", "cherry"}', '["apple", "banana", "cherry"]','("apple", "banana", "cherry")', '/"apple", "banana", "cherry"/', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which of the following is the correct way to define a LIST in Python?', '["apple", "banana", "cherry"]', '{"apple", "banana", "cherry"}','("apple", "banana", "cherry")', '/"apple", "banana", "cherry"/', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which of the following is the correct way to define a DICTIONARY in Python?', '["name": "apple", "color": "red"]', '{"apple", "banana", "cherry"}','("apple", "banana", "cherry")', '/"apple", "banana", "cherry"/', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which of the following Python collections is unordered and unindexed?', 'Set', 'List','Tuple', 'Dictionary', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which of the following Python collections is ordered and unchangeable?', 'Tuple', 'Set','List', 'Dictionary', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which of the following Python collections is ordered and changeable?', 'List', 'Set','Tuple', 'Dictionary', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which of the following Python collections stores data in key:value pairs?', 'Dictionary', 'Set','Tuple', 'List', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('What is the index number of the first element in a Python array?', '0', '1','2', '3', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('How do you start writing an if statement in Python?', 'if x > y:', 'if x > y then:','if (x > y)', 'if => x > y', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('How do you start writing a while loop in Python?', 'while x > y:', 'while (x > y)','while x > y {', 'while => x > y', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('How do you start writing a for loop in Python?', 'for x in y:', 'for x > y','for each x in y', 'for (x > y)', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('Which statemen is used to stop a loop in Python?', 'break', 'return','stop', 'exit', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('How do you return the number of elements in a Python list?', 'len(listName)', 'listName.numberElements','listName.length', 'listName(totalElements)', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 7),
+        ('What does HTML stand for?', 'Hyper Text Markup Language', 'Header Text Multiple List','Home Types Main Language', 'Home Tool Main Line', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3),
+        ('What is the correct HTML element for inserting a line break?', '<br>', '<b>','<break>', '<li>', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3),
+        ('Which element is used for a numbered list?', '<ol>', '<ul>','<list>', '<num>', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3),
+        ('Which element is used for a bulleted list?', '<ul>', '<ol>','<bul>', '<nav>', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3),
+        ('Which of these is not a table element?', '<row>', '<table>','<tr>', '<td>', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3),
+        ('What is the correct element for creating a dropdown list?', '<select>', '<li>','<list>', '<input type="dropdown">', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3),
+        ('What is the correct element for making a text area?', '<textarea', '<input>','<text>', '<div>', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3),
+        ('How do you begin a comment in HTML?', '<!--', '//','#', '/*', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3);
+        ('How do you begin a comment?', '#', '//','/*', '%', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8);
+        ('Which of the following operations copies a value from a register to memory?', 'sw', 'li','addiu', 'sll', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8);
+        ('Which of the following operations copies a value from memory to a register?', 'lw', 'li','sw', 'sll', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8);
+        ('Which of the following operations loads a value into a register?', 'li', 'sw','addiu', 'sll', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8);
+        ('Which of the following is the destination register in the following command?\taddu $t0, $t1, $t2', '$t0', '$t1','$t2', 'addu', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8);

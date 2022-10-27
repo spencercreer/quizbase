@@ -14,8 +14,8 @@
     "url": "git+https://github.com/spencercreer/code-quiz.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Spencer Creer",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/spencercreer/code-quiz/issues"
   },
