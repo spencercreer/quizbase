@@ -77,9 +77,10 @@ VALUES  ('Which of the following is not a JavaScript data type?', 'True', 'Numbe
         ('Which of these is not a table element?', '<row>', '<table>','<tr>', '<td>', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3),
         ('What is the correct element for creating a dropdown list?', '<select>', '<li>','<list>', '<input type="dropdown">', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3),
         ('What is the correct element for making a text area?', '<textarea', '<input>','<text>', '<div>', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3),
-        ('How do you begin a comment in HTML?', '<!--', '//','#', '/*', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3);
-        ('How do you begin a comment?', '#', '//','/*', '%', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8);
-        ('Which of the following operations copies a value from a register to memory?', 'sw', 'li','addiu', 'sll', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8);
-        ('Which of the following operations copies a value from memory to a register?', 'lw', 'li','sw', 'sll', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8);
-        ('Which of the following operations loads a value into a register?', 'li', 'sw','addiu', 'sll', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8);
+        ('How do you begin a comment in HTML?', '<!--', '//','#', '/*', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 3),
+        ('How do you begin a comment?', '#', '//','/*', '%', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8),
+        ('Which of the following operations copies a value from a register to memory?', 'sw', 'li','addiu', 'sll', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8),
+        ('Which of the following operations copies a value from memory to a register?', 'lw', 'li','sw', 'sll', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8),
+        ('Which of the following operations loads a value into a register?', 'li', 'sw','addiu', 'sll', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8),
+        ('Which of the following is the source register in the following command?\naddu $t0, $t1, $t2', '$t1', '$t0','$t2', 'addu', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8),
         ('Which of the following is the destination register in the following command?\taddu $t0, $t1, $t2', '$t0', '$t1','$t2', 'addu', '2022-03-13 07:46:35', '2022-03-13 07:46:35', 8);
